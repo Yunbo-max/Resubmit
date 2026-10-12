@@ -33,11 +33,14 @@ def affected(graph: dict, changed: list[str]) -> list[str]:
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--graph',type=Path,default=Path(__file__).resolve().parents[1]/'assets/workflow.json')
+    p.add_argument('--graph',type=Path,help='Explicit graph overrides operation selection')
+    p.add_argument('--operation',choices=['full-revision','latex-edit','layout-only'],default='full-revision')
     p.add_argument('--changed',nargs='+',help='Changed node IDs; report invalidated nodes')
     a=p.parse_args()
     try:
-        g=json.loads(a.graph.read_text()); result=affected(g,a.changed) if a.changed else order(g)
+        filename='latex-edit-workflow.json' if a.operation in ('latex-edit','layout-only') else 'workflow.json'
+        path=a.graph or Path(__file__).resolve().parents[1]/'assets'/filename
+        g=json.loads(path.read_text()); result=affected(g,a.changed) if a.changed else order(g)
         print(json.dumps({'mode':'invalidate' if a.changed else 'order','nodes':result},indent=2))
     except (ValueError,OSError) as e: p.exit(2,f'{e}\n')
 if __name__=='__main__': main()

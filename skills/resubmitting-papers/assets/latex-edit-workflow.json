@@ -1,0 +1,15 @@
+{
+  "intake": [],
+  "venue": ["intake"],
+  "source_snapshot": ["intake"],
+  "baseline_compile": ["venue", "source_snapshot"],
+  "baseline_render": ["baseline_compile"],
+  "diagnose": ["baseline_render", "source_snapshot"],
+  "edit": ["diagnose"],
+  "compile": ["edit"],
+  "style_audit": ["compile", "venue"],
+  "semantic_audit": ["compile", "source_snapshot"],
+  "change_audit": ["compile", "baseline_render"],
+  "visual_audit": ["change_audit", "style_audit"],
+  "release": ["semantic_audit", "style_audit", "change_audit", "visual_audit"]
+}

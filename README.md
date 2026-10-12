@@ -1,98 +1,81 @@
 # Resubmit to a Different Conference
 
-**Evidence-led, layout-aware paper resubmission.**
+**LaTeX-native revision, evidence-led resubmission.**
 
-把 rebuttal 新证据、原生表格、图的重做、单双栏模板迁移、全文写作、LaTeX 间距与样式、页数控制和最终 PDF 检查，放进同一条有依赖顺序的流程。
+主要用于修改已有 AI 会议论文的 LaTeX 源码：间距、字号、caption、公式、算法、表格、图片、引用、页数和单双栏模板迁移。保留 Research Autopilot 的写作与证据约束，但不让每一次局部排版修复变成整篇重写。
 
-不是只换 `.sty`：**证据与目标格式先确定，表图先稳定，再写全文，最后通过实际编译和逐页检查收敛。**
+**当前版本：v0.1.2。** [技能入口](skills/resubmitting-papers/SKILL.md) · [融合说明](docs/LATEX_NATIVE.md) · [本版验证](docs/VALIDATION_v0.1.2.md)
 
-## v0.1.1：新增 LaTeX 间距与样式诊断
+## 默认是 LaTeX 修改，不是全文生成
 
-在调页数之前，先区分官方模板默认、旧 preamble 残留、宏包覆盖、局部字体/间距声明、页面伸缩胶和图片内部留白。不是把所有间隔改成一个数字。
-
-新增 [latex-format.md](skills/resubmitting-papers/references/latex-format.md)、只读扫描/日志比较工具 `latex_format.py` 和实际参数探针。参考了 Orchestra 的 `ml-paper-writing`、`paper-compile-layout-qa`、flonat 的 `latex-template`/`latex-polish`，但没有导入其通用 working-paper 样式、固定间距或运行依赖。
-
-[源码比较与本次验证](docs/LATEX_SKILL_REVIEW.md)。当前 **69 项确定性测试通过**，另完成单/双栏共六个参数探针编译样例。不是官方会议模板兼容性或审美效果证明。
-
-## 核心能力
-
-| 模块 | 职责 |
+| 任务 | 处理范围 |
 |---|---|
-| 模板与样式基线 | 核对具体年份、track、阶段；编译干净官方模板；保护样式文件；检查作者层覆盖。 |
-| Rebuttal → 表格 | 核对真实来源、保留旧快照；更新可比数据、排名、增益、强调及关联正文。 |
-| 原生表格重构 | 分组、转置、拆分、单栏/跨栏变体；不靠不可读缩放或删负结果解决宽度。 |
-| 图的重做 | 数据驱动的定量图、可编辑的方法图、真实样例的定性图；按最终尺寸重排。 |
-| 全文写作 | 参考 Research Autopilot 的证据优先、主张一致性和结果驱动写作。 |
-| 页数与美观 | 先预算后实测；按实际计数规则检查；修复字体、间隔、裁剪和浮动问题。 |
+| 修间距、标题、caption、字体、公式换行、浮动和引用 | `latex-edit`：直接修改现有源文件，先看 PDF，定位原因，最小修复 |
+| 只改格式 | `layout-only`：不改原文、数字和数学含义 |
+| 补入 rebuttal 的真实结果 | `rebuttal-update`：核对证据，再同步表格、图和受影响结论 |
+| ICML/ICLR/其他会议之间转投 | `retarget`：核对具体年份和阶段，迁移模板与表图布局 |
+| 改整篇论证和结构 | `full-revision`：仅在明确授权时进行 |
+| 只检查 | `diagnose`：不编辑源码 |
 
-## DAG：每轮内部无环，反馈进入下一轮
+## 局部修改 DAG
 
 ```mermaid
 flowchart TD
-  I[Intake / 冻结旧稿与输入] --> V[Venue / 官方模板与规则]
-  I --> L[Style baseline / 格式基线与来源]
-  V --> L
-  I --> E[Evidence / Review、Rebuttal、真实证据]
-  E --> R[Results / 统一结果快照]
-  L --> B[Blueprint / 主张、表图角色、空间预算]
-  R --> B
-  B --> T[Tables / 原生表格更新与重构]
-  B --> F[Figures / 按目标尺寸重绘]
-  R --> T
-  R --> F
-  V --> T
-  V --> F
-  T --> W[Body / Results 与 Methods]
-  F --> W
-  B --> W
-  W --> H[Framing / Intro、Abstract、结论]
-  H --> A[Assemble / 目标模板组装]
-  T --> A
-  F --> A
-  V --> A
-  A --> C[Compile / PDF 与日志]
-  C --> S[Semantic audit / 数字与科学一致性]
-  R --> S
-  C --> Q[Visual audit / 逐页检查与页数]
-  V --> Q
-  C --> X[Style audit / 来源、参数与同类元素]
-  L --> X
-  S --> P[Release / 干净 PDF 与源文件包]
-  Q --> P
-  X --> P
+  I[定位 TeX 项目和修改范围] --> V[复用或核对目标格式]
+  I --> S[冻结源码与保护文件]
+  V --> B[构建基线]
+  S --> B
+  B --> R[查看 PDF 或记录构建错误]
+  R --> D[诊断真正原因]
+  D --> E[最小源文件修改]
+  E --> C[重新编译]
+  C --> A[源码范围与页面变化检查]
+  C --> M[数字 含义 样式检查]
+  A --> Q[变化页及邻页复查]
+  M --> Q
+  Q --> F[最终全页检查和交付]
 ```
 
-机器可读图在 [workflow.json](skills/resubmitting-papers/assets/workflow.json)。变化后开启新版本，并标记下游产物过期；脚本只规划依赖，不执行后台任务。模板信息和样式基线在前，最终分页在编译后；独立表图可并行设计。
+每轮内部无环；修改反馈进入下一轮。旧 PDF 无法构建时，可以从真实日志诊断，但不能伪称完成前后图像比较。最终候选仍须实际编译和检查。
 
-## 使用
+整篇转投仍保留原来的 [完整 DAG](skills/resubmitting-papers/assets/workflow.json)：模板与证据 → 样式基线 → 表图与空间设计 → 写作与组装 → 编译及三类审计 → 交付。默认局部路径不强制触发这张完整图。
 
-主入口：[skills/resubmitting-papers/SKILL.md](skills/resubmitting-papers/SKILL.md)。整个目录自包含：七份按需读取的专业参考、五个 Python 工具。将整个目录安装到宿主支持的 Agent Skills 路径，不要只复制入口文件。仓库更新不等于已安装到当前 ChatGPT 会话。
+## 融合后的模块
 
-> 使用 resubmitting-papers，联合原稿、reviews、rebuttal 和真实结果，转到指定会议、年份和阶段。先验证模板和样式基线，再更新表格、重绘图片和修改全文，最后检查数字、间距、样式、页数与逐页视觉质量。保留基线，交付干净 PDF、可编译源文件 ZIP 和单独修改报告。缺失实验不得补造。
+[原生 LaTeX 修改](skills/resubmitting-papers/references/latex-edit.md)负责实际执行顺序；[间距与样式](skills/resubmitting-papers/references/latex-format.md)负责格式归属、宏包、作用域和运行时探针；[表格](skills/resubmitting-papers/references/tables.md)、[图片](skills/resubmitting-papers/references/figures.md)、[写作](skills/resubmitting-papers/references/writing.md)、[版式](skills/resubmitting-papers/references/layout.md)和[交付](skills/resubmitting-papers/references/quality.md)按需读取。
+
+重点参考 `paper-compile-layout-qa` 的“精确模板、先看渲染、修拥有该设置的层、比较受影响页面”。没有复制上游代码、要求外部插件常驻，或照搬全局间距/字体重置。来源与边界见 [融合说明](docs/LATEX_NATIVE.md) 和 [既有来源记录](docs/SOURCES.md)。
+
+## 工具
 
 ```bash
-python skills/resubmitting-papers/scripts/workflow.py
-python skills/resubmitting-papers/scripts/workflow.py --changed style_baseline
-python skills/resubmitting-papers/scripts/tables.py tests/fixtures/results.json \
-  --out build/table.tex --columns 2 --span full
-python skills/resubmitting-papers/scripts/latex_format.py scan /path/to/paper \
-  --files main.tex sections/results.tex author-macros.sty --out /tmp/source-style.json
+# 局部修改顺序（不运行后台任务）
+python skills/resubmitting-papers/scripts/workflow.py --operation latex-edit
+
+# 整篇转投仍兼容原来的调用
+python skills/resubmitting-papers/scripts/workflow.py --changed results
+
+# 原有 + 新增回归测试
 python -m unittest discover -s tests -v
-# Optional: requires an installed TeX toolchain
-python tests/check_style_probe.py
-python tests/build_layout_fixtures.py
+
+# 单栏/双栏实际 LaTeX 修改测试；每次使用新的输出目录
+python tests/check_latex_native.py --out build/native-run-1
 ```
 
-`latex_format.py` 的命令命中只表示待检查；参数相同也不代表视觉或格式合规。`qa.py` 提供部分 PDF/日志检查与当前 PDF 的视觉验收记录检查；`package.py` 从明确文件清单打包，不打包整个工作区。详见 [质量与交付](skills/resubmitting-papers/references/quality.md)。
+新增 `revision_check.py` 为显式源码清单建立哈希快照，报告越界修改与保护文件变化；`pdf_revision_diff.py` 按同一 DPI 比较全部物理页面，记录页面增加、删除、尺寸与像素变化。两者都不自动编辑论文，也不认证科学正确性或美观。
 
-## 验证与边界
+原有 `tables.py`、`latex_format.py`、`qa.py`、`package.py` 继续负责原生表格、样式诊断、PDF 预检和允许清单打包。编译器仍由宿主提供，优先使用经过检查的项目构建方式。纯 Python 检查主要依赖标准库；PDF 比较需要 PyMuPDF。
 
-v0.1.1 的实际测试见 [本次记录](docs/LATEX_SKILL_REVIEW.md)；v0.1.0 的单/双栏表格样例、源文件 ZIP 重编译与37项测试记录保留在 [历史验证](docs/VALIDATION.md)。所有样例都是合成软件测试，不是官方 ICML/ICLR 模板或真实论文。没有进行第三方 skills 的效果对照或独立 agent 行为评测。
+## 使用方式
 
-不伪造实验，不用图像生成器绘制定量证据，不修改官方样式挤页数，不隐藏负结果，不栅格化表格。编译、样式、视觉和科学有效性不能相互替代。
+安装完整 `skills/resubmitting-papers/` 目录到宿主支持的 Agent Skills 目录，不要只复制 `SKILL.md`。仓库更新不等于已安装到当前会话。
 
-公开仓库只放技能、工具和合成测试。真实论文、review、rebuttal、私有结果、内部审计和身份信息不默认上传；不分发字体文件，不自动投稿，不承诺后台无限运行。
+> 使用 resubmitting-papers，直接修改现有 LaTeX。先检查目标位置的 PDF 和源码，保留官方模板及未授权内容；完成最小修改后重新编译，报告源码差异、变化页面和剩余问题。不要为了一个 caption 或间距问题重写全文。
 
-[初版设计](docs/DESIGN.md) · [初版来源](docs/SOURCES.md) · [LaTeX 来源与适配](skills/resubmitting-papers/references/latex-format.md)
+## 验证与限制
 
-License: MIT. 新编写的流程与工具；参考已有实践，不宣称单项做法原创。
+v0.1.2：**96 项测试通过**（原有 69 项 + 新增 27 项）。实际编译了单栏和双栏的修改前/后样例，检查局部作用域修复、正文样式恢复、越界改动检测和页面变化。详见 [验证记录](docs/VALIDATION_v0.1.2.md)。
+
+测试只使用明确标注的合成 `article` 样例，不是官方会议模板覆盖或真实论文效果评测。修复样例中的字号泄漏不证明任意格式问题都能自动解决。源码清单可能不完整；像素相同不代表语义、链接和元数据相同。最后仍需科学、格式、匿名性和全页视觉验收。
+
+不伪造实验，不用生成图像绘制定量证据，不修改官方样式挤页数，不公开真实论文/reviews/rebuttal，不自动投稿。MIT License。
