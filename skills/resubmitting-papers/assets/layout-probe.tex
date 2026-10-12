@@ -1,0 +1,8 @@
+% Optional measurement helper. It does not redefine template dimensions.
+% Input in the preamble of a WORKING COPY; remove from clean delivery if unused.
+\AtBeginDocument{%
+  \typeout{RS-TEXTWIDTH-TEX-PT=\the\textwidth}%
+  \typeout{RS-COLUMNWIDTH-TEX-PT=\the\columnwidth}%
+  \typeout{RS-LINEWIDTH-TEX-PT=\the\linewidth}%
+  \typeout{RS-TEXTHEIGHT-TEX-PT=\the\textheight}%
+}

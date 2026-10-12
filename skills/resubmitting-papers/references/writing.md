@@ -1,0 +1,33 @@
+# Evidence-led writing adapted from Research Autopilot
+
+This reference adapts the author's `writing-top-tier-papers` and visual orchestration principles. It is self-contained: the upstream skill need not be installed. See repository docs/SOURCES.md for inspected paths. It does not import Autopilot's research controller or require mathematical re-derivation for layout edits.
+
+## One paper, one supported argument
+
+Create a brief: reader, problem, gap, response, evidence, implication and scope. Keep a claim-to-evidence map, citation anchors, section questions, paragraph duties, table/figure callouts and appendix roles. A paper is not a chronological experiment diary or a pasted rebuttal.
+
+Observation, interpretation, mechanism and scope are separate. Verbs such as improves, generalizes, explains, causes and is efficient have different evidence requirements. Narrow a claim to what is supported, then state it directly. Do not turn null or negative findings into benefits through wording.
+
+## Draft in dependency order
+
+Plan the thesis and section architecture early; finalize result-bearing tables/figures before numerical prose. Write Results questions and observations plus the method dependencies needed to understand them. Then explain the method, introduction/related positioning, title/abstract/contributions, limitations/discussion and conclusion. Captions are drafted with assets and synchronized throughout. Final manuscript section order follows the venue and argument, not this drafting order.
+
+For each paragraph identify its purpose: establish problem, locate gap, explain a design, present evidence, interpret a boundary or transition. Remove paragraphs that merely repeat the contribution. Avoid generic opening claims and repetitive closing summaries. Do not impose a fixed number of introduction paragraphs or a universal 1.5-page limit.
+
+## Rebuttal becomes permanent manuscript content
+
+Review concern → verified answer → actual manuscript change. A clarifying rebuttal explanation belongs where a new reader needs it. A new experiment requires its setup, table/figure, interpretation and limitation, not just a line saying it was done. A promised experiment is not evidence. Do not reproduce “We now add…” or defensive reviewer-addressed prose in a fresh submission.
+
+When a result changes, synchronize the experiment section, table caption, plotted annotation, abstract, introduction contributions, conclusion and any related headline. Do not retain a stronger old number in the title/abstract because it is more attractive. Verify denominators, units and percentage-point versus relative change.
+
+## Citations and scientific meaning
+
+Verify citation metadata AND whether the source supports the adjacent statement. Prefer the verified archival publication when it exists and supports the same claim; do not conceal relevant preprints or invent publication status. Use primary sources for methods, findings and official policies. A bibliography entry existing is not proof of entailment.
+
+Preserve notation, equations, assumptions, negation, uncertainty, comparable settings, causal strength and negative evidence during all tone edits. Mathematical novelty is not a fancier method name; a substantial new method returns to explicit assumptions, derivation, differing prediction and falsifiable test. Simple migration does not trigger a full research loop.
+
+## Final writing pass
+
+Compare title → abstract → contributions → results → captions → conclusion for compatible claim strength. Check references and notation after moves. Keep core evidence visible; appendix holds allowed proofs, replication detail and secondary analyses with explicit main-text links. Preserve material exceptions locally when they change interpretation.
+
+Write assertively without overdefense: remove empty hedging and marketing, but retain genuine boundaries. The final paper must stand without the old review conversation. Do not expose prompts, private audit labels, failed drafts or source paths in public prose.

@@ -1,0 +1,16 @@
+{
+  "intake": [],
+  "venue": ["intake"],
+  "evidence": ["intake"],
+  "results": ["evidence"],
+  "blueprint": ["venue", "results"],
+  "tables": ["blueprint", "results", "venue"],
+  "figures": ["blueprint", "results", "venue"],
+  "body": ["tables", "figures", "blueprint"],
+  "framing": ["body"],
+  "assemble": ["framing", "tables", "figures", "venue"],
+  "compile": ["assemble"],
+  "semantic_audit": ["compile", "results"],
+  "visual_audit": ["compile", "venue"],
+  "release": ["semantic_audit", "visual_audit"]
+}

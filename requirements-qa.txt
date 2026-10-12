@@ -1,0 +1,2 @@
+# Optional PDF inspection and rendering; core helpers/tests use the standard library.
+PyMuPDF>=1.24,<2

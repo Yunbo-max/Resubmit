@@ -1,0 +1,36 @@
+{
+  "id": "tab:fixture",
+  "caption": "SYNTHETIC SOFTWARE FIXTURE.",
+  "columns": [
+    {
+      "id": "score",
+      "label": "Score",
+      "direction": "max",
+      "precision": 2
+    }
+  ],
+  "rows": [
+    {
+      "label": "Base_A",
+      "group": "protocol-A",
+      "cells": {
+        "score": {
+          "value": 1.25,
+          "source": "fixture:row1",
+          "status": "measured"
+        }
+      }
+    },
+    {
+      "label": "New",
+      "group": "protocol-A",
+      "cells": {
+        "score": {
+          "value": 2.25,
+          "source": "fixture:row2",
+          "status": "measured"
+        }
+      }
+    }
+  ]
+}

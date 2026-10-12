@@ -1,0 +1,17 @@
+{
+  "venue": null,
+  "year": null,
+  "track": null,
+  "stage": null,
+  "policy_verified": false,
+  "policy_source": null,
+  "accessed": null,
+  "template_sha256": {},
+  "columns": null,
+  "main_start": null,
+  "main_end": null,
+  "main_limit": null,
+  "counting_rule": null,
+  "min_font_pt": 7.0,
+  "note": "Provisional. The font threshold is an internal warning threshold in PDF points, not a venue rule. Fill verified physical page boundaries after compilation."
+}
