@@ -6,7 +6,11 @@ Use the project's known engine/build script in a sandbox after inspecting it. Do
 
 Compile until references settle using the project's normal build tool. Inspect errors, overfull boxes, undefined citations/references, oversized/unprocessed floats and unresolved rerun warnings. Do not hide warnings by suppressing the log. Compare target class/style hashes to the verified original. Unsupported build dependencies are blockers, not successful output.
 
-## Three checks, no substitution
+## Scientific, mechanical, visual and style evidence
+
+`style_audit` is a separate release dependency: reconcile the format difference ledger with the exact target kit and current render. `latex_format.py` only supplies review leads and nominal-parameter differences. It does not certify the style audit. See [latex-format.md](latex-format.md).
+
+## Three check types, no substitution
 
 1. Numeric/scientific: data → table → figure → prose and actual evidence supporting claims. This requires judgment and source verification.
 2. Mechanical: compile, page boundaries, extracted text bounds, suspicious small text, references, template integrity. Some checks are heuristic.

@@ -2,31 +2,41 @@
 
 **Evidence-led, layout-aware paper resubmission.**
 
-一个面向转投的科研 skill：把 **rebuttal 新证据、原生表格、图的重做、单双栏模板迁移、全文写作、页数控制和最终 PDF 美观** 放进同一条有依赖顺序的流程。
+把 rebuttal 新证据、原生表格、图的重做、单双栏模板迁移、全文写作、LaTeX 间距与样式、页数控制和最终 PDF 检查，放进同一条有依赖顺序的流程。
 
-不是只换 `.sty`，也不是只重新写一份 rebuttal。核心是：**证据与模板先确定，表图先稳定，再写全文，最后通过真实编译和逐页视觉检查收敛。**
+不是只换 `.sty`：**证据与目标格式先确定，表图先稳定，再写全文，最后通过实际编译和逐页检查收敛。**
+
+## v0.1.1：新增 LaTeX 间距与样式诊断
+
+在调页数之前，先区分官方模板默认、旧 preamble 残留、宏包覆盖、局部字体/间距声明、页面伸缩胶和图片内部留白。不是把所有间隔改成一个数字。
+
+新增 [latex-format.md](skills/resubmitting-papers/references/latex-format.md)、只读扫描/日志比较工具 `latex_format.py` 和实际参数探针。参考了 Orchestra 的 `ml-paper-writing`、`paper-compile-layout-qa`、flonat 的 `latex-template`/`latex-polish`，但没有导入其通用 working-paper 样式、固定间距或运行依赖。
+
+[源码比较与本次验证](docs/LATEX_SKILL_REVIEW.md)。当前 **69 项确定性测试通过**，另完成单/双栏共六个参数探针编译样例。不是官方会议模板兼容性或审美效果证明。
 
 ## 核心能力
 
-| 模块 | 实际职责 |
+| 模块 | 职责 |
 |---|---|
-| 模板与版式 | 核对具体会议、年份、track、阶段；从干净目标模板迁移；测量实际栏宽；保护官方样式文件。 |
-| Rebuttal → 表格 | 合并可验证的新结果，保留旧快照；重算排名、增益和强调；同步正文与图，不把缺失当零。 |
-| 表格重构 | 分组表头、转置、拆分、单栏/跨栏变体；原生 LaTeX 表格，不默认缩小成不可读内容。 |
-| 图的重做 | 定量图从数据重绘，方法图保留可编辑矢量；按最终栏宽改变布局，而非机械缩放。 |
-| 全文写作 | 参考 Research Autopilot 的证据优先、主张一致性、结果驱动写作；新稿不依赖旧 rebuttal 才能读懂。 |
-| 页数与美观 | 先预算，后编译；检查实际计数范围、字体、裁剪、浮动位置和阅读顺序，不用改页边距等方式挤页数。 |
+| 模板与样式基线 | 核对具体年份、track、阶段；编译干净官方模板；保护样式文件；检查作者层覆盖。 |
+| Rebuttal → 表格 | 核对真实来源、保留旧快照；更新可比数据、排名、增益、强调及关联正文。 |
+| 原生表格重构 | 分组、转置、拆分、单栏/跨栏变体；不靠不可读缩放或删负结果解决宽度。 |
+| 图的重做 | 数据驱动的定量图、可编辑的方法图、真实样例的定性图；按最终尺寸重排。 |
+| 全文写作 | 参考 Research Autopilot 的证据优先、主张一致性和结果驱动写作。 |
+| 页数与美观 | 先预算后实测；按实际计数规则检查；修复字体、间隔、裁剪和浮动问题。 |
 
 ## DAG：每轮内部无环，反馈进入下一轮
 
 ```mermaid
 flowchart TD
-  I[Intake / 冻结旧稿与输入] --> V[Venue / 模板、栏宽、页数规则]
+  I[Intake / 冻结旧稿与输入] --> V[Venue / 官方模板与规则]
+  I --> L[Style baseline / 格式基线与来源]
+  V --> L
   I --> E[Evidence / Review、Rebuttal、真实证据]
   E --> R[Results / 统一结果快照]
-  V --> B[Blueprint / 主张、表图角色、空间预算]
+  L --> B[Blueprint / 主张、表图角色、空间预算]
   R --> B
-  B --> T[Tables / 更新并重构原生表格]
+  B --> T[Tables / 原生表格更新与重构]
   B --> F[Figures / 按目标尺寸重绘]
   R --> T
   R --> F
@@ -45,54 +55,44 @@ flowchart TD
   R --> S
   C --> Q[Visual audit / 逐页检查与页数]
   V --> Q
+  C --> X[Style audit / 来源、参数与同类元素]
+  L --> X
   S --> P[Release / 干净 PDF 与源文件包]
   Q --> P
+  X --> P
 ```
 
-**重要顺序：**模板信息在最前面获取，不能写完后才发现宽度不合适；最终分页在编译后决定，不能用初始字数预算代替。表格和图片在证据与布局方案稳定后可以并行制作。
-
-每轮修订是一张 DAG。数字、模板或主张改变后，开启新版本并标记相关下游产物过期，而不是把反馈箭头塞进 DAG。脚本能计算受影响节点，但不是后台调度器。
+机器可读图在 [workflow.json](skills/resubmitting-papers/assets/workflow.json)。变化后开启新版本，并标记下游产物过期；脚本只规划依赖，不执行后台任务。模板信息和样式基线在前，最终分页在编译后；独立表图可并行设计。
 
 ## 使用
 
-主入口：[skills/resubmitting-papers/SKILL.md](skills/resubmitting-papers/SKILL.md)。整个目录自包含，包含六份按需读取的专业参考和四个 Python 工具。
+主入口：[skills/resubmitting-papers/SKILL.md](skills/resubmitting-papers/SKILL.md)。整个目录自包含：七份按需读取的专业参考、五个 Python 工具。将整个目录安装到宿主支持的 Agent Skills 路径，不要只复制入口文件。仓库更新不等于已安装到当前 ChatGPT 会话。
 
-在支持 Agent Skills 的本地环境中，将整个 `skills/resubmitting-papers/` 目录安装到该环境的技能目录，不要只复制 `SKILL.md`。例如本地 Codex 可放入项目的 `.agents/skills/`；当前宿主的实际发现路径以官方说明为准。仓库更新不等于已安装到当前 ChatGPT 会话。
-
-示例指令：
-
-> 使用 resubmitting-papers，将这份论文转到指定会议、年份和阶段。联合阅读原稿、reviews、rebuttal 和已完成结果。先核对目标模板，再更新表格和重绘图片，然后按证据改写全文，最后控制页数并逐页检查。保留原始基线，交付干净 PDF、可编译源文件 ZIP，以及单独的修改报告。缺失实验不得补造。
-
-## 工具与测试
+> 使用 resubmitting-papers，联合原稿、reviews、rebuttal 和真实结果，转到指定会议、年份和阶段。先验证模板和样式基线，再更新表格、重绘图片和修改全文，最后检查数字、间距、样式、页数与逐页视觉质量。保留基线，交付干净 PDF、可编译源文件 ZIP 和单独修改报告。缺失实验不得补造。
 
 ```bash
-# 查看顺序或结果变化后需要重做的阶段
 python skills/resubmitting-papers/scripts/workflow.py
-python skills/resubmitting-papers/scripts/workflow.py --changed results
-
-# 从规范数据生成原生表格与来源记录
+python skills/resubmitting-papers/scripts/workflow.py --changed style_baseline
 python skills/resubmitting-papers/scripts/tables.py tests/fixtures/results.json \
   --out build/table.tex --columns 2 --span full
-
-# 核心回归测试：标准库即可
+python skills/resubmitting-papers/scripts/latex_format.py scan /path/to/paper \
+  --files main.tex sections/results.tex author-macros.sty --out /tmp/source-style.json
 python -m unittest discover -s tests -v
-
-# 版式烟雾测试：需要 latexmk / TeX Live；PyMuPDF 可渲染页面
+# Optional: requires an installed TeX toolchain
+python tests/check_style_probe.py
 python tests/build_layout_fixtures.py
 ```
 
-`qa.py` 提供 PDF 页数、文本边界、小字号、日志问题和视觉验收版本检查；`package.py` 只从明确允许的文件清单制作源文件 ZIP。它们不能自动证明科学正确性或审美质量。详细边界见 [质量与交付](skills/resubmitting-papers/references/quality.md)。
+`latex_format.py` 的命令命中只表示待检查；参数相同也不代表视觉或格式合规。`qa.py` 提供部分 PDF/日志检查与当前 PDF 的视觉验收记录检查；`package.py` 从明确文件清单打包，不打包整个工作区。详见 [质量与交付](skills/resubmitting-papers/references/quality.md)。
 
-## 验证状态
+## 验证与边界
 
-当前版本通过 **37 项确定性回归测试**。单栏和双栏 `article` 样例均已编译、渲染，并从干净源文件 ZIP 重新编译。样例只含明确标注的合成软件测试数据，**不是官方 ICML/ICLR 模板或真实论文**。未声称完成任意会议模板兼容性、独立 agent 行为评测或录用率验证。
+v0.1.1 的实际测试见 [本次记录](docs/LATEX_SKILL_REVIEW.md)；v0.1.0 的单/双栏表格样例、源文件 ZIP 重编译与37项测试记录保留在 [历史验证](docs/VALIDATION.md)。所有样例都是合成软件测试，不是官方 ICML/ICLR 模板或真实论文。没有进行第三方 skills 的效果对照或独立 agent 行为评测。
 
-详见 [验证记录](docs/VALIDATION.md)、[设计](docs/DESIGN.md)、[参考与继承](docs/SOURCES.md)。
+不伪造实验，不用图像生成器绘制定量证据，不修改官方样式挤页数，不隐藏负结果，不栅格化表格。编译、样式、视觉和科学有效性不能相互替代。
 
-## 边界
+公开仓库只放技能、工具和合成测试。真实论文、review、rebuttal、私有结果、内部审计和身份信息不默认上传；不分发字体文件，不自动投稿，不承诺后台无限运行。
 
-不伪造实验，不用图像生成器绘制定量证据，不修改官方样式文件挤页数，不隐藏负结果，不把表格栅格化。编译成功不等于视觉合格；视觉合格不等于科学结论成立。
+[初版设计](docs/DESIGN.md) · [初版来源](docs/SOURCES.md) · [LaTeX 来源与适配](skills/resubmitting-papers/references/latex-format.md)
 
-此公开仓库只放技能、工具和合成测试。真实论文、review、rebuttal、私有结果、内部审计和身份信息不默认上传。不会自动投稿，也不承诺后台无限运行。
-
-License: MIT. 新编写的流程与工具；参考来源及明确未继承的规则见 `docs/SOURCES.md`。
+License: MIT. 新编写的流程与工具；参考已有实践，不宣称单项做法原创。

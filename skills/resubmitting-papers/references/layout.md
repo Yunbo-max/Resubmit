@@ -10,6 +10,10 @@ The bundled profile is provisional; no official template or venue rules are bund
 
 Use `assets/layout-probe.tex` in a working copy to log dimensions without redefining them. Treat extracted source lengths as preliminary; verify the compiled asset bounds. Avoid mixing TeX pt and PDF bp.
 
+## Spacing and style ownership
+
+Before optimizing pagination, run the [LaTeX style procedure](latex-format.md). Compile a clean-kit baseline and separate official defaults from imported preamble overrides, local declarations, flexible page glue and asset whitespace. After assembly, audit same-role elements and runtime probes; identical nominal lengths do not guarantee identical rendered gaps. Never standardize intentional venue differences into one universal spacing.
+
 ## Two levels of budgeting
 
 Before drafting: a soft section/asset budget based on scientific duties. Allocate room for title/abstract, required declarations, caption notes, references if counted and float overhead. Protect decisive evidence and essential assumptions; do not impose universal section lengths.

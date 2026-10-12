@@ -1,0 +1,41 @@
+% Diagnostic only. This declares a uniquely named probe; it changes no style lengths.
+% Load in a WORKING COPY of the official baseline and the candidate, with the same
+% engine/packages. Call \ResubmitStyleProbe{unique-context} at equivalent positions.
+% Use short labels; duplicate labels are rejected by the log comparator.
+% Remove probe calls from clean manuscript delivery.
+\makeatletter
+\newcommand{\ResubmitStyleProbe}[1]{%
+  \begingroup
+  \typeout{RSFMT-BEGIN:#1}%
+  \typeout{RSFMT-fontsize=\f@size}%
+  \typeout{RSFMT-fontfamily=\f@family}%
+  \typeout{RSFMT-fontseries=\f@series}%
+  \typeout{RSFMT-fontshape=\f@shape}%
+  \typeout{RSFMT-baselineskip=\the\baselineskip}%
+  \typeout{RSFMT-parskip=\the\parskip}%
+  \typeout{RSFMT-parindent=\the\parindent}%
+  \typeout{RSFMT-textwidth=\the\textwidth}%
+  \typeout{RSFMT-columnwidth=\the\columnwidth}%
+  \typeout{RSFMT-linewidth=\the\linewidth}%
+  \typeout{RSFMT-textheight=\the\textheight}%
+  \typeout{RSFMT-textfloatsep=\the\textfloatsep}%
+  \typeout{RSFMT-floatsep=\the\floatsep}%
+  \typeout{RSFMT-intextsep=\the\intextsep}%
+  \typeout{RSFMT-dbltextfloatsep=\the\dbltextfloatsep}%
+  \typeout{RSFMT-dblfloatsep=\the\dblfloatsep}%
+  \typeout{RSFMT-abovecaptionskip=\the\abovecaptionskip}%
+  \typeout{RSFMT-belowcaptionskip=\the\belowcaptionskip}%
+  \typeout{RSFMT-abovedisplayskip=\the\abovedisplayskip}%
+  \typeout{RSFMT-belowdisplayskip=\the\belowdisplayskip}%
+  \typeout{RSFMT-abovedisplayshortskip=\the\abovedisplayshortskip}%
+  \typeout{RSFMT-belowdisplayshortskip=\the\belowdisplayshortskip}%
+  \typeout{RSFMT-topsep=\the\topsep}%
+  \typeout{RSFMT-partopsep=\the\partopsep}%
+  \typeout{RSFMT-itemsep=\the\itemsep}%
+  \typeout{RSFMT-parsep=\the\parsep}%
+  \typeout{RSFMT-tabcolsep=\the\tabcolsep}%
+  \typeout{RSFMT-arraystretch=\arraystretch}%
+  \typeout{RSFMT-END:#1}%
+  \endgroup
+}
+\makeatother

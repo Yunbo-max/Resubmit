@@ -12,9 +12,10 @@ The first layout blueprint is provisional, not a final page count. Early represe
 |---|---|---|
 | intake | authorized project and target | immutable baseline; file inventory; missing inputs |
 | venue | exact venue/year/track/stage | verified policy links and template checksums; measured geometry; counted/excluded sections |
+| style_baseline | verified venue kit + active project | clean-kit compile; preamble/style difference ledger; comparable parameter probes |
 | evidence | old paper, review history, actual artifacts | atomic concerns and source locators; disagreements and unfulfilled rebuttal promises |
 | results | reconciled evidence | versioned numeric snapshot; comparable protocol groups; no silent overwrite |
-| blueprint | venue + results | supported thesis; section duties; essential evidence; asset roles; initial space budget |
+| blueprint | style_baseline + results | supported thesis; section duties; essential evidence; asset roles; initial space budget |
 | tables | blueprint + results + geometry | native table variants, captions, provenance; updated rankings/deltas |
 | figures | blueprint + results + geometry | regenerable plots/editable diagrams, final-width variants, captions |
 | body | tables + figures + blueprint | evidence-led results/method sections; appendix allocation |
@@ -23,7 +24,8 @@ The first layout blueprint is provisional, not a final page count. Early represe
 | compile | assembled source | PDF + log + source/asset hashes; converged references |
 | semantic_audit | compiled PDF + result snapshot | every important number/claim/caption reconciled; cited claims verified |
 | visual_audit | compiled PDF + venue contract | every physical page reviewed; real page count; final-size readability |
-| release | both audits at same revision | clean PDF + source ZIP + private change report |
+| style_audit | compiled PDF + style baseline | source/runtime/rendered differences reviewed against target rules |
+| release | all three audits at same revision | clean PDF + source ZIP + private change report |
 
 A node need not produce a separate file. Use one private `revision-state.json`; keep immutable evidence and generated artifacts separately. Helpers produce derived reports, not competing sources of truth.
 
@@ -39,11 +41,11 @@ Each pass is a DAG. A change creates revision k+1 and invalidates affected desce
 
 | Change | Revisit |
 |---|---|
-| Result / protocol / uncertainty | tables, dependent plots, numerical prose, captions, abstract, compile, both audits |
-| Added baseline | comparable groups, winners/deltas, width, asset variants, claims and both audits |
+| Result / protocol / uncertainty | tables, dependent plots, numerical prose, captions, abstract, compile, all three audits |
+| Added baseline | comparable groups, winners/deltas, width, asset variants, claims and all three audits |
 | Target template / column width | blueprint space plan, table and figure layout, assembly, compile, visual audit; prose if moved or shortened |
 | Plot composition only | figure + caption consistency, assembly, compile, visual audit; semantic check on mappings |
-| Claim narrowed | all occurrences, relevant evidence placement, assembly and both audits |
+| Claim narrowed | all occurrences, relevant evidence placement, assembly and all three audits |
 | Spelling fix | affected paragraph + compile + changed pages; reuse other evidence checks only if meaning and hashes permit |
 
 Parallelize evidence/venue intake and independent assets when tools permit. Use a single writer for shared manuscript files. Do not claim parallel execution without actual workers. Cache verified outputs; never infer that cached rendered pages still match a changed PDF.
@@ -51,3 +53,5 @@ Parallelize evidence/venue intake and independent assets when tools permit. Use 
 ## Three implementation choices
 
 A late-stage formatter is too late to repair asset topology. A giant research controller duplicates Autopilot. The chosen architecture is one lightweight orchestrator plus specialist contracts and deterministic checks. Only hand back to research when a real scientific gap cannot be resolved from available evidence; a formatting issue never triggers a full idea-generation loop.
+
+LaTeX style checks are specified in [latex-format.md](latex-format.md). Style baseline changes invalidate the blueprint and dependent work; final style findings reopen the owning source stage, not just a formatting checkbox.
