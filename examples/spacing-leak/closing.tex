@@ -1,0 +1,6 @@
+\section{Let the body return to normal}
+This paragraph should use the document's normal body font. In the original source, the unscoped declaration keeps the smaller table font active here. In the revised source, a group contains the setting and restores the surrounding text automatically.
+
+A successful build alone does not catch this difference. The workflow inspects the source scope, rebuilds the paper, compares the rendered pages, and checks that the original content is preserved. Both versions use exactly the same words and values.
+\section{Evidence, not decoration}
+Neither a larger number of checks nor a prettier PDF establishes that a scientific claim is correct. The purpose of this fixture is narrower: make one formatting failure reproducible, expose its visible effect, and retain the source needed to verify the repair.

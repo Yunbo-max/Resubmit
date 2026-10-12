@@ -1,0 +1,72 @@
+name: Deploy project site
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'scripts/build_demo.py'
+      - 'examples/spacing-leak/**'
+      - 'requirements-*.txt'
+      - '.github/workflows/pages.yml'
+permissions:
+  contents: read
+concurrency:
+  group: project-pages
+  cancel-in-progress: false
+jobs:
+  configuration:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: read
+    outputs:
+      enabled: ${{ steps.pages.outputs.enabled }}
+    steps:
+      - name: Check Pages configuration without changing it
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          status=$(curl --silent --show-error -o "$RUNNER_TEMP/pages.json" -w '%{http_code}' -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages")
+          case "$status" in
+            200) echo 'enabled=true' >> "$GITHUB_OUTPUT" ;;
+            404) echo 'enabled=false' >> "$GITHUB_OUTPUT"; echo 'Pages is not enabled or is not visible to this token. Select Settings > Pages > GitHub Actions, then rerun this workflow.' >> "$GITHUB_STEP_SUMMARY" ;;
+            *) echo "Pages configuration check returned HTTP $status"; exit 1 ;;
+          esac
+  build:
+    needs: configuration
+    if: needs.configuration.outputs.enabled == 'true'
+    permissions:
+      contents: read
+      pages: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra
+          python -m pip install -r requirements-qa.txt -r requirements-demo.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/build_demo.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,81 +1,103 @@
-# Resubmit to a Different Conference
+# ReSubmit
 
-**LaTeX-native revision, evidence-led resubmission.**
+### Keep the science. Fix the paper.
 
-主要用于修改已有 AI 会议论文的 LaTeX 源码：间距、字号、caption、公式、算法、表格、图片、引用、页数和单双栏模板迁移。保留 Research Autopilot 的写作与证据约束，但不让每一次局部排版修复变成整篇重写。
+**LaTeX-native paper revision for research agents.** From a stubborn caption to a different conference: edit the existing source, preserve the evidence, rebuild, and inspect the PDF you actually deliver.
 
-**当前版本：v0.1.2。** [技能入口](skills/resubmitting-papers/SKILL.md) · [融合说明](docs/LATEX_NATIVE.md) · [本版验证](docs/VALIDATION_v0.1.2.md)
+[![CI](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml/badge.svg)](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-173f35.svg)](LICENSE)
 
-## 默认是 LaTeX 修改，不是全文生成
+**v0.2.0** · [Install](docs/INSTALL.md) · [Skill](skills/resubmitting-papers/SKILL.md) · [Project website source](site/) · [Website deployment](docs/WEBSITE.md) · [Validation](docs/VALIDATION_v0.2.0.md)
 
-| 任务 | 处理范围 |
+ReSubmit is the display name. The repository remains `Resubmit-to-a-different-conference`, and the installed skill remains `resubmitting-papers`.
+
+## Start with the edit you need
+
+| Operation | Scope |
 |---|---|
-| 修间距、标题、caption、字体、公式换行、浮动和引用 | `latex-edit`：直接修改现有源文件，先看 PDF，定位原因，最小修复 |
-| 只改格式 | `layout-only`：不改原文、数字和数学含义 |
-| 补入 rebuttal 的真实结果 | `rebuttal-update`：核对证据，再同步表格、图和受影响结论 |
-| ICML/ICLR/其他会议之间转投 | `retarget`：核对具体年份和阶段，迁移模板与表图布局 |
-| 改整篇论证和结构 | `full-revision`：仅在明确授权时进行 |
-| 只检查 | `diagnose`：不编辑源码 |
+| `latex-edit` | Fix spacing, captions, equations, floats, references and local style problems in existing TeX. |
+| `layout-only` | Change formatting without rewriting the wording, numbers or mathematical meaning. |
+| `rebuttal-update` | Reconcile real new results, then update dependent tables, plots and claims. |
+| `retarget` | Verify the exact venue/year/stage; migrate the template and redesign assets for its geometry. |
+| `full-revision` | Restructure the full argument only when explicitly authorized. |
+| `diagnose` | Inspect and report without editing. |
 
-## 局部修改 DAG
+A caption fix should not trigger an introduction rewrite. A clean build should not be mistaken for a visually correct paper.
 
-```mermaid
-flowchart TD
-  I[定位 TeX 项目和修改范围] --> V[复用或核对目标格式]
-  I --> S[冻结源码与保护文件]
-  V --> B[构建基线]
-  S --> B
-  B --> R[查看 PDF 或记录构建错误]
-  R --> D[诊断真正原因]
-  D --> E[最小源文件修改]
-  E --> C[重新编译]
-  C --> A[源码范围与页面变化检查]
-  C --> M[数字 含义 样式检查]
-  A --> Q[变化页及邻页复查]
-  M --> Q
-  Q --> F[最终全页检查和交付]
-```
+## Install
 
-每轮内部无环；修改反馈进入下一轮。旧 PDF 无法构建时，可以从真实日志诊断，但不能伪称完成前后图像比较。最终候选仍须实际编译和检查。
-
-整篇转投仍保留原来的 [完整 DAG](skills/resubmitting-papers/assets/workflow.json)：模板与证据 → 样式基线 → 表图与空间设计 → 写作与组装 → 编译及三类审计 → 交付。默认局部路径不强制触发这张完整图。
-
-## 融合后的模块
-
-[原生 LaTeX 修改](skills/resubmitting-papers/references/latex-edit.md)负责实际执行顺序；[间距与样式](skills/resubmitting-papers/references/latex-format.md)负责格式归属、宏包、作用域和运行时探针；[表格](skills/resubmitting-papers/references/tables.md)、[图片](skills/resubmitting-papers/references/figures.md)、[写作](skills/resubmitting-papers/references/writing.md)、[版式](skills/resubmitting-papers/references/layout.md)和[交付](skills/resubmitting-papers/references/quality.md)按需读取。
-
-重点参考 `paper-compile-layout-qa` 的“精确模板、先看渲染、修拥有该设置的层、比较受影响页面”。没有复制上游代码、要求外部插件常驻，或照搬全局间距/字体重置。来源与边界见 [融合说明](docs/LATEX_NATIVE.md) 和 [既有来源记录](docs/SOURCES.md)。
-
-## 工具
+Python 3.10+ is needed for the helper scripts. Your host supplies the agent and its tools.
 
 ```bash
-# 局部修改顺序（不运行后台任务）
-python skills/resubmitting-papers/scripts/workflow.py --operation latex-edit
+git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git
+cd Resubmit-to-a-different-conference
+python scripts/install_skill.py --agent codex
+# Or: python scripts/install_skill.py --agent claude
+```
 
-# 整篇转投仍兼容原来的调用
-python skills/resubmitting-papers/scripts/workflow.py --changed results
+The installer copies the **complete** skill directory. It does not download dependencies, run shell commands, modify your manuscript or overwrite an existing installation. Read [installation and update instructions](docs/INSTALL.md), then open a new agent session and verify discovery. This repository is not automatically installed in a ChatGPT conversation.
 
-# 原有 + 新增回归测试
+Example request:
+
+> Use resubmitting-papers to fix the caption spacing in my existing LaTeX project. Inspect the PDF first, preserve the official template and all unrelated content, make a scoped source edit, rebuild, and report the source diff, affected pages and remaining issues. Do not rewrite the paper.
+
+## The dependency order matters
+
+```mermaid
+flowchart LR
+  A[Freeze source] --> B[Inspect baseline]
+  B --> C[Diagnose cause]
+  C --> D[Scoped edit]
+  D --> E[Rebuild]
+  E --> F[Source and page diff]
+  E --> G[Meaning and style checks]
+  F --> H[Final page review]
+  G --> H
+  H --> I[Clean handoff]
+```
+
+For a full retarget: **target rules + verified results → style baseline → claim/space blueprint → tables and figures → writing → compile → audits**. Each revision is a DAG; feedback starts a new revision. The graph helper plans dependencies; it is not a scheduler.
+
+## What is included
+
+**Tables:** native LaTeX, explicit missingness and provenance, comparable protocol groups, recomputed best-value emphasis. No rasterized result tables or invented statistics.
+
+**Figures:** measured plots regenerated from data; editable method diagrams reflowed for the target width; final-size inspection inside the paper.
+
+**Style:** distinguish template defaults, package overrides, local setting leaks and page-building behavior. Do not repair page limits by modifying official styles.
+
+**Writing:** evidence-led principles adapted from Research Autopilot. Keep claims consistent across prose, captions, abstract and conclusion.
+
+**Verification:** source snapshots, protected-file checks, rendered page differences, style probes, PDF preflight and allowlisted source packaging. These helpers expose evidence; they do not certify scientific truth or aesthetic quality.
+
+[Native editing](skills/resubmitting-papers/references/latex-edit.md) · [Spacing and style](skills/resubmitting-papers/references/latex-format.md) · [Tables](skills/resubmitting-papers/references/tables.md) · [Figures](skills/resubmitting-papers/references/figures.md) · [Writing](skills/resubmitting-papers/references/writing.md) · [Layout](skills/resubmitting-papers/references/layout.md)
+
+## Reproduce the website demo
+
+```bash
+python -m pip install -r requirements-qa.txt -r requirements-demo.txt
+# Install latexmk and a TeX distribution with article and booktabs first.
+python scripts/build_demo.py
+python -m http.server 8000 --directory site --bind 127.0.0.1
+```
+
+Open `http://localhost:8000`. The before/after previews are compiled from [the checked-in LaTeX sources](examples/spacing-leak). They demonstrate a scoped font repair using identical words and values. All data are **synthetic software fixtures**, not research results. The page is a project presentation, not an online manuscript editor.
+
+## Test and contribute
+
+```bash
 python -m unittest discover -s tests -v
-
-# 单栏/双栏实际 LaTeX 修改测试；每次使用新的输出目录
 python tests/check_latex_native.py --out build/native-run-1
 ```
 
-新增 `revision_check.py` 为显式源码清单建立哈希快照，报告越界修改与保护文件变化；`pdf_revision_diff.py` 按同一 DPI 比较全部物理页面，记录页面增加、删除、尺寸与像素变化。两者都不自动编辑论文，也不认证科学正确性或美观。
+The complete suite runs in CI; PDF tests require PyMuPDF, and compilation fixtures additionally require TeX. Historical records cover 96 tests at v0.1.2; see the [current validation record](docs/VALIDATION_v0.2.0.md) for what was actually rerun in this release. Generic article fixtures do not establish compatibility with every conference author kit or arbitrary agent behavior.
 
-原有 `tables.py`、`latex_format.py`、`qa.py`、`package.py` 继续负责原生表格、样式诊断、PDF 预检和允许清单打包。编译器仍由宿主提供，优先使用经过检查的项目构建方式。纯 Python 检查主要依赖标准库；PDF 比较需要 PyMuPDF。
+Contributions are welcome: [contribution guide](CONTRIBUTING.md), [security and privacy](SECURITY.md), [changelog](CHANGELOG.md), [roadmap](docs/ROADMAP.md), [citation](CITATION.cff).
 
-## 使用方式
+## Boundaries and acknowledgments
 
-安装完整 `skills/resubmitting-papers/` 目录到宿主支持的 Agent Skills 目录，不要只复制 `SKILL.md`。仓库更新不等于已安装到当前会话。
+No fabricated experiments, automatic submissions, acceptance guarantees, hidden negative results or font-file redistribution. Keep private manuscripts and reviews out of this public repository. Host-model privacy and compute policies remain the user's responsibility.
 
-> 使用 resubmitting-papers，直接修改现有 LaTeX。先检查目标位置的 PDF 和源码，保留官方模板及未授权内容；完成最小修改后重新编译，报告源码差异、变化页面和剩余问题。不要为了一个 caption 或间距问题重写全文。
+The design draws on the author's [Research Autopilot](https://github.com/Yunbo-max/Research_Autopilot), evidence-led rebuttal workflows and render-first LaTeX QA. See [sources](docs/SOURCES.md) and the [LaTeX skill comparison](docs/LATEX_SKILL_REVIEW.md). This is an engineering integration, not a claim to have invented the underlying practices.
 
-## 验证与限制
-
-v0.1.2：**96 项测试通过**（原有 69 项 + 新增 27 项）。实际编译了单栏和双栏的修改前/后样例，检查局部作用域修复、正文样式恢复、越界改动检测和页面变化。详见 [验证记录](docs/VALIDATION_v0.1.2.md)。
-
-测试只使用明确标注的合成 `article` 样例，不是官方会议模板覆盖或真实论文效果评测。修复样例中的字号泄漏不证明任意格式问题都能自动解决。源码清单可能不完整；像素相同不代表语义、链接和元数据相同。最后仍需科学、格式、匿名性和全页视觉验收。
-
-不伪造实验，不用生成图像绘制定量证据，不修改官方样式挤页数，不公开真实论文/reviews/rebuttal，不自动投稿。MIT License。
+MIT © Yunbo Long.

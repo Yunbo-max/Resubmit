@@ -1,52 +1,31 @@
-# v0.1.2：把 LaTeX 修改变成默认流程
+# LaTeX-native editing
 
-## 这次融合改变了什么
+## What changed in v0.1.2
 
-v0.1.1 已有格式扫描和运行时样式探针，但主入口仍然让人容易沿着整篇转投流程执行。v0.1.2 默认从既有 `.tex` 项目开始，区分局部修改、纯排版、rebuttal 结果更新、换模板和全文重写。前两者不再强制进入研究、表图全部重做或 introduction/abstract 重写。
+v0.1.1 introduced format scanning and runtime style probes, but the entry point still encouraged a full-paper retargeting workflow. v0.1.2 made existing TeX the default: distinguish local edits, format-only repairs, rebuttal result updates, template migration and full rewrites. A local fix does not require new research, replacement of every asset or rewriting the introduction and abstract.
 
-主入口保留 `resubmitting-papers`，不用安装新的外部插件。新增 `references/latex-edit.md`、局部 DAG、源码范围检查和编译前后 PDF 对比；复用原来的表格、图、写作、格式和最终质量模块。
+The skill remains `resubmitting-papers`. It includes the native-editing reference, a local DAG, source-scope checks and before/after PDF comparison. Existing table, figure, writing, layout and quality modules are reused without requiring an external plugin.
 
-## 默认顺序
+## Default order
 
-```mermaid
-flowchart TD
-    I[定位已有 TeX 与批准范围] --> V[核对或复用目标格式约束]
-    I --> S[冻结源码和保护文件]
-    V --> B[实际构建基线]
-    S --> B
-    B --> R[查看基线 PDF 或记录构建错误]
-    R --> D[定位真正的格式或源码原因]
-    D --> E[最小范围修改]
-    E --> C[重新编译]
-    C --> A[源码差异与受影响页面检查]
-    C --> M[含义、数字与样式检查]
-    A --> Q[查看变化页面和相邻页面]
-    M --> Q
-    Q --> F[最终全页检查与交付]
-```
+Freeze source and scope → verify/reuse target constraints → build the baseline → inspect the PDF or record the build error → diagnose the owning layer → make the smallest source change → rebuild → check source, pages, meaning and style → inspect changed and neighboring pages → final all-page review.
 
-这是每轮的 DAG。没有可编译的旧 PDF 时，可以根据真实日志修复错误，但不宣称做过图像对照。最终候选必须真正编译和检查。
+Each revision is a DAG. A missing baseline PDF permits log-based debugging but not a claimed image comparison. The final candidate still has to be compiled and inspected.
 
-## 从外部方案继承什么
+## Adaptation, not wholesale import
 
-主要参考 `bystander563/paper-compile-layout-qa` 的 exact-kit、render-first、owning-layer fix、changed-page footprint；仍用 Research Autopilot 的证据约束和全文写作原则。没有复制第三方源码、下载其脚本或要求其插件在线。没有实现或假冒上游 `conference_format_audit.py` 的接口兼容性。
+The main external influence is `bystander563/paper-compile-layout-qa`: exact author-kit contracts, render-first diagnosis, owning-layer fixes and changed-page review. Research Autopilot supplies the evidence and writing principles. No third-party runtime source was copied, and no compatibility with the upstream `conference_format_audit.py` interface is claimed.
 
-不继承通用文档里的全局标题/段距重置、固定间距常数、八页最终抽查上限，也不把截图差异自动当成缺陷。
+Do not inherit global heading or paragraph resets, universal skip constants, an eight-page cap for final inspection, or the assumption that every changed pixel is a defect.
 
-## 实现边界
+## Tool boundaries
 
-`revision_check.py` 对显式监控文件作 SHA-256 快照，发现越界修改及受保护文件变化。它不能自动发现所有输入，也不能证明同一个文件内部的修改在指定段落以内。必须再检查源码 diff、输入清单和新建文件。
+`revision_check.py` hashes explicitly monitored files and flags protected or out-of-scope changes. It does not discover every input or establish that changes within one allowed file stayed inside the requested paragraph; inspect the source diff and new files too.
 
-`pdf_revision_diff.py` 使用相同 PyMuPDF 渲染器和 DPI 比较所有物理页面，记录增加、删除、尺寸或像素变化，并列出候选相邻页。它不进行语义页匹配，不评判美观，不认证元数据和链接。最终仍需逐页检查。
+`pdf_revision_diff.py` compares physical pages at matching DPI using PyMuPDF, reports additions/deletions, size and pixel changes, and identifies neighboring pages to inspect. It does not semantically align pages, assess beauty or certify metadata and links.
 
-现有 TeX 编译器仍由宿主提供，默认保留项目实际引擎与构建方法。技能本身不会安装环境、后台运行或自动投稿。
+The host supplies the compiler and permission model. The skill does not install that environment, run indefinitely or submit papers.
 
-## 来源
+Sources: [compile-layout skill](https://github.com/bystander563/paper-compile-layout-qa/blob/main/SKILL.md), [spacing playbook](https://github.com/bystander563/paper-compile-layout-qa/blob/main/references/latex-spacing-playbook.md), [Autopilot writing](https://github.com/Yunbo-max/Research_Autopilot/tree/main/skills/writing-top-tier-papers), [latexmk](https://ctan.org/pkg/latexmk), [PyMuPDF rendering](https://pymupdf.readthedocs.io/en/latest/page.html#Page.get_pixmap).
 
-- https://github.com/bystander563/paper-compile-layout-qa/blob/main/SKILL.md
-- https://github.com/bystander563/paper-compile-layout-qa/blob/main/references/latex-spacing-playbook.md
-- https://github.com/Yunbo-max/Research_Autopilot/tree/main/skills/writing-top-tier-papers
-- https://ctan.org/pkg/latexmk
-- https://pymupdf.readthedocs.io/en/latest/page.html#Page.get_pixmap
-
-本次是工程整合，不宣称这些排版实践或差异检查是学术首创。
+These are engineering adaptations, not claims of academic priority.

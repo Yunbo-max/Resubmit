@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this software when it materially contributes to your workflow; use the version or commit you actually used."
+title: "ReSubmit: LaTeX-native paper revision"
+type: software
+authors:
+  - family-names: Long
+    given-names: Yunbo
+repository-code: "https://github.com/Yunbo-max/Resubmit-to-a-different-conference"
+version: 0.2.0
+date-released: 2026-10-13
+license: MIT
+keywords:
+  - LaTeX
+  - paper revision
+  - agent skills
+  - conference resubmission

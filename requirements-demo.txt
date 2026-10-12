@@ -1,0 +1,2 @@
+# Optional demo image export, in addition to requirements-qa.txt.
+Pillow>=10,<13

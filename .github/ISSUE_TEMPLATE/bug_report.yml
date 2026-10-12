@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible tool, skill or layout issue.
+body:
+  - type: markdown
+    attributes:
+      value: "Use a minimal synthetic reproduction. Never attach confidential reviews, unpublished papers, credentials or font files."
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Host and environment
+      description: Agent host, OS, Python, TeX engine and relevant package versions.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and expected behavior
+      description: Include sanitized commands, logs and a minimal source example.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Explain which page, value, scope or check was wrong.
+    validations:
+      required: true

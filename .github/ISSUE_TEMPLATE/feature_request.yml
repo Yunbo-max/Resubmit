@@ -1,0 +1,16 @@
+name: Feature request
+description: Propose a focused improvement with a verification case.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What revision problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: How would we verify it?
+      description: Prefer a synthetic fixture and an observable failure over a broad promise.
+    validations:
+      required: true

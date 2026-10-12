@@ -1,7 +1,10 @@
 __pycache__/
 *.pyc
-build/
 .venv/
+build/
 .DS_Store
 revision-state.json
 private/
+site/assets/demo-before.webp
+site/assets/demo-after.webp
+site/assets/demo.json
