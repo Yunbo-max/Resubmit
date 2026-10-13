@@ -1,0 +1,33 @@
+{
+  "kind": "source-rendered-layout-illustration",
+  "not_actual_compilation": true,
+  "not_scientific_evidence": true,
+  "canvas": [
+    1200,
+    850
+  ],
+  "same_paper_text": true,
+  "checks": [
+    "two-column-before",
+    "one-column-after",
+    "identical-paper-text",
+    "no-overflow",
+    "two-GIF-frames-3500ms"
+  ],
+  "source_sha256": "df9d53be2edd8fa5f53618bf440f29a4638695483f9505c0ebfa89e95b98df3b",
+  "paper_body_sha256": "17d748f393e00291294eced3e929bea6b7b14781a3002fc010bee6a08c7d991a",
+  "assets": {
+    "before-icml-two-column.png": {
+      "sha256": "4b50a9826ba8fd827bc86d723bc47fb1ac3ec4b9474b871a0a9a639771a41954",
+      "bytes": 249038
+    },
+    "after-neurips-one-column.png": {
+      "sha256": "1842b6d5ce59f7d440e19eea93518ae2437018aaf2ef8fc6cdf6f3f8cd9283e6",
+      "bytes": 242832
+    },
+    "icml-to-neurips.gif": {
+      "sha256": "b65a512625dde423835ecceee4e9a8bf6df28957d7666cfa68ed57c9b98fe91c",
+      "bytes": 269262
+    }
+  }
+}
