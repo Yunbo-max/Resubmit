@@ -1,0 +1,3 @@
+# Optional presentation build only. Not required to install either skill.
+playwright>=1.48,<2
+Pillow>=10,<13

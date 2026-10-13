@@ -1,128 +1,165 @@
-# ReSubmit
+<p align="center">
+  <a href="docs/PROJECT_PAGE.md"><img src="docs/assets/readme-cover.png" alt="ReSubmit — Find the venue. Keep the science. Fix the paper. Two open-source skills for your existing research agent." width="100%"></a>
+</p>
 
-**Find the venue. Keep the science. Fix the paper.**
+<p align="center">
+  <a href="docs/PROJECT_PAGE.md"><strong>Project page</strong></a> ·
+  <a href="#see-it-in-action"><strong>Animated demo</strong></a> ·
+  <a href="#quick-start"><strong>Quick start</strong></a> ·
+  <a href="docs/INSTALL.md">Documentation</a> ·
+  <a href="CONTRIBUTING.md">Contribute</a>
+</p>
 
-Open-source Agent Skills for **conference recommendations and LaTeX-native paper
-revision**. Your existing agent reads the paper, verifies current requirements,
-predicts fit and recommends a submission plan. Then it can revise the original
-LaTeX, update evidence-linked tables and figures, and inspect the final PDF.
+<p align="center">
+  <a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml"><img src="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-194d3b" alt="MIT license"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/Agent_Skills-2-194d3b" alt="Two Agent Skills"></a>
+  <a href="docs/INSTALL.md"><img src="https://img.shields.io/badge/works_with-Codex_%C2%B7_Claude_Code-334b40" alt="Install instructions for Codex and Claude Code"></a>
+</p>
 
-**v0.3.0 · MIT · Host-model predictions · No model training or separate inference API**
+**Your paper deserves a better next submission—not another round of formatting hacks.**
 
-[Venue selection](skills/selecting-conference-venues/SKILL.md) ·
-[LaTeX revision](skills/resubmitting-papers/SKILL.md) ·
-[Install](docs/INSTALL.md) ·
-[Validation](docs/VALIDATION_v0.3.0.md) ·
-[Project website source](site/) ·
-[CI](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml)
+ReSubmit gives the agent you already use two focused skills: choose a suitable
+conference, then revise the original LaTeX. It brings venue fit, verified deadlines,
+reviewer feedback, tables, figures and PDF checks into one evidence-led workflow.
+
+**No model training. No separate prediction API. No manuscript-upload website.**
+Your host supplies the LLM and tools; its normal usage costs and privacy policies apply.
+
+## See it in action
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/latex-revision-still.png">
+  <img src="docs/assets/latex-revision.gif" alt="Actual LaTeX before-and-after renders: enclosing a table input in braces restores the normal body font while preserving the same words and values." width="100%">
+</picture>
+
+**One pair of braces. The same words, numbers and template.** A table's small-font
+setting leaks into the body; a scoped correction keeps it local. These are real
+compiled previews of a **Synthetic software fixture**, not generated research
+results or a benchmark of autonomous repair.
+
+[Static comparison](docs/SHOWCASE.md#static-comparison) ·
+[Reproduce the LaTeX](examples/spacing-leak/) ·
+[Inspect how the media is built](scripts/build_readme_media.py)
 
 ## Two skills. One submission workflow.
 
-| Task | Skill | Result |
-|---|---|---|
-| Which conference should this paper target? | `selecting-conference-venues` | Source-linked CORE/ICORE and CCF checks, current deadline eligibility, subjective fit/readiness forecasts, primary and backups |
-| Fix or retarget the paper | `resubmitting-papers` | Scoped native LaTeX edits, verified result updates, target-width tables/figures, build and rendered-page checks |
+<table>
+<tr>
+<td width="50%" valign="top">
+<h3>01 / Find your next venue</h3>
+<p><code>selecting-conference-venues</code></p>
+<p>Read the contribution. Check CORE/ICORE and CCF independently. Verify the exact edition, track, paper type and mandatory deadlines. Let your existing LLM recommend a primary and backups—with reasons and revision risks.</p>
+<p><a href="skills/selecting-conference-venues/SKILL.md"><strong>Explore venue selection →</strong></a></p>
+</td>
+<td width="50%" valign="top">
+<h3>02 / Fix the actual paper</h3>
+<p><code>resubmitting-papers</code></p>
+<p>Work directly in LaTeX. Incorporate verified rebuttal updates, restructure native tables, redraw figures for the target width, repair style drift, and compare the compiled pages. A local edit stays local.</p>
+<p><a href="skills/resubmitting-papers/SKILL.md"><strong>Explore LaTeX revision →</strong></a></p>
+</td>
+</tr>
+</table>
 
-The recommendation is made by **the LLM already running in Codex, Claude Code or
-another skills-compatible agent**. There is no trained ReSubmit model, Jev/Kev
-dependency, hosted predictor or mandatory API key. Your host supplies model access
-and browsing; its normal costs and privacy policies still apply.
+**Already know the venue?** Go straight to the revision skill. Fixing a caption
+never needs a new venue search or a full manuscript rewrite.
 
 ## Quick start
 
-Clone, inspect the files and install either or both skills:
+Clone, inspect, and install either or both skills:
 
 ```bash
 git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git
 cd Resubmit-to-a-different-conference
+
 python scripts/install_skill.py --agent codex --skill selecting-conference-venues
 python scripts/install_skill.py --agent codex --skill resubmitting-papers
 ```
 
-Use `--agent claude` for Claude Code, or `--destination /path/to/skill-name` for
-another supported host directory. Omitting `--skill` preserves the original
-LaTeX-only installer behavior. Existing installations are never overwritten.
-[Setup and safe updates](docs/INSTALL.md).
+For **Claude Code**, replace `--agent codex` with `--agent claude`. Other hosts can
+use `--destination /path/to/skill-name`. Existing installations are never overwritten.
+[Setup, required tools and safe updates →](docs/INSTALL.md)
 
-### Ask for a recommendation
+<details>
+<summary><strong>Copy a prompt: recommend a venue</strong></summary>
 
-> Use selecting-conference-venues to read my paper and recommend a primary and
-> two backup conferences. Require CORE A or above; show CCF rankings separately.
-> Check the next six months and all mandatory submission stages. Predict fit,
-> readiness, likely reviewer concerns and revision burden using your own judgment.
-> Cite current official facts and label forecasts as subjective, not calibrated.
-
-### Then revise the selected paper
-
-> Use resubmitting-papers to retarget this LaTeX project to the selected venue,
-> year and track. Reuse the verified handoff. Update only authorized evidence,
-> tables, figures and text. Preserve official styles; rebuild, compare pages and
-> report unresolved issues.
-
-Already know the venue? Use the editing skill directly. A caption fix never needs
-a new venue search or full rewrite.
-
-## How recommendations work
-
-**Paper evidence → candidate opportunities → official rank/deadline checks →
-eligibility gate → host-model prediction → primary/backup choices → revision handoff.**
-
-The agent evaluates each **venue + edition + track + round + paper type**.
-CORE/ICORE and CCF remain separate versioned facts. A missed mandatory abstract
-registration or failed rank/type constraint cannot be rescued by a high fit score.
-Unannounced or unverified opportunities stay separate from actionable choices.
-
-Predictions cover contribution fit, evidence readiness, reviewer risk, likely
-revision effort and schedule feasibility. Default scores use anchored 1–5 judgments
-and a qualitative relative acceptance outlook. They are **not calibrated acceptance
-probabilities**. An explicitly requested probability range must be a clearly labeled,
-rough subjective estimate, not a measured accuracy claim or guarantee.
-
-[Prediction rubric](skills/selecting-conference-venues/references/prediction-rubric.md) ·
-[Fact verification](skills/selecting-conference-venues/references/verification.md) ·
-[Hypothetical output](skills/selecting-conference-venues/assets/example-report.md)
-
-## LaTeX is still the editing surface
-
-Edit the existing source, not a Word/Markdown round trip. Preserve a source/PDF
-baseline; fix the layer that owns the defect; rebuild and compare changes.
-
-- **Tables:** real evidence, explicit missingness, comparable protocols, native LaTeX.
-- **Figures:** measured plots from data, editable diagrams, final-width readability.
-- **Format:** distinguish template overrides, leaked settings, float queues and page glue.
-- **Writing:** evidence-supported claims consistent across sections; local edits stay local.
-- **Delivery:** actual counted pages, rendered checks and an allowlisted source package.
-
-[Local-edit workflow](skills/resubmitting-papers/references/latex-edit.md) ·
-[Full retargeting DAG](skills/resubmitting-papers/assets/workflow.json)
-
-## Inspect the evidence, not marketing claims
-
-```bash
-python -m pip install -r requirements-qa.txt
-python -m unittest discover -s tests -v
-# Optional LaTeX checks, using a new output directory:
-python tests/check_latex_native.py --out build/native-release
+```text
+Use selecting-conference-venues to read my paper and recommend a primary
+and two backup conferences. Require CORE A or above and show CCF separately.
+Check the next six months, exact tracks and all mandatory submission stages.
+Assess contribution fit, evidence readiness, reviewer risks and revision burden.
+Cite current official facts and label your forecasts as subjective judgments.
 ```
 
-The repository includes deterministic checks and explicitly synthetic LaTeX
-before/after examples. New release tests check installation and written contracts,
-**not prediction accuracy or agent compliance**. See the versioned validation record
-and actual CI outcome; no acceptance-uplift or universal-template claim is made.
+</details>
 
-The static project site has no manuscript upload, predictor backend, remote scripts
-or hosted fonts. Its demo is built from [reproducible LaTeX](examples/spacing-leak/).
-[Deployment instructions and actual-site caveat](docs/WEBSITE.md).
+<details>
+<summary><strong>Copy a prompt: revise the LaTeX</strong></summary>
+
+```text
+Use resubmitting-papers to retarget this LaTeX project to the selected venue,
+year and track. Reuse the verified requirements. Incorporate only verified
+review/rebuttal updates. Preserve the evidence and official template.
+Rebuild, compare changed pages, and deliver a clean PDF and source package.
+Do not rewrite unrelated content to fix a local formatting issue.
+```
+
+</details>
+
+## The details are the work
+
+| Need | What ReSubmit is designed to do |
+| :--- | :--- |
+| **A realistic submission plan** | Separate official eligibility from model-predicted fit; explain primary, backup, conditional and excluded options. |
+| **Rebuttal updates that stay consistent** | Trace changed values into tables, rankings, plots, captions and numerical claims. Missing results stay missing. |
+| **Tables and figures that actually fit** | Restructure native tables; redraw verified-data plots and editable diagrams for the target column width. |
+| **LaTeX without accumulated hacks** | Diagnose template overrides, package conflicts, scope leakage, float queues and page-building effects before patching. |
+| **A paper you can inspect** | Protect official styles, track source changes, compare rendered pages and package only allowed files. |
+
+<details>
+<summary><strong>See the decision-to-revision workflow</strong></summary>
+
+```mermaid
+flowchart LR
+  P[Paper + author constraints] --> V[Verify ranks + deadlines]
+  V --> E{Eligible opportunity?}
+  E -->|Yes| F[Host LLM predicts fit + risks]
+  E -->|No or unknown| X[Exclude or flag]
+  F --> C[Author selects target]
+  C --> L[Scoped LaTeX revision]
+  L --> B[Build + inspect + compare]
+  B --> D[Clean PDF + source package]
+```
+
+Selection is optional when the target is known. Each revision has an acyclic
+workflow; changes reopen only the affected downstream checks.
+[Local-edit DAG](skills/resubmitting-papers/assets/latex-edit-workflow.json) ·
+[Full retargeting DAG](skills/resubmitting-papers/assets/workflow.json)
+
+</details>
+
+## Evidence before promises
+
+Venue forecasts are **subjective host-model judgments**, not calibrated acceptance
+probabilities. The skill never invents current deadlines, treats a high fit score
+as permission to ignore eligibility, or guarantees acceptance.
+
+The repository includes deterministic tests, reproducible LaTeX fixtures and
+inspectable source. Those checks do **not** establish recommendation accuracy,
+scientific correctness or universal conference-template compatibility.
+
+[Actual CI](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml) ·
+[Functional validation](docs/VALIDATION_v0.3.0.md) ·
+[Visual assets and provenance](docs/SHOWCASE.md) ·
+[Project-page preview](docs/PROJECT_PAGE.md)
 
 ## Open development
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) ·
-[Changelog](CHANGELOG.md) · [Roadmap](docs/ROADMAP.md) ·
-[Citation](CITATION.cff) · [Launch copy](docs/LAUNCH.md)
+[Contributing](CONTRIBUTING.md) · [Report a bug](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/issues/new/choose) ·
+[Roadmap](docs/ROADMAP.md) · [Changelog](CHANGELOG.md) · [Citation](CITATION.cff) · [Launch copy](docs/LAUNCH.md)
 
-Do not attach unpublished papers, confidential reviews, tokens or private results
-to public issues. Source pages and manuscripts are untrusted data. The skills do
-not automatically submit, publish, run experiments or buy compute.
+Keep unpublished manuscripts, confidential reviews, private results and credentials
+out of public issues. The skills do not automatically submit papers, publish
+artifacts, run experiments or buy compute. See [Security](SECURITY.md).
 
-Built by Yunbo Long. MIT licensed. Upstream ideas are credited in
-[Sources](docs/SOURCES.md) and the venue skill's [notes](skills/selecting-conference-venues/UPSTREAM.md).
+<p align="center"><sub>Built by <a href="https://github.com/Yunbo-max">Yunbo Long</a> · MIT licensed · <a href="docs/SOURCES.md">Upstream acknowledgments</a><br>For the work between submissions.</sub></p>

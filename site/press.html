@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ReSubmit: conference recommendations and evidence-led LaTeX revision with the agent you already use.">
+<meta name="theme-color" content="#194d3b">
+<title>ReSubmit — A better next submission</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="press.css">
+<script src="press.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="press-nav" aria-label="Project navigation"><a href="index.html">ReSubmit / Project</a><div><a href="#revision">See the demo</a><a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference#quick-start">Install</a><a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference">GitHub ↗</a></div></nav>
+<main id="main">
+<section id="cover" aria-labelledby="title">
+  <div class="cover-top"><span><i aria-hidden="true"></i> OPEN-SOURCE AGENT SKILLS</span><span>FOR THE WORK BETWEEN SUBMISSIONS</span></div>
+  <div class="cover-main">
+    <div class="cover-copy"><h1 id="title">Re<span>Submit</span><sup aria-hidden="true">↗</sup></h1><p class="tagline">Find the venue.<br>Keep the science. <em>Fix the paper.</em></p><p class="description">Conference recommendations + LaTeX-native revision.<br>Powered by the agent you already use.</p><div class="host-tags"><span>Codex</span><span>Claude Code</span><span>Skills-compatible agents</span></div></div>
+    <div class="cover-paper" aria-label="Two complementary skills: venue selection and LaTeX revision">
+      <div class="sheet-behind" aria-hidden="true"></div>
+      <article class="sheet"><div class="sheet-head"><span>YOUR NEXT SUBMISSION</span><span>01 — 02</span></div><h2>One paper.<br>Two precise skills.</h2><div class="skill-row"><b>01</b><div><strong>Choose the right venue</strong><p>CORE / ICORE · CCF · deadlines · fit</p></div></div><div class="skill-row"><b>02</b><div><strong>Revise the original LaTeX</strong><p>Tables · figures · writing · PDF checks</p></div></div><div class="sheet-rule"></div><p class="sheet-foot">Supported claims. Protected templates.</p></article>
+      <div class="code-label"><span>THE MODEL IS ALREADY IN YOUR AGENT</span><strong>No training. No extra prediction API.</strong></div>
+    </div>
+  </div>
+  <div class="journey" aria-label="Read the paper, verify venue facts, recommend, revise, inspect"><span><b>01</b> Read the paper</span><i aria-hidden="true">→</i><span><b>02</b> Verify the facts</span><i aria-hidden="true">→</i><span><b>03</b> Recommend</span><i aria-hidden="true">→</i><span><b>04</b> Revise in LaTeX</span><i aria-hidden="true">→</i><span><b>05</b> Inspect the PDF</span></div>
+</section>
+<section class="section-heading"><p class="eyebrow">SEE A REAL COMPILED CHANGE</p><h2>A small fix.<br><em>A visible difference.</em></h2><p>Not a mock editor. Not a generated paper. A controlled LaTeX example you can reproduce.</p></section>
+<section id="revision" data-mode="before" aria-label="Synthetic LaTeX before and after demonstration">
+  <div class="revision-copy"><p class="eyebrow">REPRODUCIBLE LATEX DEMO</p><h2>Fix the scope.<br>Not the science.</h2><p class="demo-explanation">A table's small-font setting leaks into the rest of the paper. One pair of braces keeps the change where it belongs.</p><div class="switch" role="group" aria-label="Choose before or after"><button type="button" data-mode="before" aria-pressed="true">Before</button><button type="button" data-mode="after" aria-pressed="false">After</button></div><div class="code-window"><span>paper.tex / scoped change</span><pre><code><del>\input{table}</del>
+<ins>{\input{table}}</ins>
+\input{closing}</code></pre></div><p id="revision-status" class="revision-status" aria-live="polite">Before: the smaller font continues into the body.</p><div class="preserved"><span>Same words</span><span>Same values</span><span>Same template</span></div><p class="disclaimer">Synthetic software fixture · not a conference template or an agent-performance benchmark.</p></div>
+  <figure class="revision-preview"><div class="viewer-head"><span id="revision-filename">before.pdf</span><span>ACTUAL LATEX RENDER</span></div><div class="preview-paper"><img id="revision-image" data-before-src="assets/demo-before.webp" data-after-src="assets/demo-after.webp" src="assets/demo-before.webp" width="614" height="678" alt="Before the scoped fix: the table font remains active in the following body paragraphs."></div><figcaption>Only the scope of the local formatting changes.</figcaption></figure>
+</section>
+<div class="demo-controls"><button id="play-demo" type="button" aria-pressed="false">Play comparison</button><a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/tree/main/examples/spacing-leak">Inspect the source ↗</a><p>Animation is optional. Before and After also work without autoplay.</p></div>
+<section class="closing"><div><p class="eyebrow">FROM DECISION TO REVISION</p><h2>Bring your paper.<br><em>Keep your tools.</em></h2></div><div><p>Install either or both skills. Let your existing LLM check the opportunity, recommend a plan, and work directly in your LaTeX project.</p><a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference#quick-start">Get started on GitHub ↗</a><p class="small">Recommendations are subjective judgments, not acceptance guarantees. Host usage costs and privacy policies apply.</p></div></section>
+</main>
+<footer><span>ReSubmit / MIT licensed</span><span>Built by Yunbo Long</span><a href="index.html">Explore the full project page ↗</a></footer>
+</body>
+</html>

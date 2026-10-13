@@ -1,0 +1,77 @@
+name: Build README media
+on:
+  workflow_dispatch:
+  push:
+    branches: [design/readme-showcase]
+    paths:
+      - 'README.md'
+      - 'site/press.*'
+      - 'scripts/build_readme_media.py'
+      - 'tests/test_showcase.py'
+      - 'requirements-showcase.txt'
+      - '.github/workflows/readme-media.yml'
+permissions:
+  contents: read
+concurrency:
+  group: readme-media-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Install isolated presentation dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra
+          python -m pip install -r requirements-qa.txt -r requirements-demo.txt -r requirements-showcase.txt
+          python -m playwright install --with-deps chromium
+      - name: Check the full repository
+        run: |
+          python -m unittest discover -s tests -v
+          node --check site/app.js
+          node --check site/press.js
+      - name: Build real LaTeX previews and README media
+        run: |
+          python scripts/build_demo.py
+          python scripts/build_readme_media.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: readme-media
+          path: docs/assets/
+          retention-days: 30
+  publish-design-assets:
+    needs: render
+    if: github.repository == 'Yunbo-max/Resubmit-to-a-different-conference' && github.ref == 'refs/heads/design/readme-showcase'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: readme-media
+          path: docs/assets/
+      - name: Publish only generated presentation assets without force
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_HEAD"
+          git add -- docs/assets/readme-cover.png docs/assets/latex-revision.gif docs/assets/latex-revision-before.png docs/assets/latex-revision-after.png docs/assets/latex-revision-still.png docs/assets/project-desktop.png docs/assets/project-mobile.png docs/assets/media-manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Render checked README cover, LaTeX animation and project previews'
+          auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic $auth" push origin HEAD:refs/heads/design/readme-showcase
