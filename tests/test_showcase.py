@@ -8,11 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 class ShowcaseSourceTests(unittest.TestCase):
     def test_readme_has_committed_visuals(self):
         text = (ROOT / 'README.md').read_text()
-        for name in ('readme-cover.png', 'latex-revision.gif', 'latex-revision-still.png'):
+        for name in ('readme-cover.png', 'icml-to-neurips.gif', 'after-neurips-one-column.png'):
             self.assertIn(name, text)
-    def test_readme_has_project_page_and_install(self):
+    def test_readme_has_no_unavailable_project_page_and_has_install(self):
         text = (ROOT / 'README.md').read_text()
-        self.assertIn('docs/PROJECT_PAGE.md', text)
+        self.assertNotIn('docs/PROJECT_PAGE.md', text)
+        self.assertNotIn('yunbo-max.github.io', text)
         self.assertIn('scripts/install_skill.py --agent codex --skill selecting-conference-venues', text)
         self.assertIn('scripts/install_skill.py --agent codex --skill resubmitting-papers', text)
     def test_readme_static_motion_fallback(self):

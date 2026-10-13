@@ -1,0 +1,80 @@
+name: Build retargeting README images
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/icml-neurips-readme]
+    paths:
+      - 'README.md'
+      - 'scripts/build_retargeting_media.py'
+      - 'tests/test_retargeting_media.py'
+      - '.github/workflows/retargeting-media.yml'
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: |
+          python -m pip install -r requirements-qa.txt -r requirements-showcase.txt
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-liberation
+      - name: Build and verify both layouts
+        run: python scripts/build_retargeting_media.py
+      - name: Test repository and README paths
+        run: |
+          python -m unittest discover -s tests -v
+          node --check site/app.js
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path('.')
+          text = (root/'README.md').read_text()
+          assert 'PROJECT_PAGE' not in text
+          assert 'yunbo-max.github.io' not in text
+          paths = re.findall(r'(?:src|href|srcset)="([^"]+)"', text)
+          paths += re.findall(r'\]\(([^)]+)\)', text)
+          for path in paths:
+              if path.startswith(('https://','http://','#')):
+                  continue
+              local = path.split('#',1)[0]
+              assert (root/local).exists(), local
+          print('README local image and documentation paths resolve')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: retargeting-images
+          path: |
+            docs/assets/before-icml-two-column.png
+            docs/assets/after-neurips-one-column.png
+            docs/assets/icml-to-neurips.gif
+            docs/assets/retargeting-illustration-manifest.json
+          if-no-files-found: error
+          retention-days: 14
+  publish:
+    needs: render
+    if: github.repository == 'Yunbo-max/Resubmit-to-a-different-conference' && github.ref == 'refs/heads/fix/icml-neurips-readme'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: retargeting-images
+          path: docs/assets
+      - name: Commit only verified images without force
+        run: |
+          git fetch origin fix/icml-neurips-readme
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git add -- docs/assets/before-icml-two-column.png docs/assets/after-neurips-one-column.png docs/assets/icml-to-neurips.gif docs/assets/retargeting-illustration-manifest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Publish verified ICML-to-NeurIPS layout illustrations'
+          git push origin HEAD:refs/heads/fix/icml-neurips-readme

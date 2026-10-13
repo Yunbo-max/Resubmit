@@ -1,21 +1,15 @@
 <p align="center">
-  <a href="docs/PROJECT_PAGE.md"><img src="docs/assets/readme-cover.png" alt="ReSubmit — Find the venue. Keep the science. Fix the paper. Two open-source skills for your existing research agent." width="100%"></a>
+  <img src="docs/assets/readme-cover.png" alt="ReSubmit — Find the venue. Keep the science. Fix the paper. Two open-source skills for your existing research agent." width="100%">
 </p>
 
 <p align="center">
-  <a href="docs/PROJECT_PAGE.md"><strong>Project page</strong></a> ·
   <a href="#see-it-in-action"><strong>Animated demo</strong></a> ·
   <a href="#quick-start"><strong>Quick start</strong></a> ·
   <a href="docs/INSTALL.md">Documentation</a> ·
   <a href="CONTRIBUTING.md">Contribute</a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml"><img src="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-194d3b" alt="MIT license"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/Agent_Skills-2-194d3b" alt="Two Agent Skills"></a>
-  <a href="docs/INSTALL.md"><img src="https://img.shields.io/badge/works_with-Codex_%C2%B7_Claude_Code-334b40" alt="Install instructions for Codex and Claude Code"></a>
-</p>
+<p align="center"><sub>MIT licensed · Two Agent Skills · Codex &amp; Claude Code · Your existing LLM</sub></p>
 
 **Your paper deserves a better next submission—not another round of formatting hacks.**
 
@@ -28,19 +22,32 @@ Your host supplies the LLM and tools; its normal usage costs and privacy policie
 
 ## See it in action
 
+**ICML-style two-column source → NeurIPS-style one-column retarget.**
+Change the venue without treating the paper as a screenshot: reflow the text,
+restructure tables, resize or redraw figures, and inspect the resulting PDF.
+
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/latex-revision-still.png">
-  <img src="docs/assets/latex-revision.gif" alt="Actual LaTeX before-and-after renders: enclosing a table input in braces restores the normal body font while preserving the same words and values." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/after-neurips-one-column.png">
+  <img src="docs/assets/icml-to-neurips.gif" alt="Illustrative template migration: an ICML-style two-column manuscript followed by a NeurIPS-style one-column layout. Schematic illustration, not actual compiled output." width="100%">
 </picture>
 
-**One pair of braces. The same words, numbers and template.** A table's small-font
-setting leaks into the body; a scoped correction keeps it local. These are real
-compiled previews of a **Synthetic software fixture**, not generated research
-results or a benchmark of autonomous repair.
+<details>
+<summary><strong>Static comparison — before and after</strong></summary>
 
-[Static comparison](docs/SHOWCASE.md#static-comparison) ·
-[Reproduce the LaTeX](examples/spacing-leak/) ·
-[Inspect how the media is built](scripts/build_readme_media.py)
+### Before — ICML-style two-column source
+
+<img src="docs/assets/before-icml-two-column.png" alt="Illustration of a two-column ICML-style manuscript before retargeting." width="100%">
+
+### After — NeurIPS-style one-column retarget
+
+<img src="docs/assets/after-neurips-one-column.png" alt="Illustration of a one-column NeurIPS-style manuscript after retargeting." width="100%">
+
+</details>
+
+<sub>Schematic illustrations rebuilt from shared content, not an actual LaTeX
+conversion or an official conference template. Synthetic text and checklist
+entries are not research results. Final formatting must use the exact target
+year and track. <a href="docs/RETARGETING_VISUAL.md">Asset notes</a>.</sub>
 
 ## Two skills. One submission workflow.
 
@@ -150,8 +157,7 @@ scientific correctness or universal conference-template compatibility.
 
 [Actual CI](https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml) ·
 [Functional validation](docs/VALIDATION_v0.3.0.md) ·
-[Visual assets and provenance](docs/SHOWCASE.md) ·
-[Project-page preview](docs/PROJECT_PAGE.md)
+[Visual assets and provenance](docs/RETARGETING_VISUAL.md)
 
 ## Open development
 
