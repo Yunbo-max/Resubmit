@@ -1,0 +1,80 @@
+{
+  "kind": "readme-presentation-checks",
+  "synthetic": true,
+  "browser_input": "In-memory local HTML/CSS/JS and compiled previews; not a public HTTP endpoint test",
+  "note": "Browser checks and controlled LaTeX renders, not scientific or agent-performance validation.",
+  "checks": [
+    "desktop-no-horizontal-overflow",
+    "before-after-buttons",
+    "explicit-play-pause",
+    "reduced-motion-no-autoplay",
+    "mobile-390px-no-horizontal-overflow"
+  ],
+  "browser_errors": [],
+  "external_asset_requests": [],
+  "inputs": {
+    "site/assets/demo.json": "fd5185a8ce3516ac6c25829725a6813aac2aeceed46da32d55f897129b8e5427",
+    "site/press.html": "21f789d27048d6ae09fe4c73f7f42c3d4a7202c887993e97e7b6254431a4b62d",
+    "site/press.css": "e42057d5367867320a82fff313faf3a23496841ec556df6055af42588fa5132b",
+    "site/press.js": "ece3cdf19fb620cb7bf5879d28720f4992e774e7c3eeb10303a5ac0683e12fd6",
+    "scripts/build_readme_media.py": "71fd00abeba3ede37f5eefde58ec473fb4bc2b9a97d4c1ec1a60d6adfb78caed"
+  },
+  "assets": {
+    "readme-cover.png": {
+      "sha256": "46c3ad3bc9c1363edb9fa781141b774da38b98f818feb4c042f83ec4a0ab7c08",
+      "bytes": 147044
+    },
+    "latex-revision-before.png": {
+      "sha256": "dfc6e4f9627575b2a34aa90887b0b29a8aad1b853933b617c310dd08f71e2d31",
+      "bytes": 174160
+    },
+    "latex-revision-after.png": {
+      "sha256": "ef91ba0a3d874b37cc08593774fca6b1e18ada14be9c54be3319620caa2414c7",
+      "bytes": 162346
+    },
+    "latex-revision-still.png": {
+      "sha256": "ef91ba0a3d874b37cc08593774fca6b1e18ada14be9c54be3319620caa2414c7",
+      "bytes": 162346
+    },
+    "latex-revision.gif": {
+      "sha256": "63f167915f9226b5cfce662841c34c3b9519d05c2fc4c9822078bb087bd8fd71",
+      "bytes": 179105
+    },
+    "project-desktop.png": {
+      "sha256": "515a827fa6b9baa13e0587bfb4812aa7a65b771fa93ca8d67da7fd518fd3c692",
+      "bytes": 394059
+    },
+    "project-mobile.png": {
+      "sha256": "555bd873169dbbf81dc7fb75cebf83ac485ceb425bfe75159a40eb33e5de6675",
+      "bytes": 286581
+    }
+  },
+  "demo": {
+    "before": {
+      "pdf_sha256": "809dc3a4a12e5eebc34545423ef57104f3eddcae09f5b7c7530f18226cfdd6b4",
+      "pages": 1,
+      "preview": "assets/demo-before.webp",
+      "cropped_preview": true,
+      "crop_pdf_points": [
+        119.76800537109375,
+        109.55300903320312,
+        491.5308532714844,
+        520.3458251953125
+      ]
+    },
+    "after": {
+      "pdf_sha256": "045b8c4d055fac92bd3c6135f5913c9f6686903cdb47c3f1b22951aa0bb7994c",
+      "pages": 1,
+      "preview": "assets/demo-after.webp",
+      "cropped_preview": true,
+      "crop_pdf_points": [
+        119.76800537109375,
+        109.55300903320312,
+        491.5473937988281,
+        570.3713989257812
+      ]
+    },
+    "synthetic": true,
+    "note": "Actual LaTeX renders of a controlled scope change; not a conference-template or agent benchmark."
+  }
+}
