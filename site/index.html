@@ -3,30 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ReSubmit is an open-source agent skill for LaTeX-native paper revision: scoped edits, evidence-linked tables, template migration and rendered PDF checks.">
+  <meta name="description" content="ReSubmit: open-source skills for host-LLM conference recommendations and LaTeX-native revision. Verify rankings and deadlines, predict fit, and preserve the science.">
   <meta name="theme-color" content="#173f35">
   <meta property="og:title" content="ReSubmit — Keep the science. Fix the paper.">
-  <meta property="og:description" content="A LaTeX-native revision skill for research agents. Edit, rebuild, compare, verify.">
+  <meta property="og:description" content="Choose a venue with your existing agent, then revise the LaTeX. No model training or separate prediction API.">
   <meta property="og:type" content="website">
-  <title>ReSubmit — LaTeX-native paper revision</title>
+  <title>ReSubmit — Conference recommendations and LaTeX revision</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <style>.venue-handoff{font-size:13px;color:var(--muted);margin:24px 0 0}@media(max-width:700px){.header nav>a[href="#venues"]{display:inline}.header nav>a[href="#workflow"],.header nav>a[href="#demo"]{display:none}}</style>
   <script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="header">
-  <a class="brand" href="#main" aria-label="ReSubmit home"><span class="brand-mark" aria-hidden="true">R<span>↗</span></span>ReSubmit<span class="version">v0.2.0</span></a>
-  <nav aria-label="Main navigation"><a href="#workflow">Workflow</a><a href="#demo">Demo</a><a href="#install">Install</a><a class="nav-repo" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference">GitHub <span aria-hidden="true">↗</span></a></nav>
+  <a class="brand" href="#main" aria-label="ReSubmit home"><span class="brand-mark" aria-hidden="true">R<span>↗</span></span>ReSubmit<span class="version">v0.3.0</span></a>
+  <nav aria-label="Main navigation"><a href="#venues">Venues</a><a href="#workflow">Workflow</a><a href="#demo">Demo</a><a href="#install">Install</a><a class="nav-repo" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference">GitHub <span aria-hidden="true">↗</span></a></nav>
 </header>
 <main id="main">
   <section class="hero wrap">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="dot"></span> Open-source agent skill · LaTeX-native</p>
+      <p class="eyebrow"><span class="dot"></span> Open-source Agent Skills · v0.3.0</p>
       <h1>Keep the science.<br><em>Fix the paper.</em></h1>
-      <p class="intro">From one stubborn caption to a different conference. Revise your existing LaTeX, preserve the evidence, and check the PDF you actually deliver.</p>
-      <div class="actions"><a class="button primary" href="#install">Get the skill <span aria-hidden="true">↗</span></a><a class="button secondary" href="#demo">See the revision <span aria-hidden="true">↓</span></a></div>
-      <p class="hero-note">One skill. Your agent. Your existing source files.</p>
+      <p class="intro">Find a fitting conference with your existing agent. Then revise your LaTeX, preserve the evidence, and check the PDF you actually deliver.</p>
+      <div class="actions"><a class="button primary" href="#install">Get the skills <span aria-hidden="true">↗</span></a><a class="button secondary" href="#demo">See the revision <span aria-hidden="true">↓</span></a></div>
+      <p class="hero-note">Two skills. Your existing LLM. No separate prediction service.</p>
     </div>
     <div class="hero-art" aria-label="Illustrative revision checklist, not a live manuscript editor">
       <div class="paper-sheet back" aria-hidden="true"></div>
@@ -41,6 +42,14 @@
     </div>
   </section>
   <div class="principles wrap"><span>Native tables, not screenshots.</span><span>Target templates, not style hacks.</span><span>Rendered checks, not promises.</span></div>
+  <section class="section wrap" id="venues">
+    <div class="section-head"><div><p class="eyebrow">NEW / Venue recommendations</p><h2>Your paper.<br>The right submission plan.</h2></div><p>The host model reads your manuscript and predicts suitability. Official facts stay separate from subjective judgments.</p></div>
+    <div class="workflow-grid">
+      <article class="path-card"><span class="path-label">VERIFY BEFORE RANKING</span><h3>Check the actual opportunity.</h3><p>CORE/ICORE and CCF, independently sourced. Exact edition, track and paper type. All mandatory deadlines, including abstract registration.</p><p>A high fit score cannot reopen a closed round. Unknown policies remain unknown.</p><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/skills/selecting-conference-venues/references/verification.md">Read the fact-checking contract ↗</a></article>
+      <article class="path-card dark"><span class="path-label">PREDICT WITH YOUR AGENT</span><h3>Get a primary. Understand the backups.</h3><p>Contribution fit, evidence readiness, likely reviewer concerns, revision burden and schedule feasibility—judged by the LLM you already use.</p><p>No model training. No separate API. Scores and outlooks are subjective, not calibrated acceptance probabilities.</p><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/skills/selecting-conference-venues/SKILL.md">Explore selecting-conference-venues ↗</a></article>
+    </div>
+    <p class="venue-handoff">Choose the venue → carry verified requirements into LaTeX revision. Already know your target? Go straight to the editing skill.</p>
+  </section>
   <section class="section wrap" id="workflow">
     <div class="section-head"><div><p class="eyebrow">01 / The workflow</p><h2>Small edit or full retarget.<br>Take the right path.</h2></div><p>Start with the manuscript you already have. Load only the modules the change actually needs.</p></div>
     <div class="workflow-grid">
@@ -55,10 +64,11 @@
 \input{closing}</code></pre><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/tree/main/examples/spacing-leak">Inspect and reproduce the sources ↗</a><p class="fine">A controlled formatting example—not an official conference template, scientific result or agent benchmark.</p></div><figure class="demo-view"><div class="viewer-bar"><span id="demo-filename">before.pdf</span><span>COMPILED PREVIEW</span></div><img id="demo-image" src="assets/demo-before.webp" width="614" height="678" alt="Before repair: table and subsequent body paragraphs remain in a smaller font." loading="lazy"><figcaption>Identical words and values. Different scope.</figcaption></figure></div>
   </div></section>
   <section class="section wrap" id="capabilities"><div class="section-head"><div><p class="eyebrow">03 / Built for revision</p><h2>The details are the work.</h2></div><p>Specialist guidance plus small inspection tools. Not another black-box paper generator.</p></div><div class="features"><article><span>01</span><h3>Tables that stay truthful</h3><p>Track cell provenance, missing values, comparable settings and rankings when rebuttal results change.</p></article><article><span>02</span><h3>Figures at the right width</h3><p>Redraw measured plots from data. Reflow editable diagrams for the target column, not just a smaller canvas.</p></article><article><span>03</span><h3>Style with an owner</h3><p>Separate template defaults from macro overrides, leaked settings and page-building effects.</p></article><article><span>04</span><h3>Writing grounded in evidence</h3><p>Keep claims compatible across the abstract, results, captions and conclusion. Local fixes stay local.</p></article><article><span>05</span><h3>Page limits without tricks</h3><p>Restructure first. Preserve readable text and essential evidence. Never alter official styles to squeeze pages.</p></article><article><span>06</span><h3>A verifiable handoff</h3><p>Compare source snapshots and rendered pages. Package allowed files—not the whole private workspace.</p></article></div></section>
-  <section class="install-section wrap" id="install"><div><p class="eyebrow">04 / Get started</p><h2>Bring your paper.<br>Keep your tools.</h2><p>Install the complete skill directory into your local agent. Python tools are optional helpers; the host supplies the model, filesystem and LaTeX compiler.</p><div class="install-options" role="group" aria-label="Agent installation options"><button type="button" data-agent="codex" aria-pressed="true">Codex</button><button type="button" data-agent="claude" aria-pressed="false">Claude Code</button></div><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/docs/INSTALL.md">Setup, updates and troubleshooting ↗</a></div><div class="terminal"><div class="terminal-head"><span>TERMINAL</span><button id="copy-install" type="button">Copy</button></div><pre><code id="install-command">git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git
+  <section class="install-section wrap" id="install"><div><p class="eyebrow">04 / Get started</p><h2>Bring your paper.<br>Keep your tools.</h2><p>Install either or both skills into your local agent. Your host supplies the LLM and browsing; LaTeX editing additionally uses its filesystem and compiler. Normal host usage costs apply.</p><div class="install-options" role="group" aria-label="Agent installation options"><button type="button" data-agent="codex" aria-pressed="true">Codex</button><button type="button" data-agent="claude" aria-pressed="false">Claude Code</button></div><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/docs/INSTALL.md">Setup, updates and troubleshooting ↗</a></div><div class="terminal"><div class="terminal-head"><span>TERMINAL</span><button id="copy-install" type="button">Copy</button></div><pre><code id="install-command">git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git
 cd Resubmit-to-a-different-conference
-python scripts/install_skill.py --agent codex</code></pre><p id="install-note">Copies to ~/.agents/skills/resubmitting-papers. Existing installations are never overwritten.</p><p id="copy-status" aria-live="polite"></p></div></section>
-  <section class="section wrap trust"><div><p class="eyebrow">05 / Know the boundaries</p><h2>Checks you can inspect.<br>Claims we will not make.</h2></div><div><p>The project includes deterministic tests and synthetic one- and two-column LaTeX fixtures. Read the validation records and CI results rather than treating a green check as proof of scientific correctness.</p><p>No acceptance guarantees. No fabricated experiments. No universal conference compatibility claim. This website does not accept manuscripts; your agent provider's privacy and compute policies still apply.</p><div class="link-row"><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml">CI ↗</a><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/docs/VALIDATION_v0.2.0.md">Validation ↗</a><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/CONTRIBUTING.md">Contribute ↗</a></div></div></section>
+python scripts/install_skill.py --agent codex --skill selecting-conference-venues
+python scripts/install_skill.py --agent codex --skill resubmitting-papers</code></pre><p id="install-note">Installs both skill folders under ~/.agents/skills/. Remove either command to install just one. Existing installations are never overwritten.</p><p id="copy-status" aria-live="polite"></p></div></section>
+  <section class="section wrap trust"><div><p class="eyebrow">05 / Know the boundaries</p><h2>Checks you can inspect.<br>Claims we will not make.</h2></div><div><p>The project includes deterministic tests and synthetic one- and two-column LaTeX fixtures. Read the validation records and CI results rather than treating a green check as proof of scientific correctness.</p><p>Model recommendations are not independently validated acceptance forecasts. No acceptance guarantees. No fabricated experiments. No universal conference compatibility claim. This website does not accept manuscripts; your agent provider's privacy and compute policies still apply.</p><div class="link-row"><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/actions/workflows/ci.yml">CI ↗</a><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/docs/VALIDATION_v0.3.0.md">Validation ↗</a><a class="text-link" href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference/blob/main/CONTRIBUTING.md">Contribute ↗</a></div></div></section>
 </main>
 <footer class="wrap"><a class="brand" href="#main">ReSubmit<span class="version">MIT licensed</span></a><p>Built by <a href="https://github.com/Yunbo-max">Yunbo Long</a>. For the work between submissions.</p><a href="https://github.com/Yunbo-max/Resubmit-to-a-different-conference">Source ↗</a></footer>
 </body>

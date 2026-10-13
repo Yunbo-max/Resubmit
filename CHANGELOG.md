@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 — 2026-10-13
+
+Added the independently installable `selecting-conference-venues` skill: host-LLM predictions, verified CORE/ICORE and CCF filters, submission-stage eligibility, subjective fit/readiness/outlook and a ReSubmit handoff. No model training or separate prediction service. The installer now supports `--skill` while preserving its original default and non-overwrite behavior. Updated the English README, website, setup and launch copy. LaTeX engine/helper code is unchanged.
+
 ## 0.2.0 — 2026-10-13
 
 English public-facing documentation and the ReSubmit display title; a responsive static project site; a reproducible LaTeX before/after demo; a non-overwriting installer; contribution, security, roadmap and citation files; issue templates; CI and opt-in GitHub Pages deployment. The installed skill name and existing LaTeX helper behavior are preserved. Website source readiness does not imply that Pages has been enabled.

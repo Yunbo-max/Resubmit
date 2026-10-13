@@ -9,6 +9,14 @@ Work in the existing `.tex` project. Preserve the evidence, scientific meaning
 and official template while changing only the requested source. This is a
 self-contained agent workflow with optional checks, not a background service.
 
+## Before choosing a template
+
+If the author has not selected a venue and asks where to submit, use
+`selecting-conference-venues` when installed, then return here with the selected
+edition/track, verified author kit, deadlines and revision priorities. A known-venue
+LaTeX edit does not trigger venue prediction. If the companion is absent, say so;
+do not claim it ran or silently install it.
+
 ## Choose the smallest operation
 
 | Request | Route |

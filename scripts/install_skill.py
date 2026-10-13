@@ -27,14 +27,16 @@ def main() -> int:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--agent', choices=('codex', 'claude'))
     group.add_argument('--destination', type=Path, help='Full destination skill directory')
+    parser.add_argument('--skill', choices=('resubmitting-papers', 'selecting-conference-venues'),
+                        default='resubmitting-papers', help='Skill to install (default: LaTeX editing)')
     args = parser.parse_args()
-    source = Path(__file__).resolve().parents[1] / 'skills/resubmitting-papers'
-    destination = args.destination or (Path.home() / ('.agents' if args.agent == 'codex' else '.claude') / 'skills/resubmitting-papers')
+    source = Path(__file__).resolve().parents[1] / 'skills' / args.skill
+    destination = args.destination or (Path.home() / ('.agents' if args.agent == 'codex' else '.claude') / 'skills' / args.skill)
     try:
         result = install(source, destination)
     except (OSError, ValueError) as exc:
         parser.exit(2, f'{exc}\n')
-    print(f'Installed files at {result}\nOpen a new agent session and verify that resubmitting-papers is discovered.')
+    print(f'Installed files at {result}\nOpen a new agent session and verify that {args.skill} is discovered.')
     return 0
 
 if __name__ == '__main__':
