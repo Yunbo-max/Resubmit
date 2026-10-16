@@ -8,17 +8,93 @@
 <p align="center"><strong>From your current manuscript to its next submission — with the agent you already use.</strong></p>
 
 <p align="center">
+  <a href="#quick-start"><strong>Get Started</strong></a> ·
+  <a href="#example-result"><strong>Example Outputs</strong></a> ·
   <a href="#workflow-in-motion">Workflow</a> ·
   <a href="#how-resubmit-compares">Comparison</a> ·
-  <a href="#quick-start">Quick start</a> ·
-  <a href="docs/INSTALL.md">Installation</a> ·
-  <a href="CONTRIBUTING.md">Contribute</a>
+  <a href="docs/INSTALL.md">Documentation</a>
 </p>
 
-**ReSubmit** is an MIT-licensed pair of Agent Skills for **paper-aware conference recommendations** and **native LaTeX revision**. Your existing agent can inspect a paper and author-visible reviews, reason with the appropriate scientific community, verify the actual venue opportunity, recommend a primary and backups, and help revise the paper and inspect its PDF.
+# Find the Right Venue. Revise the Paper.
 
-**No model training · No separate prediction API · No manuscript-upload website.** The host provides its own model, browsing, tools and applicable costs/policies.
+**One paper. Two Agent Skills. A connected workflow from conference recommendation and reviewer feedback to an updated LaTeX manuscript and inspected PDF.**
 
+<p align="center"><sub>Works with your existing Codex or Claude Code agent · MIT licensed · No separate prediction model to install</sub></p>
+
+<a id="quick-start"></a>
+## 🚀 Get Started — Install ReSubmit in Your Agent
+
+Install the two skills into Codex:
+
+```bash
+git clone https://github.com/Yunbo-max/Resubmit.git
+cd Resubmit
+
+python scripts/install_skill.py --agent codex --skill selecting-conference-venues
+python scripts/install_skill.py --agent codex --skill resubmitting-papers
+```
+
+**Claude Code:** replace `--agent codex` with `--agent claude`. You can install either skill separately. Existing installations are not silently overwritten. [Installation and update guide](docs/INSTALL.md).
+
+## What goes in → what comes out
+
+| **What you provide** | **What you receive** |
+|:--|:--|
+| **Your paper:** `main.tex`, bibliography, figures, tables or an existing PDF | **Venue shortlist:** paper-specific primary and backup venues, exact target tracks, sourced CORE/CCF information and deadlines |
+| **Your reviews:** reviewer comments, rebuttal and any verified new results | **Revision plan:** reviewer concern → evidence gap → proposed changes to specific sections, tables or figures |
+| **Your preferences:** target tier, time window, preferred field and available revision effort | **Revised LaTeX and PDF:** updated source, tables and figures, target-template adaptation, compile/layout checks and source package when the host has the necessary tools |
+
+**Two independent skills:** already picked a venue? Start directly with LaTeX revision. Need only venue recommendations? Run the selection skill without changing any manuscript files.
+
+## Try It — One Prompt, Three Deliverables
+
+### Copy this prompt
+
+```text
+Read my manuscript, available experimental results and previous reviews.
+
+1. Identify my research contribution and its best-fit community.
+2. Recommend one primary and two backup conferences. Check current
+   official CFPs, CORE/CCF rankings, relevant tracks and deadlines.
+3. Explain the major reviewer concerns and identify what existing
+   evidence answers them versus what remains unverified.
+4. Propose a concrete revision plan for the venue I select.
+5. After I approve, update my original LaTeX, tables and figures;
+   compile and inspect the resulting paper if the tools are available.
+
+Show the venue choices, reviewer-to-revision map and final file status.
+```
+
+<a id="example-result"></a>
+### Example result — what your agent can return
+
+*Illustrative output structure, not a live conference recommendation or an actual manuscript revision.*
+
+```text
+01  VENUE SHORTLIST
+    Primary   [venue / edition / track] — [why the paper fits]
+    Backup A  [venue / edition / track] — [trade-off]
+    Backup B  [venue / edition / track] — [trade-off]
+    Deadline / rank: [official sources and verification status]
+
+02  REVIEW → REVISION PLAN
+    R1  [reviewer concern] → [evidence / missing experiment]
+        → [target section, Table 2 or Figure 3]
+    R2  [reviewer concern] → [clarification or claim revision]
+    Priority: [work to complete before submission]
+
+03  REVISED PAPER (after you approve the target)
+    main.tex            updated scientific writing and references
+    tables/*.tex        verified result updates and formatting
+    figures/*           revised, source-backed figures
+    paper.pdf           compiled and visually inspected if available
+    source.zip          clean, allowlisted LaTeX submission package
+    Status              [completed / blocked / needs your review]
+```
+
+**[Conference recommendation template](skills/selecting-conference-venues/assets/report-template.md)** · **[Review-to-LaTeX revision template](skills/resubmitting-papers/assets/revision-plan-template.md)**
+
+<a id="workflow-in-motion"></a>
 ## How ReSubmit works — in motion
 
 The **first illustration introduces the project**. The second is its **actual workflow diagram** (a six-stage, directed process), not another before/after paper illustration.
@@ -98,30 +174,8 @@ and focused rebuttal/revision tools. [See what was adapted, credited and deliber
 K-Dense and other specialist skills are optional; install neither to use ReSubmit.
 A small LaTeX formatting fix still follows the short path.
 
-## Quick start
-
-```bash
-git clone https://github.com/Yunbo-max/Resubmit.git
-cd Resubmit
-
-python scripts/install_skill.py --agent codex --skill selecting-conference-venues
-python scripts/install_skill.py --agent codex --skill resubmitting-papers
-```
-
-For **Claude Code**, replace the agent argument with **claude**. Existing installations are never silently overwritten. [Setup and safe updates](docs/INSTALL.md).
-
-**Try this with your agent:**
-
-> Read my manuscript and previous reviews. Identify the research community and recommend one primary and two backup venues. Verify official CCF/CORE information and the upcoming CFP, including registration stages. Evaluate fit, reviewer risks, evidence gaps and revision burden with explicit uncertainty. After I select a target, help update the original LaTeX, results tables, figures and compiled PDF.
-
-## Evidence before promises
-
-Host-model predictions are **subjective judgments**, not calibrated acceptance probabilities. No automatic paper submission, fabricated experiments, unverified deadlines or prohibited changes to official templates. Helper tests and synthetic LaTeX examples do not prove scientific correctness, universal conference compatibility or improvements in acceptance rates.
-
-[Validation record](docs/VALIDATION_v0.3.0.md) · [Dependency graph](skills/resubmitting-papers/assets/workflow.json) · [Acknowledgements](docs/SOURCES.md) · [License](LICENSE)
-
 ## Open development
 
-[Contribute](CONTRIBUTING.md) · [Report an issue](https://github.com/Yunbo-max/Resubmit/issues/new/choose) · [Roadmap](docs/ROADMAP.md) · [Changelog](CHANGELOG.md) · [Citation](CITATION.cff)
+[Validation](docs/VALIDATION_v0.3.0.md) · [Contribute](CONTRIBUTING.md) · [Report an issue](https://github.com/Yunbo-max/Resubmit/issues/new/choose) · [Roadmap](docs/ROADMAP.md) · [Changelog](CHANGELOG.md) · [Citation](CITATION.cff)
 
 <p align="center"><sub>Built by <a href="https://github.com/Yunbo-max">Yunbo Long</a> · MIT Licensed · For the work between submissions.</sub></p>
