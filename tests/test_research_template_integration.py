@@ -94,7 +94,7 @@ class TemplateTests(unittest.TestCase):
         self.assertIn("report-template.md", s)
         self.assertIn("revision-plan-template.md", s)
         self.assertNotIn("docs/PROJECT_PAGE.md", s)
-        self.assertIn("workflow-animated.svg", s)
+        self.assertIn("workflow-manga-animated.svg", s)
         self.assertIn("Resubmit.git", s)
 
 if __name__ == "__main__":

@@ -18,8 +18,8 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("https://",data)
     def test_animation_and_fallback(self):
         main=(ROOT/"README.md").read_text()
-        animated=(ROOT/"docs/assets/workflow-animated.svg").read_text()
-        still=(ROOT/"docs/assets/workflow-still.svg").read_text()
+        animated=(ROOT/"docs/assets/workflow-manga-animated.svg").read_text()
+        still=(ROOT/"docs/assets/workflow-manga-still.svg").read_text()
         self.assertIn("workflow-manga-animated.svg",main)
         self.assertIn("workflow-manga-still.svg",main)
         self.assertIn("prefers-reduced-motion: reduce",main)
