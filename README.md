@@ -68,28 +68,34 @@ Show the venue choices, reviewer-to-revision map and final file status.
 <a id="example-result"></a>
 ### Example result — what your agent can return
 
-*Illustrative output structure, not a live conference recommendation or an actual manuscript revision.*
+*Hypothetical example: a long-context attention paper receives reviewer concerns about compute fairness. Venue names and deadlines are placeholders, not live recommendations; no experimental result is invented.*
 
 ```text
 01  VENUE SHORTLIST
-    Primary   [venue / edition / track] — [why the paper fits]
-    Backup A  [venue / edition / track] — [trade-off]
-    Backup B  [venue / edition / track] — [trade-off]
-    Deadline / rank: [official sources and verification status]
+    Primary   [Venue A / edition / main track]
+              Strong topic fit; compute-matched results still needed
+    Backup A  [Venue B / edition / track]
+              Better scope fit for efficient sequence modeling
+    Backup B  [Venue C / edition / track]
+              May require stronger systems measurements
+    CORE / CCF / deadlines: [official sources + verification status]
 
 02  REVIEW → REVISION PLAN
-    R1  [reviewer concern] → [evidence / missing experiment]
-        → [target section, Table 2 or Figure 3]
-    R2  [reviewer concern] → [clarification or claim revision]
-    Priority: [work to complete before submission]
+    R1  "Could the gains come from extra compute?"
+        → Find or run an authorized matched-FLOPs comparison
+        → Update Table 2 + the Results interpretation
+    R2  "Efficiency claims lack latency measurements."
+        → Verify available measured runtime and memory
+        → Add Figure 3 or narrow the efficiency claim
+    Unrun experiments stay marked PENDING.
 
 03  REVISED PAPER (after you approve the target)
-    main.tex            updated scientific writing and references
-    tables/*.tex        verified result updates and formatting
-    figures/*           revised, source-backed figures
-    paper.pdf           compiled and visually inspected if available
-    source.zip          clean, allowlisted LaTeX submission package
-    Status              [completed / blocked / needs your review]
+    main.tex       revised Methods, Results and citations
+    tables/*.tex   source-backed baseline comparisons
+    figures/*      target-width, editable/reproducible visuals
+    paper.pdf      compile + page-by-page checks, when available
+    source.zip     clean manuscript source package
+    Status         [completed / blocked / needs author review]
 ```
 
 **[Conference recommendation template](skills/selecting-conference-venues/assets/report-template.md)** · **[Review-to-LaTeX revision template](skills/resubmitting-papers/assets/revision-plan-template.md)**
