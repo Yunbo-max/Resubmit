@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 class WorkflowTests(unittest.TestCase):
     def test_svg_syntax_and_stage_names(self):
-        for asset in ("workflow-animated.svg","workflow-still.svg"):
+        for asset in ("workflow-manga-animated.svg","workflow-manga-still.svg"):
             data=(ROOT/"docs/assets"/asset).read_text(encoding="utf-8")
             tree=ET.fromstring(data)
             self.assertTrue(tree.tag.endswith("svg"))
@@ -20,11 +20,11 @@ class WorkflowTests(unittest.TestCase):
         main=(ROOT/"README.md").read_text()
         animated=(ROOT/"docs/assets/workflow-animated.svg").read_text()
         still=(ROOT/"docs/assets/workflow-still.svg").read_text()
-        self.assertIn("workflow-animated.svg",main)
-        self.assertIn("workflow-still.svg",main)
+        self.assertIn("workflow-manga-animated.svg",main)
+        self.assertIn("workflow-manga-still.svg",main)
         self.assertIn("prefers-reduced-motion: reduce",main)
         self.assertIn("prefers-reduced-motion:reduce",animated)
-        self.assertIn("@keyframes act0",animated)
+        self.assertIn("@keyframes focus0",animated)
         self.assertNotIn("@keyframes",still)
     def test_comparison_is_qualified(self):
         readme=(ROOT/"README.md").read_text()

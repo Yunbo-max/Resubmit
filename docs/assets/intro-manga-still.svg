@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 760" width="1440" height="760" role="img" aria-labelledby="ttl ds">
+<title id="ttl">ReSubmit — an illustrated introduction</title>
+<desc id="ds">Manga-inspired university researcher beside paper drafts and a laptop. ReSubmit helps an existing AI agent select a conference, incorporate reviews, revise source LaTeX and check a PDF. This is a conceptual illustration, not a live application.</desc>
+<defs>
+ <linearGradient id="paperbg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fcfbf6"/><stop offset=".57" stop-color="#f0f6ed"/><stop offset="1" stop-color="#e2eee4"/></linearGradient>
+ <linearGradient id="hoodie" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#799f83"/><stop offset="1" stop-color="#315f50"/></linearGradient>
+ <linearGradient id="skin" x1="0" y1="0" x2=".75" y2="1"><stop stop-color="#ffe4c8"/><stop offset="1" stop-color="#eeb79d"/></linearGradient>
+ <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#705044"/><stop offset="1" stop-color="#312c32"/></linearGradient>
+ <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="13" stdDeviation="17" flood-color="#2e493a" flood-opacity=".17"/></filter>
+ <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="21"/></filter>
+</defs>
+<style>
+  .title{font-family:Georgia,serif;fill:#12392e}
+  .sans{font-family:Arial,Helvetica,sans-serif}
+  .ink{stroke:#3f4542;stroke-linejoin:round;stroke-linecap:round}
+  .paperfloat{animation:none;transform-origin:1105px 315px}
+  .stars{animation:none;transform-origin:center}
+  .star2{animation:none;transform-origin:690px 170px}
+  .blink{animation:none;transform-origin:center}
+  
+  
+  
+  
+  @media(prefers-reduced-motion:reduce){.paperfloat,.stars,.star2,.plane,.blink{animation:none!important}}
+</style>
+<rect x="1.5" y="1.5" width="1437" height="757" rx="25" fill="url(#paperbg)" stroke="#c6decf" stroke-width="2"/>
+<rect width="1440" height="8" rx="4" fill="#174b3b"/>
+<!-- subtle botanical background -->
+<path d="M1425 120 Q1350 170 1390 300 M1380 190 Q1315 128 1250 162 M1392 250 Q1462 200 1431 154" fill="none" stroke="#b3d0b8" stroke-width="4" opacity=".55"/>
+<ellipse cx="1160" cy="687" rx="354" ry="40" fill="#bad1bf" opacity=".25" filter="url(#soft)"/>
+<g class="sans" fill="#286049">
+ <circle cx="78" cy="48" r="6" fill="#208959"/><text x="95" y="53" font-size="15" font-weight="700" letter-spacing="3.1">OPEN-SOURCE RESEARCH AGENT SKILLS</text>
+</g>
+<text x="76" y="202" class="title" font-size="121" letter-spacing="-6">Re<tspan fill="#187e54">Submit</tspan></text>
+<g class="plane"><path d="M674 91 L736 72 L705 143 L694 113 Z" fill="#daedda" stroke="#246449" stroke-width="4" stroke-linejoin="round"/><path d="M694 113 L736 72 L684 103" fill="none" stroke="#246449" stroke-width="4"/></g>
+<path d="M85 223 C248 250 422 240 605 215" fill="none" stroke="#92bba5" stroke-width="4" stroke-linecap="round"/>
+<text x="78" y="285" class="title" font-size="39">Find the right venue.</text>
+<text x="78" y="337" class="title" font-size="39">Keep the science. <tspan font-style="italic" fill="#1b825b">Fix the paper.</tspan></text>
+<text x="80" y="389" class="sans" fill="#5b6b61" font-size="23">From reviewer feedback to your next submission.</text>
+<text x="80" y="422" class="sans" fill="#5b6b61" font-size="23">Powered by the agent you already use.</text>
+<!-- intro features -->
+<g class="sans" font-weight="600" font-size="21">
+ <g transform="translate(83 468)"><rect width="304" height="51" rx="25" fill="#fff" stroke="#c8ddd0"/><circle cx="28" cy="25" r="14" fill="#d5eddb"/><path d="M22 25 l5 5 l10 -12" stroke="#257850" stroke-width="3.4" fill="none"/><text x="54" y="32" fill="#335347">Venue + deadline checks</text></g>
+ <g transform="translate(83 530)"><rect width="304" height="51" rx="25" fill="#fff" stroke="#c8ddd0"/><circle cx="28" cy="25" r="14" fill="#d5eddb"/><path d="M22 25 l5 5 l10 -12" stroke="#257850" stroke-width="3.4" fill="none"/><text x="54" y="32" fill="#335347">Rebuttal-aware revision</text></g>
+ <g transform="translate(83 592)"><rect width="304" height="51" rx="25" fill="#fff" stroke="#c8ddd0"/><circle cx="28" cy="25" r="14" fill="#d5eddb"/><path d="M22 25 l5 5 l10 -12" stroke="#257850" stroke-width="3.4" fill="none"/><text x="54" y="32" fill="#335347">LaTeX + PDF inspection</text></g>
+</g>
+<text x="85" y="703" class="sans" fill="#778c79" font-size="15" letter-spacing="1.5">TWO FOCUSED SKILLS   •   NO MODEL TRAINING   •   AUTHOR-IN-CONTROL</text>
+<!-- magazine manga desk composition -->
+<g transform="translate(746 25)">
+ <g opacity=".62" transform="rotate(-8 405 365)"><rect x="204" y="100" width="411" height="510" rx="19" fill="#dae9dc" stroke="#a9cdb5" stroke-width="3"/></g>
+ <!-- paper sheet -->
+ <g class="paperfloat" filter="url(#shadow)">
+  <g transform="rotate(7 424 325)">
+  <rect x="250" y="89" width="340" height="474" rx="13" fill="#fffefa" stroke="#98ad9f" stroke-width="2"/>
+  <rect x="272" y="113" width="298" height="28" rx="6" fill="#e2efe5"/>
+  <text x="287" y="132" class="sans" font-size="13" letter-spacing="1.7" fill="#47715a">REVISED MANUSCRIPT</text>
+  <text x="291" y="172" class="title" font-size="29">A stronger submission</text>
+  <path d="M294 187 H550" stroke="#b4c5b8" stroke-width="2"/>
+  <g stroke="#bdccc0" stroke-width="7" stroke-linecap="round">
+   <path d="M292 218 H546 M292 237 H525 M292 256 H548 M292 275 H500"/>
+  </g>
+  <rect x="291" y="304" width="259" height="115" rx="7" fill="#f1f7f1" stroke="#c4d8c9"/>
+  <path d="M311 387 L368 367 L408 375 L455 336 L529 325" stroke="#287c54" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M310 344 L360 358 L411 343 L466 351 L528 333" stroke="#a3baaa" stroke-width="3" stroke-dasharray="6 7" fill="none"/>
+  <g stroke="#d3ddd5" stroke-width="6" stroke-linecap="round"><path d="M295 451 H548 M295 472 H539 M295 493 H510 M295 514 H539"/></g>
+  </g>
+ </g>
+ <!-- paper pile -->
+ <g class="ink" stroke-width="2" fill="#fdfcf8">
+ <path d="M102 593 L420 584 L451 618 L115 638 Z"/>
+ <path d="M97 613 L422 602 L455 641 L103 651 Z"/>
+ <path d="M90 630 L433 619 L464 659 L99 668 Z"/>
+ </g>
+ <!-- hair behind -->
+ <path d="M95 260 Q82 139 185 115 Q268 70 340 168 Q382 204 351 285 L375 453 Q296 512 210 487 Q96 513 64 412 Z" fill="url(#hair)" class="ink" stroke-width="4"/>
+ <path d="M160 147 Q100 161 109 266 Q77 346 89 392" fill="none" stroke="#b28a71" stroke-width="5" opacity=".6"/>
+ <!-- hoodie shoulders -->
+ <path d="M82 620 Q61 521 135 457 L177 437 L310 439 Q388 457 420 548 L436 700 L42 706 Z" fill="url(#hoodie)" class="ink" stroke-width="4"/>
+ <path d="M143 492 Q186 573 234 568 Q290 569 335 492" fill="none" stroke="#afd0ad" stroke-width="8" opacity=".6"/>
+ <path d="M160 453 L188 522 L225 550 L249 520 L298 449" fill="#e6eadc" stroke="#537665" stroke-width="4"/>
+ <!-- neck -->
+ <path d="M185 423 L186 462 Q211 489 246 463 L246 424" fill="url(#skin)" class="ink" stroke-width="3"/>
+ <!-- face -->
+ <path d="M124 257 Q135 190 207 172 Q292 179 318 268 Q342 346 295 412 Q239 463 180 436 Q108 389 107 311 Z" fill="url(#skin)" class="ink" stroke-width="4"/>
+ <ellipse cx="126" cy="333" rx="18" ry="27" fill="#f7cfb3" stroke="#62463e" stroke-width="3"/>
+ <ellipse cx="325" cy="337" rx="15" ry="24" fill="#eac0a7" stroke="#62463e" stroke-width="3"/>
+ <!-- front bangs -->
+ <path d="M117 274 Q89 163 178 145 Q250 111 292 164 Q350 199 320 279 Q292 269 267 211 Q256 278 239 281 Q224 260 212 224 Q207 283 181 292 Q168 268 167 231 Q152 294 117 298Z" fill="url(#hair)" class="ink" stroke-width="3.3"/>
+ <path d="M124 221 Q148 155 209 153 M244 160 Q304 175 319 234" stroke="#a57c68" stroke-width="5" fill="none" opacity=".6"/>
+ <!-- eyes -->
+ <g class="blink"><path d="M146 334 Q170 311 195 333 Q179 361 152 349 Z" fill="#fff" stroke="#57413b" stroke-width="3"/>
+ <ellipse cx="176" cy="336" rx="11" ry="17" fill="#8b614e"/><ellipse cx="177" cy="338" rx="6" ry="11" fill="#262a2b"/><circle cx="171" cy="328" r="4" fill="#fff"/>
+ <path d="M239 334 Q263 308 285 332 Q268 357 242 349 Z" fill="#fff" stroke="#57413b" stroke-width="3"/>
+ <ellipse cx="266" cy="336" rx="11" ry="16" fill="#8b614e"/><ellipse cx="267" cy="339" rx="6" ry="10" fill="#262a2b"/><circle cx="262" cy="328" r="4" fill="#fff"/></g>
+ <path d="M150 315 Q173 303 192 315 M242 315 Q262 302 282 314" stroke="#4a3534" fill="none" stroke-width="5" stroke-linecap="round"/>
+ <path d="M217 342 l-5 12 l7 2" fill="none" stroke="#ba8375" stroke-width="3"/>
+ <path d="M200 391 Q225 412 252 386" fill="none" stroke="#813f41" stroke-width="4" stroke-linecap="round"/>
+ <ellipse cx="148" cy="378" rx="25" ry="12" fill="#ea978e" opacity=".46"/><ellipse cx="286" cy="374" rx="25" ry="11" fill="#ea978e" opacity=".45"/>
+ <!-- small arm holding pen -->
+ <path d="M371 573 Q390 538 377 514 L344 481 Q334 471 326 480 L340 509 L312 501 Q302 499 300 511 Q292 520 308 530 L352 576" fill="url(#skin)" class="ink" stroke-width="3.3"/>
+ <path d="M305 513 l75 -73" stroke="#173c3a" stroke-width="9" stroke-linecap="round"/>
+ <path d="M381 438 l11 -14" stroke="#8aaead" stroke-width="7" stroke-linecap="round"/>
+ <!-- sleeve -->
+ <path d="M337 544 Q348 584 372 603 L408 577 L383 530" fill="#56836d" class="ink" stroke-width="4"/>
+</g>
+<!-- expressive comic sparkles -->
+<g class="stars" stroke="#eca951" stroke-width="5" stroke-linecap="round" fill="none"><path d="M792 117 l-9 -30 M820 122 l16 -29 M823 153 l30 -7"/></g>
+<g class="star2" transform="translate(1302 572)" fill="#ffca72" stroke="#b78532" stroke-width="2"><path d="M0-23 Q4-3 22 0 Q4 4 0 23 Q-4 4 -22 0 Q-4-3 0-23Z"/></g>
+<g transform="translate(1165 646)" class="sans"><rect x="0" y="0" width="214" height="55" rx="17" fill="#d5ebd5" stroke="#abd0b7"/><text x="19" y="25" font-size="17" fill="#245b41" font-weight="700">Same research.</text><text x="19" y="45" font-size="16" fill="#245b41">A stronger next draft.</text></g>
+</svg>

@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="docs/assets/readme-cover.png" width="100%" alt="ReSubmit — Find the venue. Keep the science. Fix the paper.">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/intro-manga-still.svg">
+    <img src="docs/assets/intro-manga.svg" width="100%" alt="Manga-inspired project introduction for ReSubmit: a researcher working with manuscripts and an agent workflow for conference selection, rebuttal-aware LaTeX revision and PDF inspection.">
+  </picture>
 </p>
 
 <p align="center"><strong>From your current manuscript to its next submission — with the agent you already use.</strong></p>
@@ -16,14 +19,16 @@
 
 **No model training · No separate prediction API · No manuscript-upload website.** The host provides its own model, browsing, tools and applicable costs/policies.
 
-## Workflow in motion
+## How ReSubmit works — in motion
+
+The **first illustration introduces the project**. The second is its **actual workflow diagram** (a six-stage, directed process), not another before/after paper illustration.
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/workflow-still.svg">
-  <img src="docs/assets/workflow-animated.svg" alt="Six-step ReSubmit workflow: read paper and reviews, route by scientific discipline, verify CORE/CCF and official CFP deadlines, predict paper-specific venue fit, revise original LaTeX with evidence-linked tables and figures, and inspect the compiled PDF." width="100%">
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/workflow-manga-still.svg">
+  <img src="docs/assets/workflow-manga-animated.svg" alt="Manga-inspired six-stage workflow diagram. Paper and Reviews → Discipline Routing → Verify the Venue → Recommend Venues → Revise in LaTeX → Audit and Package. Arrows connect the stages, and the active stage highlights sequentially." width="100%">
 </picture>
 
-**One end-to-end handoff, not six disconnected prompts.** The animation highlights each stage in sequence. It is a *schematic illustration of the documented skill workflow*, not a live agent recording, official conference calendar or acceptance-rate prediction.
+**One end-to-end handoff, not six disconnected prompts.** Follow the numbered arrows from the manuscript and previous reviews through the venue choice and LaTeX/PDF checks. The animation highlights each stage in sequence. It is a *schematic illustration of the documented skill workflow*, not a live agent recording, official conference calendar or acceptance-rate prediction.
 
 <details>
 <summary><strong>What happens at each stage?</strong></summary>
@@ -35,7 +40,9 @@
 5. **Revise:** After author approval, reconcile rebuttal updates with experimental sources, change native tables and plots, adapt official LaTeX templates and improve evidence-grounded writing.
 6. **Audit:** Compile, compare rendered pages, verify counted length and style, then prepare a clean PDF/source ZIP for the author's final review.
 
-Venue selection is optional if the target is already known. A local format fix need not rerun the full pipeline.
+Venue selection is optional if the target is already known. A local format fix need not rerun the full pipeline. Both illustrations have reduced-motion alternatives; if a GitHub client does not animate SVG, the full flow remains visible.
+
+[Design and accessibility notes](docs/VISUAL_DESIGN.md).
 
 </details>
 
