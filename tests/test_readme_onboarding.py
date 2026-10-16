@@ -15,7 +15,7 @@ class ReadmeOnboardingTests(unittest.TestCase):
         self.assertIn("What you provide",DOC)
         self.assertIn("What you receive",DOC)
         self.assertIn("Example result",DOC)
-        self.assertIn("illustrative",DOC.lower())
+        self.assertIn("hypothetical",DOC.lower())
     def test_actual_install_commands(self):
         self.assertIn("git clone https://github.com/Yunbo-max/Resubmit.git",DOC)
         self.assertIn("cd Resubmit",DOC)
