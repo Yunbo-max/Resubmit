@@ -44,7 +44,9 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("https://github.com/Yunbo-max/Resubmit.git",content)
             self.assertNotIn("Resubmit-to-a-different-conference",content)
     def test_version_consistency(self):
-        for p in ("VERSION","skills/selecting-conference-venues/VERSION",
+        expected=(ROOT/"VERSION").read_text().strip()
+        self.assertRegex(expected,r"^\d+\.\d+\.\d+$")
+        for p in ("skills/selecting-conference-venues/VERSION",
                   "skills/resubmitting-papers/VERSION"):
-            self.assertEqual((ROOT/p).read_text().strip(),"0.3.1")
+            self.assertEqual((ROOT/p).read_text().strip(),expected)
 if __name__=="__main__":unittest.main()

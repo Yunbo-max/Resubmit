@@ -14,7 +14,7 @@ def text(path):
 class SkillStructureTests(unittest.TestCase):
     def test_consistent_skills_metadata(self):
         version = text(ROOT / "VERSION").strip()
-        self.assertEqual(version, "0.3.2")
+        self.assertRegex(version, r"^\d+\.\d+\.\d+$")
         for skill in (SELECT, REVISE):
             content = text(skill / "SKILL.md")
             self.assertIn("name:", content)
@@ -22,7 +22,7 @@ class SkillStructureTests(unittest.TestCase):
             self.assertIn("license: MIT", content)
             self.assertIn("compatibility:", content)
             self.assertIn("metadata:", content)
-            self.assertIn("version: \"0.3.2\"", content)
+            self.assertIn(f'version: "{version}"', content)
             self.assertEqual(text(skill / "VERSION").strip(), version)
 
     def test_local_skill_links_resolve(self):
