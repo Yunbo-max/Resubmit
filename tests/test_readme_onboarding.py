@@ -33,7 +33,7 @@ class ReadmeOnboardingTests(unittest.TestCase):
         self.assertNotIn("docs/PROJECT_PAGE.md",DOC)
     def test_explicit_prompt_and_outputs(self):
         self.assertIn("Copy this prompt",DOC)
-        self.assertIn("Venue shortlist",DOC)
+        self.assertIn("Publication shortlist",DOC)
         self.assertIn("Revision plan",DOC)
         self.assertIn("Revised LaTeX",DOC)
 if __name__=="__main__": unittest.main()
