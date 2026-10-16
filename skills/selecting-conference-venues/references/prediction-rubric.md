@@ -82,3 +82,17 @@ Lead with an actual choice and concise evidence-backed reasons. Then show the in
 axes, current eligibility, relative outlook, source-linked facts, main objections,
 required work and exclusions. Keep the detailed report optional when the user requests
 only a short answer. No mandatory JSON, training data, services or helper scripts.
+
+## Journal fit and career timing
+
+For a rolling journal there is not necessarily a fixed submission
+deadline. Evaluate manuscript readiness, journal-specific article type,
+scope, evidence and ethical policy, and **separately** whether the
+author needs submission, acceptance, online publication or indexing by
+an institutional date. A publisher's first-decision metric cannot
+guarantee acceptance or time-to-publication.
+
+AJG 4*, ABDC A*, updated 2026 FT50 membership, JCR Q1 and
+historical CAS partition 1 are **not interchangeable scores**.
+Use independently verified institutional thresholds as eligibility
+facts, not the host LLM's impression of paper quality.

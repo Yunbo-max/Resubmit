@@ -1,4 +1,4 @@
-# Discipline-aware conference routing
+# Discipline-aware publication routing
 
 This is guidance for the host LLM, not a trained classifier, an automatically installed tool, a medical device or a domain correctness guarantee. Read this when a manuscript combines disciplines or has a non-ML scientific contribution.
 
@@ -51,3 +51,17 @@ scientific contribution, and separate: observed paper evidence, scientific
 practice references, current official CFP/ranks, model-inferred fit, and missing
 information. The current target venue is always the deciding official source for
 submission requirements.
+
+## Business and other journal communities
+
+Business/management journals can demand theory, identification or causal
+assumptions, archival/qualitative rigor and practical implications.
+Finance, accounting and economics may prioritize econometric design and
+uncertainty. Information systems and operations management may demand
+empirical, systems or analytic validation. Select only appropriate checks.
+
+For journals, the article type, editorial audience, ISSN and current
+author instructions matter. See [ranking-systems.md](ranking-systems.md)
+for historical CAS, JCR, AJG, ABDC and FT50 differences and
+[journal-timing.md](journal-timing.md) for rolling vs Special Issue windows.
+Do not claim a K-Dense specialist procedure has run unless it actually ran.

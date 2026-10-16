@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-<p align="center"><strong>From your current manuscript to its next submission — with the agent you already use.</strong></p>
+<p align="center"><strong>From your manuscript to its best-fit journal or conference — with the agent you already use.</strong></p>
 
 <p align="center">
   <a href="#quick-start"><strong>Get Started</strong></a> ·
@@ -17,7 +17,7 @@
 
 # Every Thoughtful Paper Deserves the Right Venue.
 
-**We believe every carefully developed paper deserves the chance to find its best-fit research community.** ReSubmit helps your agent explore venues, turn reviewer feedback into a revision plan, and prepare the next LaTeX submission.
+**We believe every carefully developed paper deserves the chance to find its best-fit research community.** ReSubmit helps your agent explore journals, conferences and special issues, turn reviewer feedback into a revision plan, and prepare the next LaTeX submission.
 
 <p align="center"><sub>Works with your existing Codex or Claude Code agent · MIT licensed · No separate prediction model to install</sub></p>
 
@@ -40,9 +40,9 @@ python scripts/install_skill.py --agent codex --skill resubmitting-papers
 
 | **What you provide** | **What you receive** |
 |:--|:--|
-| **Your paper:** `main.tex`, bibliography, figures, tables or an existing PDF | **Venue shortlist:** paper-specific primary and backup venues, exact target tracks, sourced CORE/CCF information and deadlines |
+| **Your paper:** `main.tex`, bibliography, figures, tables or an existing PDF | **Publication shortlist:** paper-specific journals or conferences, relevant institutional ratings (historical CAS / JCR / AJG / ABDC / FT50 / CORE / CCF), live CFPs or journal regular-submission status |
 | **Your reviews:** reviewer comments, rebuttal and any verified new results | **Revision plan:** reviewer concern → evidence gap → proposed changes to specific sections, tables or figures |
-| **Your preferences:** target tier, time window, preferred field and available revision effort | **Revised LaTeX and PDF:** updated source, tables and figures, target-template adaptation, compile/layout checks and source package when the host has the necessary tools |
+| **Your preferences:** institution/business school, evaluation system, journal vs conference, promotion/graduation deadline, preferred field and revision budget | **Revised LaTeX and PDF:** updated source, tables and figures, target-template adaptation, compile/layout checks and source package when the host has the necessary tools |
 
 **Two independent skills:** already picked a venue? Start directly with LaTeX revision. Need only venue recommendations? Run the selection skill without changing any manuscript files.
 
@@ -54,8 +54,10 @@ python scripts/install_skill.py --agent codex --skill resubmitting-papers
 Read my manuscript, available experimental results and previous reviews.
 
 1. Identify my research contribution and its best-fit community.
-2. Recommend one primary and two backup conferences. Check current
-   official CFPs, CORE/CCF rankings, relevant tracks and deadlines.
+2. Recommend one primary and two backup journal or conference opportunities.
+   Verify the ranking system my institution uses (e.g. historical CAS,
+   JCR, AJG, ABDC, FT50 or CORE/CCF). Check official conference
+   deadlines or journal rolling/Special Issue status separately.
 3. Explain the major reviewer concerns and identify what existing
    evidence answers them versus what remains unverified.
 4. Propose a concrete revision plan for the venue I select.
@@ -71,14 +73,15 @@ Show the venue choices, reviewer-to-revision map and final file status.
 *Hypothetical example: a long-context attention paper receives reviewer concerns about compute fairness. Venue names and deadlines are placeholders, not live recommendations; no experimental result is invented.*
 
 ```text
-01  VENUE SHORTLIST
+01  JOURNAL / CONFERENCE SHORTLIST
     Primary   [Venue A / edition / main track]
               Strong topic fit; compute-matched results still needed
     Backup A  [Venue B / edition / track]
               Better scope fit for efficient sequence modeling
     Backup B  [Venue C / edition / track]
               May require stronger systems measurements
-    CORE / CCF / deadlines: [official sources + verification status]
+    Rankings / journal status / conference deadlines:
+    [institution scheme, version, official sources + Unknowns]
 
 02  REVIEW → REVISION PLAN
     R1  "Could the gains come from extra compute?"
@@ -101,6 +104,29 @@ Show the venue choices, reviewer-to-revision map and final file status.
 **[Conference recommendation template](skills/selecting-conference-venues/assets/report-template.md)** · **[Review-to-LaTeX revision template](skills/resubmitting-papers/assets/revision-plan-template.md)**
 
 <a id="workflow-in-motion"></a>
+## Publish Across Disciplines — and Evaluation Systems
+
+ReSubmit matches the **paper, the publishing channel and the researcher's
+actual institutional criteria**, not a single universal prestige score.
+Ask it to compare conferences, regular journal articles or a named
+Special Issue; it will check each opportunity independently.
+
+| Researcher's context | Sources the agent may need to verify | Timing question |
+|---|---|---|
+| **CS / AI conference** | CCF, CORE/ICORE, official CFP and track | Earliest mandatory registration and full-paper deadline |
+| **Chinese institution / journal** | Institution's policy; historical official CAS partitions **through 2025**, JCR and subject/indexing data | Is the journal's regular route open or is this a dated Special Issue? |
+| **Global journal / STEM** | JCR quartile **by subject and year**, Scopus CiteScore percentile, publisher instructions | Rolling manuscript route, named CFP, editorial metrics vs career deadline |
+| **Business / management school** | AJG 2024, ABDC 2025, FT50 **2026 membership**, school-specific policy | Journal acceptance / publication horizon vs conference/special issue cutoff |
+| **UK institutional assessment** | Institution/funder OA rules; REF 2029 output policies (not a journal grade) | Submission, accepted-online, publication/indexing requirements |
+
+**Important:** The Chinese Academy of Sciences National Science Library
+[discontinued updated journal partition releases from 2026](https://las.cas.cn/news/tzgg/202603/t20260327_8178738.html).
+A university may still recognize a historical version. Ratings cannot
+be converted across systems, and nationality alone does not determine
+institution policy. [Ranking and source guidance](skills/selecting-conference-venues/references/ranking-systems.md)
+· [Journal versus conference timing](skills/selecting-conference-venues/references/journal-timing.md)
+· [Institution profile](skills/selecting-conference-venues/references/institution-profile.md).
+
 ## How ReSubmit works — in motion
 
 The **first illustration tells the journey from rejection to finding a better-fit venue**. The second is its **actual workflow diagram** (a six-stage, directed process), not another before/after paper illustration.
@@ -134,8 +160,8 @@ These open-source projects provide important pieces. Among the repositories insp
 
 | Documented workflow | **ReSubmit** | [CCFDDL](https://github.com/ccfddl/ccf-deadlines) | [K-Dense](https://github.com/K-Dense-AI/scientific-agent-skills) | [Venue targeting](https://github.com/lengmo1996/VibeResearch-skills) | [Rebuttal-Skill](https://github.com/TobiasLee/Rebuttal-Skill) | [Paper revision](https://github.com/lachlanchen/paper-revision-skill) |
 |:--|:--:|:--:|:--:|:--:|:--:|:--:|
-| CORE/CCF and deadline verification | ✓ | ✓ | — | ◐ | — | — |
-| Discipline-specific scientific procedures | ◐ | — | ✓ | ◐ | ◐ | ◐ |
+| Conference rankings / deadline verification | ✓ | ✓ | — | ◐ | — | — |
+| Field-aware journal/conference routing (not specialist computations) | ✓ | — | ◐ | ◐ | ◐ | ◐ |
 | Paper-specific primary / backup venue | ✓ | — | — | ✓ | ◐ | — |
 | Reviewer concerns → revision plan | ✓ | — | ◐ | ◐ | ✓ | ✓ |
 | Native LaTeX layout, tables and figures | ✓ | — | ◐ | — | — | ✓ |
@@ -148,7 +174,7 @@ These open-source projects provide important pieces. Among the repositories insp
 
 | Need | Skill | Result |
 |---|---|---|
-| **Which venue next?** | [selecting-conference-venues](skills/selecting-conference-venues/SKILL.md) | Actual constraints, field-aware fit judgments, primary and backups, explicit revision handoff |
+| **Which journal or conference next?** | [selecting-conference-venues](skills/selecting-conference-venues/SKILL.md) | Actual constraints, field-aware fit judgments, primary and backups, explicit revision handoff |
 | **Improve or retarget a paper** | [resubmitting-papers](skills/resubmitting-papers/SKILL.md) | Source-preserving LaTeX edits, review-linked table and figure revisions, template adaptation, rendered-PDF checks |
 
 [Field-aware routing](skills/selecting-conference-venues/references/discipline-routing.md) is optional guidance for interdisciplinary papers. It is not a trained scientific classifier.
@@ -171,7 +197,7 @@ of requiring the agent to invent its own record format each time.
 
 | Task | Reusable template | Records |
 |---|---|---|
-| **Compare venues for one paper** | [Conference recommendation report](skills/selecting-conference-venues/assets/report-template.md) | Discipline/claim profile, official CORE/CCF/CFP sources, eligibility, subjective fit, primary/backups, missing evidence and author-approved handoff |
+| **Compare journals and conferences for one paper** | [Conference recommendation report](skills/selecting-conference-venues/assets/report-template.md) | Discipline/claim profile, institutional rankings, journal routes and official CFP sources, eligibility, subjective fit, primary/backups, missing evidence and author-approved handoff |
 | **Revise a rejected or retargeted paper** | [Review-to-LaTeX revision plan](skills/resubmitting-papers/assets/revision-plan-template.md) | Concern IDs, rebuttal promises versus verified data, editable tables/figures, allowed source changes, scientific and PDF validation |
 
 The templates borrow **practical workflow principles**, not copied code, from

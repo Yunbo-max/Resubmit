@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 — 2026-10-16
+
+Extended the existing host-LLM selecting-conference-venues skill to journal regular and Special Issue submissions across research disciplines, including relevant institutional evaluation contexts. Added historically scoped CAS partitions (official updates discontinued from 2026), JCR/Scopus, business-school AJG/ABDC/FT50 membership, and separate conference vs journal submission/time-to-publication rules. Added official-source references, institutional context policy, hypothetical journal example, expanded report and LaTeX handoff. No bundled proprietary ranking data, external model, or guaranteed journal coverage.
+
+
 ## 0.3.2 — 2026-10-16
 
 Added K-Dense-style progressive specialist guidance, provenance/authorization checks, and structured private templates for venue recommendation and reviewer-concern-to-LaTeX revision. Integrates prior rebuttal triage and controlled revision best practices while preserving ReSubmit's two skill entry points and DAG. Updated skill metadata, optional domain QA, cross-venue/rebuttal report templates, source attributions, and fixed the project-site install path. No third-party skill code imported or model trained.

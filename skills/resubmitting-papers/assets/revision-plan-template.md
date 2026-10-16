@@ -6,7 +6,9 @@
 
 - **Revision mode:** [latex-edit / layout-only / rebuttal-update / retarget / full-revision]
 - **Paper version and immutable baseline:** [main file, commit/hash, baseline PDF hash and date]
-- **Target:** [venue, edition, track, article type; approved or still provisional]
+- **Target:** [Journal title/ISSN + regular or Special Issue + article type; OR conference venue/edition/track/round; approved or provisional]
+- **Institutional evaluation:** [school/business school, user-selected rank scheme/year and verified policy, submission vs acceptance vs publication/indexing date if material]
+- **Verified time status:** [conference compulsory stages; journal rolling-verified, named CFP, invite-only or Unknown]
 - **Verified official kit:** [source URL and checked date; template hash; or Unknown]
 - **Discipline:** [contribution type, intended audience, relevant reporting norms; optional specialist consultation if authorized]
 - **Allowed edits:** [exact files/sections/figures/tables and rationale]

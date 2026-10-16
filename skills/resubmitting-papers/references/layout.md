@@ -49,3 +49,22 @@ Use inspect → diagnose → one bounded repair → compile → inspect. Preserv
 ## Versioned visual review
 
 Inspect all pages after the first assembled target draft and the final release. After a local change, inspect affected pages and propagated float pages; final approval must cover every page of the exact PDF hash. Saved approval for an earlier PDF cannot approve a later PDF. Preview contact sheets help navigation but do not replace checking dense tables and figures at readable resolution.
+
+
+## Journal manuscript source and layout
+
+Check the journal **author guide, accepted article type, publisher
+source-file requirements and current revision stage**. Some journals
+accept initial PDF/Word/LaTeX formats flexibly; others prescribe style,
+structured abstract, manuscript length, figure/table file formats,
+references, ethics forms, graphical abstract, OA licensing or cover letter.
+Do not assume a conference two-column template or impose an article
+class on a journal whose author instructions differ.
+
+For regular journal vs Special Issue, the scientific evaluation and
+styling requirements may be shared, while the CFP and permitted article
+type/deadline differ. Preserve manuscript metadata and journal title/ISSN.
+Do not conflate the publisher's page-charge/APC conditions with deadline
+constraints. A journal source package can require original editable
+figures and separate table files. Protect approved core claims and actual
+data during reformatting.

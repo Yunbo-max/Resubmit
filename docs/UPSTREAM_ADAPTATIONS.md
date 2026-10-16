@@ -30,3 +30,7 @@ The **two original skills remain independently installable** and continue to loa
 A public open-source skill definition may be read safely; unpublished manuscripts, restricted data and author-visible reviews are a different category. Do not automatically copy them to public issues, image-generation endpoints or external reference platforms. If external handling is necessary, check authority, venue policy and model service terms before sending content. Host-only instructions do not imply local-only processing.
 
 All factual venue dates/ranks require official verification at actual use time. The reporting checklists are reminders, not completed scientific validations. Installed specialists add procedural knowledge, not instant credentials.
+
+## Region-specific journals and outlet rankings
+
+The additional [journal ranking source guide](../skills/selecting-conference-venues/references/ranking-systems.md) and [official-source notes](RANKING_2026_SOURCES.md) explain historical CAS partitions, JCR categories, AJG/ABDC/FT50 business-school distinctions and journal-vs-conference timing. These source links are for user verification only, not new runtime API integrations.

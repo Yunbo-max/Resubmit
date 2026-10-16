@@ -1,20 +1,40 @@
 ---
 name: selecting-conference-venues
-description: Use when an author needs conference recommendations or submission predictions for a paper, wants CORE or CCF filtering with current deadlines and fit, or needs a primary and backup venue before revising or resubmitting.
+description: Use when selecting journals, conferences, special issues, journal articles or publication outlets for an existing paper, comparing current deadlines or ongoing journal submissions, and checking international, Chinese, business-school or institutional journal ranking criteria.
 license: MIT
 compatibility: Agent Skills-capable host with manuscript access; official venue browsing needed for live eligibility. No model training or separate API.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
   skill-author: Yunbo Long
   last-reviewed: "2026-10-16"
 ---
 
-# Selecting Conference Venues
+# Selecting Journals and Conference Venues
 
 **Use the existing host model to predict and recommend.** No training, no separate API,
 no checkpoint, no Jev/Kev service and no mandatory Python dependency. The agent reads
 the paper, verifies public facts, makes structured judgments and explains its ranking.
 The host still supplies model access and tools; its normal costs and privacy policies apply.
+
+## Which publication route and whose evaluation rules?
+
+Ask which outcome is needed: **journal regular paper**, **journal Special Issue**,
+**conference full paper/track**, or a mixed shortlist. Do not force an AI/CS
+conference list onto a business, biology, medicine, chemistry or interdisciplinary paper.
+
+Record the researcher's **institution, school/department, evaluation purpose and
+jurisdiction only when material to the decision**. Relevant rankings come from the
+institution's current policy and explicit preferences, not ethnicity or nationality.
+Read [institution-profile.md](references/institution-profile.md) and
+[ranking-systems.md](references/ranking-systems.md) as needed. A user in China
+may care about historical CAS quartiles, JCR and CCF; a business-school
+researcher may care about AJG, ABDC or FT50; a UK researcher may care about
+institutional OA and REF rather than a fabricated REF journal rank.
+
+**Important:** CAS National Science Library stopped issuing updated journal
+partition tables in 2026; preserve official **historical 2025-or-earlier**
+partitions if their institution uses them. Never label a different 2026
+organization's partitions as an official new CAS edition.
 
 ## Start with the paper, not a prestige list
 
@@ -24,48 +44,70 @@ before a strong recommendation. With only an abstract, make a provisional shortl
 and identify what could change it. Do not invent missing evidence or repeat questions
 already answered.
 
-Record manuscript version, today's date/time, display timezone, horizon, rank filters,
-paper type, revision capacity and submission prerequisites already completed. If
-unspecified, use a six-month planning horizon, report both ranking systems without
-imposing a rank cutoff, and clearly state provisional assumptions. Use the known
-author timezone; otherwise UTC. "CORE A or above" means A* and A; CCF has its own filter.
-Never silently require CCF A when the author merely asks to see CCF rankings.
+Record manuscript version, actual time/display timezone, publication route, institution
+and purpose if relevant, rank schemes **with source edition**, research domain, career
+submission/acceptance/publication target and revision capacity. Default to a six-month
+**conference** opportunity horizon when none is given; **do not invent a journal deadline**
+or impose a country ranking cutoff. Use a user's known timezone, otherwise UTC.
+"CORE A or above" means A* and A; CCF and journal schemes are independent.
+
+Check whether the user needs publication **submitted by**, **accepted by**,
+**published online by**, or **indexed by** an institutional evaluation date.
+These are different events; a rolling journal does not guarantee on-time acceptance.
 
 ## Execute in this order
 
-1. **Profile, discipline route and recall.** Summarize the actual contribution,
-   evidence, weaknesses and audience. For interdisciplinary or non-ML work, read
-   [discipline-routing.md](references/discipline-routing.md) before ranking venues.
-   If an authorized relevant specialist skill (e.g. K-Dense) is already installed,
-   it can supply optional evidence norms; it is not required and cannot replace
-   official CFP or ranking verification. Find a bounded pool of 5–10 opportunities.
-   Each candidate is a venue + edition + track + round + paper type, not an acronym.
-2. **Verify facts.** Read [verification.md](references/verification.md).
-   Check official CORE/ICORE and CCF versions independently, current CFP, all mandatory
-   submission stages, timezones, track eligibility and policies. Aggregators are leads.
-   Do not use model memory as current dates or ranks.
-3. **Gate first.** Separate viable, conditional, future/unannounced and excluded
-   opportunities. A missed mandatory abstract registration, incompatible paper type,
-   failed rank constraint or closed round cannot be offset by a high prediction.
+1. **Profile, discipline, evaluation context.** Identify actual contribution and
+   evidence, plus [discipline-routing.md](references/discipline-routing.md) norms.
+   If the decision depends on an institution, read
+   [institution-profile.md](references/institution-profile.md) first.
+   An already-authorized specialist skill (e.g. K-Dense) can give optional
+   scientific context; never install it silently.
+   Recall a bounded 5–10 relevant journal/issue/conference **opportunities**.
+   Conferences: series+edition+track+round+type. Journals: normalized name/ISSN+
+   regular article route OR named special issue CFP+article type.
+2. **Verify facts, ranking schemes and time.** Read
+   [verification.md](references/verification.md),
+   [ranking-systems.md](references/ranking-systems.md) and
+   [journal-timing.md](references/journal-timing.md) when relevant.
+   Use official current publisher/CFP instructions and licensed or authorized
+   ranking sources; record scheme year, subject category, ISSN/track, retrieved
+   date, restrictions and unresolved conflicts. Aggregators are discovery only.
+   A journal regular submission may be verified **rolling**, while a Special Issue
+   can have its own fixed deadline. Do not invent an editorial time-to-publication.
+3. **Gate first.** Separate open-verified, rolling-verified, conditional,
+   invitation-only, not-open, closed and unverified opportunities. Apply only
+   user-selected or verified **institution-mandated** ranking thresholds;
+   show unrelated scheme labels, not a fabricated joint rank.
+   A missed mandatory registration, incompatible article/track type, an
+   invited-only issue without eligibility, a closed CFP or a failed hard
+   institutional rule cannot be rescued by a high predicted fit.
 4. **Actually predict.** Read [prediction-rubric.md](references/prediction-rubric.md).
-   Using your own judgment, assess fit, evidence readiness, likely reviewer objections,
-   revision burden and schedule feasibility for each viable candidate. Inspect a few
-   relevant recent papers for the strongest candidates when available. Give a ranked
-   primary and backups, not just a deadline table.
-5. **Challenge and choose.** Test the strongest reason against your first choice.
-   Reconsider whether a specialist venue beats a famous but poorly matched one.
-   Distinguish current-manuscript predictions from conditional post-revision scenarios.
-   Allow ties, abstention and "none currently feasible."
-6. **Report and hand off.** Use [report-template.md](assets/report-template.md) with a paper/version ID, official-source ledger, field norms, independent predictions, excluded candidates, and an explicit author-choice gate;
-   see the [hypothetical example](assets/example-report.md). Lead with the recommendation,
-   then sources, risks, exclusions and concrete next actions. Once the author selects
-   a venue, pass exact verified requirements to resubmitting-papers if installed.
-   Otherwise provide the same handoff as text. Do not edit or submit the paper merely
-   because a venue was recommended.
+   Using the host LLM, judge the paper's **subject fit, contribution form,
+   evidence readiness, likely reviewer objections, institution recognition,
+   revision cost and timeline realism** for each eligible journal or conference.
+   Recent articles in a candidate outlet can help assess scope, not forecast
+   acceptance. Journal turnaround if officially reported is historical context;
+   no guarantees. Give a ranked primary and backups.
+5. **Challenge the primary.** Check competing specialist journals, business-school
+   outlets or conferences; distinguish institution-grade compliance from scientific
+   quality/fit. Compare the current manuscript with **conditional post-revision**
+   options without assuming a positive new experiment. Include ongoing rolling
+   journals when suitable and disclose timing uncertainty. Allow ties, abstention
+   or "no verified feasible option".
+6. **Report and hand off.** Use [report-template.md](assets/report-template.md):
+   publication route, institution/field profile, scheme/version/ISSN or conference
+   track, verified timing, independent fit and risk judgments, exclusions, primary
+   and backups, and explicit author approval. Examples: [conference](assets/example-report.md)
+   and [journal/business school](assets/journal-example-report.md), both hypothetical.
+   On author selection, hand off target author guide, official template, licensing,
+   article type, journal policies or conference deadlines to resubmitting-papers.
+   A recommendation alone does not authorize editing, public upload or submission.
 
 ## Field-aware evidence checks (load only if relevant)
 
-For ML, NLP, systems, biology, chemistry, medicine or interdisciplinary work,
+For ML, NLP, business and management, accounting, finance, economics, systems,
+biology, chemistry, medicine or interdisciplinary work,
 open [discipline-routing.md](references/discipline-routing.md). Evaluate the
 actual *contribution* and the standards of its target audience; do not infer
 that an AI application in a field has necessarily made a contribution to that
@@ -90,9 +132,9 @@ acceptance range when the evidence permits, with the outcome, manuscript version
 conditions and uncertainty stated. Do not convert a venue's historical acceptance rate
 or a model's confidence into this paper's acceptance probability.
 
-Unknown is not a low score or a passed gate. Missing live access limits the report to
-provisional fit analysis and a verification checklist; it must not claim an actionable
-current deadline. Recommendations can be useful without a calibrated predictor.
+Unknown is not a low score or a passed gate. Missing official access limits
+the report to provisional fit analysis and a verification checklist; it must
+not claim a confirmed open journal route or actionable conference deadline. Recommendations can be useful without a calibrated predictor.
 
 ## Boundaries
 

@@ -1,4 +1,4 @@
-# Conference recommendation — [Paper version / private working copy]
+# Journal / Conference recommendation — [Paper version / private working copy]
 
 > **Status:** author-review draft. Host-LLM judgments are subjective and uncalibrated; do not submit automatically. Replace placeholders only with verified material. Omit restricted manuscript material from public exports.
 
@@ -8,7 +8,9 @@
 - **Evidence inspected:** [title/abstract, main sections, tables, supplements, author-visible review history; missing parts]
 - **Discipline:** [primary domain, secondary domains, contribution type, intended reviewers]
 - **Claim / evidence state:** [central claim, available supporting artifacts, conflicting or missing evidence]
-- **Author constraints:** [CORE/ICORE allowed ranks, CCF allowed ranks, AND/OR condition, dates, geography, paper type, resource/time budget]
+- **Evaluation context:** [affiliation, business school or department, actual promotion/graduation/funder purpose, verified institutional policy and edition]
+- **Journal / Conference:** [regular journal / named Special Issue / conference edition+track+round; specify article type]
+- **Author constraints:** [CAS historical, JCR, AJG, ABDC, FT50, Scopus, CORE, CCF only when relevant; category/year, AND/OR logic, time and revision budget]
 - **Known risks:** [unfulfilled rebuttal promises, uncertainty, ethical or confidentiality constraints]
 - **Domain guidance:** [reporting/validation norms actually used; optional pre-installed specialist skill and access scope, otherwise none]
 
@@ -23,6 +25,15 @@ Each opportunity is **series + edition + track + round + paper type**. Record wh
 - **Unknown:** [unpublished or unverified facts that prevent a submission-ready decision]
 - **Conflicts:** [contradictory dates/ranking lists, source and resolution or unresolved]
 - **Scope policy:** [double blind, concurrent-submission, AI use, data/code, ethics, track and page-count rules only if verified]
+
+### Journal / Conference publication-route verification
+
+| Opportunity | ISSN (journal) or edition/track (conference) | CAS historical / JCR / AJG / ABDC / FT50 / CCF / CORE verified ranks and source edition | Official journal instructions or CFP | Rolling regular submission / Special Issue deadline / conference cutoff | time-to-publication metric (verified publisher/source or Unknown) | Eligibility |
+|---|---|---|---|---|---|---|
+| [journal title/ISSN/regular or Special Issue; or conference track] | [ID] | [only relevant scheme, year, category, verified URL] | [source and retrieved date] | [verified status, raw date/time/timezone or Unknown] | [publisher metric and definition, or Unknown] | [open/rolling/conditional/invite-only/closed/unverified] |
+
+- **Institution rule:** [current/target institution, scheme version, recognised article type and publication-stage cutoff; distinguish nationality from institution]
+- **Journal vs conference timing:** [conference compulsory stages; verified rolling journal if applicable; journal Special Issue fixed call; author's acceptance/indexing deadline separately]
 
 ## 3. Host-model fit analysis (judgments, not facts)
 
@@ -55,7 +66,7 @@ Each opportunity is **series + edition + track + round + paper type**. Record wh
 
 ## 5. Revision handoff — only after target approval
 
-- **Chosen venue:** [edition, track, round, paper type]
+- **Chosen venue:** [journal ISSN + article type + regular/Special Issue OR conference edition + track + round + paper type]
 - **Verified official template:** [source and date; unknown remains blocked]
 - **Counting/anonymity/citation/AI-use policy:** [confirmed requirements; otherwise unresolved]
 - **Source snapshot:** [local manuscript hash, results version; no private file contents in public report]

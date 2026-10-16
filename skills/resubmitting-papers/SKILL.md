@@ -1,10 +1,10 @@
 ---
 name: resubmitting-papers
-description: Use when editing an existing LaTeX AI-conference paper, fixing inconsistent spacing, captions, equations, tables, figures, references or build failures, incorporating verified rebuttal updates, or migrating between conference templates with strict page limits.
+description: Use when editing an existing LaTeX journal or conference manuscript, fixing inconsistent spacing, captions, equations, tables, figures, references or build failures, incorporating verified rebuttal updates, or migrating between journal/conference templates with strict page limits.
 license: MIT
 compatibility: Agent Skills-capable host with access to existing LaTeX sources; a TeX engine and PDF viewer are required only for build/render verification. No separate model API.
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
   skill-author: Yunbo Long
   last-reviewed: "2026-10-16"
 ---
@@ -14,6 +14,22 @@ metadata:
 Work in the existing `.tex` project. Preserve the evidence, scientific meaning
 and official template while changing only the requested source. This is a
 self-contained agent workflow with optional checks, not a background service.
+
+## Journal and conference target contract
+
+A target can be **journal regular manuscript**, **named journal Special
+Issue** or **conference edition/track/round**. First verify the actual
+journal ISSN/article type and author guidelines, or conference author kit.
+A journal may allow a flexible LaTeX source while requiring a precise
+cover letter, double-blind declarations, reporting checklist or
+structured abstract. Do not invent or force a mandatory LaTeX template.
+
+When ranking criteria matter for a degree/promotion/business school,
+carry the institution's **verified scheme and edition** as handoff metadata,
+not instructions to manipulate scientific evidence. For journals,
+distinguish regular rolling submissions, special issue CFP deadline and
+publisher-reported editorial turnaround; a hypothetical acceptance
+date cannot guide a release promise.
 
 ## Before choosing a template
 
@@ -31,7 +47,7 @@ do not claim it ran or silently install it.
 | Formatting only, wording/numbers unchanged | `layout-only`, the strict local-edit route |
 | Inspect without changing source | `diagnose` |
 | Add verified review/rebuttal results | `rebuttal-update`; reconcile data and affected tables/plots/prose |
-| Another venue/year/track/template | `retarget`; verify clean target kit before migration |
+| Another journal/article type, special issue, venue/year/track/template | `retarget`; verify clean target kit before migration |
 | Whole-paper argument/structure revision | `full-revision`, only when authorized |
 
 A local gap, caption or table fix must not trigger a full manuscript rewrite,
@@ -41,7 +57,7 @@ convert LaTeX into Word/Markdown as an intermediate editing workflow.
 ## Substantive revisions: plan and evidence first
 
 For review-driven edits, new experimental results, scientific writing or a
-cross-conference retarget, load [review-to-revision.md](references/review-to-revision.md)
+cross-journal or conference retarget, load [review-to-revision.md](references/review-to-revision.md)
 and create a *private* [revision plan](assets/revision-plan-template.md) before
 changing shared manuscript files. Map each reviewer concern to the old rebuttal,
 versioned evidence, scientific claim, affected paragraph/table/figure and its

@@ -1,4 +1,4 @@
-# Facts and eligibility before predictions
+# Official facts for journal and conference eligibility
 
 ## Source hierarchy
 
@@ -87,3 +87,36 @@ template and author-guide links, all mandatory deadlines, anonymity state, page-
 semantics, known declarations/checklists and unresolved requirements. Include the paper
 version and evidence/revision priorities. Reverify live facts at the editing handoff and
 again before any authorized submission. Selection does not authorize concurrent submission.
+
+
+## Journal rankings and institutional requirements
+
+For journal regular routes and Special Issues, use
+[ranking-systems.md](ranking-systems.md),
+[institution-profile.md](institution-profile.md) and
+[journal-timing.md](journal-timing.md) in addition to venue-specific author instructions.
+
+The CAS National Science Library announced **2026 discontinuation** of its updated
+journal partition tables. Historic 2025-or-earlier official CAS partitions
+may remain relevant **only when the institution adopts them**. JCR Q1
+is not CAS partition 1; AJG, ABDC and FT50 are separate categories.
+Record journal ISSN, scheme year, subject category, official source,
+verification date and institution's policy before calling a rank verified.
+See the cited CAS, Clarivate, Chartered ABS, ABDC and FT sources in the
+ranking-systems reference.
+
+## Journal submission and timing states
+
+Regular journal submission can be verified as **rolling** (no general fixed
+submission deadline), invitation-only, closed, or unverified; check the
+actual article-type route and portal. A named **Special Issue** adds its
+own opening/deadline and eligibility; a closed issue does not close
+the ordinary journal route. Distinguish official publisher **first
+decision**, time to acceptance, and time-to-publication — never infer
+publication by a career deadline from a first-decision average.
+
+Journal handoff: journal identity and ISSN, article type, regular vs
+special issue, official author guide, required files, word/figure limits,
+OA/APC/licence, ethics/originality/concurrent submission and verified
+journal status. For conferences, retain edition, track, round, abstract
+and full-paper stage checks.

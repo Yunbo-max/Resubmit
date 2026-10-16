@@ -50,3 +50,21 @@ ML theory paper or AI-conference baselines on a chemistry-method paper.
 Authors remain responsible for intellectual contributions, declarations,
 consent/ethics, source verification, and the final manuscript. Do not invent
 funding, conflicts, participant consent, study registration or AI-use statements.
+
+
+## Journal and business-school paper writing
+
+Adapt research framing to the correct editorial audience: ML
+algorithm contributions, empirical management theory, econometrics,
+systems engineering, biomedical cohorts and chemistry controls are
+not interchangeable. For business journals, check theory, construct
+and identification/robustness arguments, and managerial or practical
+relevance only when the target field expects them.
+
+Maintain source traceability and study-design reporting norms.
+For journal article type and intended stage, verify
+abstract structure, acknowledgments, CRediT/authorship policy,
+data/code availability, funding/conflict statements, reference
+format and cover letter against current author instructions.
+Never create boilerplate ethical approvals or fictional publisher
+review durations.
