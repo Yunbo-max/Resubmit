@@ -74,6 +74,23 @@ The following *illustrations*, not official compiled templates, show a two-colum
 
 </details>
 
+## Research-grade templates
+
+Inspired by domain-aware scientific workflows and controlled manuscript revision,
+both installable skills now include concise **private working templates** instead
+of requiring the agent to invent its own record format each time.
+
+| Task | Reusable template | Records |
+|---|---|---|
+| **Compare venues for one paper** | [Conference recommendation report](skills/selecting-conference-venues/assets/report-template.md) | Discipline/claim profile, official CORE/CCF/CFP sources, eligibility, subjective fit, primary/backups, missing evidence and author-approved handoff |
+| **Revise a rejected or retargeted paper** | [Review-to-LaTeX revision plan](skills/resubmitting-papers/assets/revision-plan-template.md) | Concern IDs, rebuttal promises versus verified data, editable tables/figures, allowed source changes, scientific and PDF validation |
+
+The templates borrow **practical workflow principles**, not copied code, from
+[K-Dense's multidisciplinary science skills](https://github.com/K-Dense-AI/scientific-agent-skills)
+and focused rebuttal/revision tools. [See what was adapted, credited and deliberately left out](docs/UPSTREAM_ADAPTATIONS.md).
+K-Dense and other specialist skills are optional; install neither to use ReSubmit.
+A small LaTeX formatting fix still follows the short path.
+
 ## Quick start
 
 ```bash

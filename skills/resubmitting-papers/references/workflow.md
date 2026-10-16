@@ -13,7 +13,7 @@ The first layout blueprint is provisional, not a final page count. Early represe
 | intake | authorized project and target | immutable baseline; file inventory; missing inputs |
 | venue | exact venue/year/track/stage | verified policy links and template checksums; measured geometry; counted/excluded sections |
 | style_baseline | verified venue kit + active project | clean-kit compile; preamble/style difference ledger; comparable parameter probes |
-| evidence | old paper, review history, actual artifacts | atomic concerns and source locators; disagreements and unfulfilled rebuttal promises |
+| evidence | old paper, review history, actual artifacts | atomic concern IDs, versioned claim/evidence links, discipline-relevant gaps; contradictions and unfulfilled promises |
 | results | reconciled evidence | versioned numeric snapshot; comparable protocol groups; no silent overwrite |
 | blueprint | style_baseline + results | supported thesis; section duties; essential evidence; asset roles; initial space budget |
 | tables | blueprint + results + geometry | native table variants, captions, provenance; updated rankings/deltas |
@@ -55,3 +55,18 @@ Parallelize evidence/venue intake and independent assets when tools permit. Use 
 A late-stage formatter is too late to repair asset topology. A giant research controller duplicates Autopilot. The chosen architecture is one lightweight orchestrator plus specialist contracts and deterministic checks. Only hand back to research when a real scientific gap cannot be resolved from available evidence; a formatting issue never triggers a full idea-generation loop.
 
 LaTeX style checks are specified in [latex-format.md](latex-format.md). Style baseline changes invalidate the blueprint and dependent work; final style findings reopen the owning source stage, not just a formatting checkbox.
+
+
+## Structured private handoff for substantive work
+
+The [revision plan template](../assets/revision-plan-template.md) is a
+working **artifact**, not an additional mandatory runtime or DAG node. For
+review-driven changes the evidence node fills a concern-to-claim map and the
+blueprint node translates it into bounded edits and asset roles. Reuse the same
+artifact through semantic, style and visual audits.
+
+The plan records permissions/venue policy, approved scope, immutable baseline,
+evidence locators, target-width native tables, reproducible figures, specific
+writing actions, counted pages and release gate. A new result or changed
+scientific assumption invalidates dependent approvals. A purely mechanical
+correction continues on the local edit DAG; no full science audit is simulated.

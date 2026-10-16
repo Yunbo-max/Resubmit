@@ -25,3 +25,16 @@ For a new key Figure 1, compare a small number of genuinely different layouts be
 Keep data/spec/plotting or vector source, editable export, paper PDF and raster preview, with input and output hashes. Export vector text/lines for plots where practical. Inspect the figure inside the compiled paper at 100%/physical size, not only as a standalone enlarged SVG. Check labels, caption, clipping, panel order, legends, error bars, cropped axis origins, line weights and correspondence with the results table.
 
 If only a raster image exists, never pretend exact underlying data are recovered. Preserve evidence, redesign surrounding layout, request original assets only when indispensable, or label the blocked redraw. Decorative polishing cannot change semantic structure.
+
+
+## Field-aware figure QA
+
+Where a relevant scientific specialist skill is already installed, consult
+its discipline-specific diagram or plotting advice only with appropriate
+authorization. A generated **conceptual draft** is never an experimental
+result: verify scientific labels, relationships, diagram sources, scale,
+physical units, crop boundaries and caption text against the manuscript
+before treating it as a figure. Preserve editable vector data if the figure
+encodes a method graph or quantitative comparison. Explicitly label
+non-measured illustrations and prohibit invented biomedical/chemical
+observations. Do not copy upstream figure assets or redistribute font files.

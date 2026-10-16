@@ -31,3 +31,22 @@ Preserve notation, equations, assumptions, negation, uncertainty, comparable set
 Compare title → abstract → contributions → results → captions → conclusion for compatible claim strength. Check references and notation after moves. Keep core evidence visible; appendix holds allowed proofs, replication detail and secondary analyses with explicit main-text links. Preserve material exceptions locally when they change interpretation.
 
 Write assertively without overdefense: remove empty hedging and marketing, but retain genuine boundaries. The final paper must stand without the old review conversation. Do not expose prompts, private audit labels, failed drafts or source paths in public prose.
+
+
+## Authorship, discipline and evidence provenance
+
+For a substantive revision, use the private
+[revision plan](../assets/revision-plan-template.md) to bind claim IDs to the
+source artifacts and final sections. Borrow the evidence-first pattern used by
+K-Dense scientific-writing: check the *proposition*, not just that the cited
+paper or dataset exists. A citation's existence or a DOI lookup does not prove
+the adjacent claim. Distinguish descriptive, exploratory, confirmatory,
+causal and theoretical assertions. Preserve negative results, statistical
+uncertainty, denominators, physical units and reporting obligations.
+
+Use only the reporting guideline appropriate to the actual scientific design
+and target venue. Do not blindly impose clinical reporting requirements on an
+ML theory paper or AI-conference baselines on a chemistry-method paper.
+Authors remain responsible for intellectual contributions, declarations,
+consent/ethics, source verification, and the final manuscript. Do not invent
+funding, conflicts, participant consent, study registration or AI-use statements.

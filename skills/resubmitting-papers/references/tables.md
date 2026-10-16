@@ -39,3 +39,16 @@ For custom layouts, keep the same canonical data and tests. Do not hand-edit ren
 ## End-to-end numeric audit
 
 Match data → generated TeX → compiled PDF → plot labels → results prose → abstract/conclusion. Check signs, decimal precision, percent/percentage points, denominator, count of datasets, highlighted winners and caption qualifiers. A source change marks the whole dependent chain stale. Put source locators in the private ledger and appropriate scholarly citations in the public caption; never leak local paths into the manuscript.
+
+
+## Discipline and statistical design
+
+For field-specific tables, preserve the actual sampling unit, study/cohort
+definition, uncertainty estimator and design assumptions. A medical cohort
+count must not become a metric denominator without checking its meaning;
+a materials measurement retains physical units and conditions; an ML result
+must not silently omit a stronger budget-matched baseline. Do not invent
+p-values, CIs, patient counts, screening exclusions, uncertainty or
+independent seeds. Record missing information in the private
+[revision plan](../assets/revision-plan-template.md) and mark the relevant
+claim as pending rather than optimizing away an awkward column.

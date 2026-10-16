@@ -1,6 +1,6 @@
 # Sources and adaptations
 
-Inspected on 2026-10-12. This repository contains newly written contracts and helper code, not vendored upstream code or conference style files. Upstream ideas are acknowledged; no claim is made that the individual practices are novel. Do not assume an upstream repository's license covers unrelated assets.
+Initial sources inspected on 2026-10-12; integration references reviewed again on 2026-10-16. This repository contains newly written contracts and helper code, not vendored upstream code or conference style files. Upstream ideas are acknowledged; no claim is made that the individual practices are novel. Do not assume an upstream repository's license covers unrelated assets.
 
 ## Research Autopilot (author's project)
 
@@ -26,3 +26,7 @@ These are conceptual comparisons, not imported runtime dependencies or comparati
 - https://www.latex-project.org/latex3/code/ — official LaTeX source entrypoint.
 
 All venue rules must be reverified for the requested year/track/stage. There are no hardcoded ICML/ICLR page limits in this package.
+
+## Integrated research-template guidance (2026-10-16)
+
+See [UPSTREAM_ADAPTATIONS.md](UPSTREAM_ADAPTATIONS.md) for direct links to K-Dense scientific-writing, peer-review, citation-management, scientific-schematics and statistical/experiment skills, plus TobiasLee, lachlanchen, Orchestra and VibeResearch. This version uses newly authored Markdown templates and brief routing rules. No code from those upstream skills was vendored and no additional remote skill is automatically installed.

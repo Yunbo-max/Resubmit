@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2 — 2026-10-16
+
+Added K-Dense-style progressive specialist guidance, provenance/authorization checks, and structured private templates for venue recommendation and reviewer-concern-to-LaTeX revision. Integrates prior rebuttal triage and controlled revision best practices while preserving ReSubmit's two skill entry points and DAG. Updated skill metadata, optional domain QA, cross-venue/rebuttal report templates, source attributions, and fixed the project-site install path. No third-party skill code imported or model trained.
+
 ## 0.3.1 — 2026-10-16
 
 Added a six-stage animated, reduced-motion-aware README workflow; documented domain-aware venue routing and optional K-Dense-style specialist context; introduced a source-linked, qualified open-source capability matrix; updated the renamed repository's public installation URLs. No new model, acceptance predictor, or independent cross-tool benchmark.

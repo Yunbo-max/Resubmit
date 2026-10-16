@@ -33,3 +33,21 @@ If the user's requirement is CORE/CCF A but the work is fundamentally chemistry 
 ## Handoff
 
 Maintain a private assessment with primary field, secondary fields, contribution type, relevant evidence norms, known gaps, potential specialist reference and uncertainty. Pass the assessment to the main venue workflow. The order stays: official eligibility first, model judgment second, author decision third, authorized LaTeX revision afterward.
+
+
+## Structured reporting and scientific-source provenance
+
+When recommending outside a generic AI/ML venue, record the specific evaluation
+norm used (e.g., external clinical validation, sample-unit independence, physical
+units, or reproducibility expectations), its source or established protocol, and
+whether the manuscript actually meets it. Apply only relevant checks; an empty
+checkbox is not evidence of compliance. On author request, consult an authorized
+pre-installed specialist guide from K-Dense or a comparable provider. Do not
+automatically download a broad collection, run specialist experiments or assert
+that model reasoning constitutes a valid laboratory assessment.
+
+ReSubmit's venue report must distinguish the application field from the
+scientific contribution, and separate: observed paper evidence, scientific
+practice references, current official CFP/ranks, model-inferred fit, and missing
+information. The current target venue is always the deciding official source for
+submission requirements.

@@ -2,6 +2,11 @@
 name: selecting-conference-venues
 description: Use when an author needs conference recommendations or submission predictions for a paper, wants CORE or CCF filtering with current deadlines and fit, or needs a primary and backup venue before revising or resubmitting.
 license: MIT
+compatibility: Agent Skills-capable host with manuscript access; official venue browsing needed for live eligibility. No model training or separate API.
+metadata:
+  version: "0.3.2"
+  skill-author: Yunbo Long
+  last-reviewed: "2026-10-16"
 ---
 
 # Selecting Conference Venues
@@ -51,12 +56,30 @@ Never silently require CCF A when the author merely asks to see CCF rankings.
    Reconsider whether a specialist venue beats a famous but poorly matched one.
    Distinguish current-manuscript predictions from conditional post-revision scenarios.
    Allow ties, abstention and "none currently feasible."
-6. **Report and hand off.** Use [report-template.md](assets/report-template.md);
+6. **Report and hand off.** Use [report-template.md](assets/report-template.md) with a paper/version ID, official-source ledger, field norms, independent predictions, excluded candidates, and an explicit author-choice gate;
    see the [hypothetical example](assets/example-report.md). Lead with the recommendation,
    then sources, risks, exclusions and concrete next actions. Once the author selects
    a venue, pass exact verified requirements to resubmitting-papers if installed.
    Otherwise provide the same handoff as text. Do not edit or submit the paper merely
    because a venue was recommended.
+
+## Field-aware evidence checks (load only if relevant)
+
+For ML, NLP, systems, biology, chemistry, medicine or interdisciplinary work,
+open [discipline-routing.md](references/discipline-routing.md). Evaluate the
+actual *contribution* and the standards of its target audience; do not infer
+that an AI application in a field has necessarily made a contribution to that
+field. When the host already has an authorized specialist skill installed
+(for example a relevant K-Dense scientific skill), consult it only for the
+specific evidentiary gap, not as a replacement for official venue rules.
+It is optional and never auto-installed. Record specialist guidance separately
+from observed scientific evidence and host-model judgment.
+
+The [report template](assets/report-template.md) is the default long-form
+private artifact, not a demand to output the full matrix in a short chat.
+For a chosen venue, only verified facts and approved changes transfer to the
+`resubmitting-papers` skill; a recommendation does
+not authorize modification or submission.
 
 ## Predictions are judgments, not measurements
 

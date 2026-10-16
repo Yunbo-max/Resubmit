@@ -14,7 +14,7 @@ for (const button of document.querySelectorAll('[data-state]')) {
     document.querySelector('#demo-description').textContent = descriptions[state];
   });
 }
-const prefix = 'git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git\ncd Resubmit-to-a-different-conference\n';
+const prefix = 'git clone https://github.com/Yunbo-max/Resubmit.git\ncd Resubmit\n';
 for (const button of document.querySelectorAll('[data-agent]')) {
   button.addEventListener('click', () => {
     const agent = button.dataset.agent;

@@ -1,39 +1,68 @@
-# Conference recommendation — [paper/version]
+# Conference recommendation — [Paper version / private working copy]
 
-As of: [actual time and timezone]. Materials reviewed: [files/sections].
-Constraints: [CORE/ICORE set; CCF set; AND/OR; horizon; type; revision capacity].
-Prediction method: subjective host-model judgment; not calibrated.
+> **Status:** author-review draft. Host-LLM judgments are subjective and uncalibrated; do not submit automatically. Replace placeholders only with verified material. Omit restricted manuscript material from public exports.
 
-## Primary
-[Exact venue + edition + track + round + paper type.]
-[Why this paper fits; why it beats the closest alternative; strongest counterargument.]
-[Current-version relative acceptance outlook, explicitly subjective.]
+## 1. Paper profile and decision frame
 
-## Backup
-[One or two viable alternatives and the different trade-offs.]
+- **Paper version:** [file/hash/date]
+- **Evidence inspected:** [title/abstract, main sections, tables, supplements, author-visible review history; missing parts]
+- **Discipline:** [primary domain, secondary domains, contribution type, intended reviewers]
+- **Claim / evidence state:** [central claim, available supporting artifacts, conflicting or missing evidence]
+- **Author constraints:** [CORE/ICORE allowed ranks, CCF allowed ranks, AND/OR condition, dates, geography, paper type, resource/time budget]
+- **Known risks:** [unfulfilled rebuttal promises, uncertainty, ethical or confidentiality constraints]
+- **Domain guidance:** [reporting/validation norms actually used; optional pre-installed specialist skill and access scope, otherwise none]
 
-## Comparison
+## 2. Official verification (separate from predictions)
 
-| Opportunity | CORE/ICORE + version | CCF + version/scope | Eligibility | First mandatory action / full deadline | Fit / readiness / feasibility (1–5) | Burden (1–5) | Main risk |
+Each opportunity is **series + edition + track + round + paper type**. Record when every fact was checked; do not infer open status solely from a future calendar date.
+
+| Opportunity | Verified CORE/ICORE and version | Verified CCF and version / scope | CFP / policy URL | First mandatory action (source time and timezone) | Full deadline | Eligible / conditional / closed / unknown | Verified at |
 |---|---|---|---|---|---|---|---|
-| [candidate] | [rank + source] | [rank + source] | [verified state] | [raw timezone + local conversion + source] | [subjective or unknown] | [subjective or unknown] | [specific] |
+| [venue/edition/track/round/type] | [verified source or Unknown] | [verified source or Unknown] | [official URL] | [exact source text or Unknown] | [exact source text or Unknown] | [state and reason] | [date] |
 
-Every factual row needs official source links and verification date.
-A fit score is not a probability. No evidence means unknown, not zero.
+- **Unknown:** [unpublished or unverified facts that prevent a submission-ready decision]
+- **Conflicts:** [contradictory dates/ranking lists, source and resolution or unresolved]
+- **Scope policy:** [double blind, concurrent-submission, AI use, data/code, ethics, track and page-count rules only if verified]
 
-## Excluded and unverified
-[Closed round, missed prerequisite, rank/type mismatch, unknown policy, outside scope.]
-[Keep future/unannounced opportunities separate from current recommendations.]
+## 3. Host-model fit analysis (judgments, not facts)
 
-## Required revisions
-[Evidence, writing, tables, figures and LaTeX work; actual vs estimated burden.]
-[Separate current manuscript from conditional post-revision outlook.]
-[What would change the primary/backup ordering.]
+**Current manuscript:** [exact version; observed weaknesses]. Do not turn ratings into purported acceptance probabilities.
 
-## ReSubmit handoff
-[Selected venue only after author choice; template/author-guide source, exact deadlines,
-track/type, counting rule, anonymity, source snapshot, priority edits, unresolved facts.]
-Selection alone does not authorize editing, uploading or submitting.
+| Candidate | Field/community fit (1–5 or Unknown) | Evidence readiness (1–5 or Unknown) | Revision burden (1–5 or Unknown; 5=more work) | Schedule feasibility (1–5 or Unknown) | Strongest reviewer objection | Evidence locator |
+|---|---|---|---|---|---|---|
+| [candidate] | [score, rationale] | [score, rationale] | [score, rationale] | [score, rationale] | [risk] | [paper section/table/review or missing] |
 
-## Sources and uncertainty
-[Official facts with locators and retrieval dates; paper evidence; judgments; unknowns.]
+- **Primary:** [eligible venue/edition/track, why it wins, strongest counterargument]
+- **Backup:** [one or two credible alternatives, what trade-off differs]
+- **Excluded / unverified:** [specific rank, deadline, track mismatch, unresolved official facts; no arbitrary exclusions]
+- **Relative outlook:** [weak/plausible/competitive/insufficient evidence; subjective, not calibrated]
+
+### Current vs conditional post-revision
+
+- **Current manuscript:** [what the existing proof/experiment actually supports]
+- **Conditional post-revision:** [if additional evidence is obtained, how a specified ranking or readiness judgment might change]
+- **Missing results are not evidence:** [list the test or analysis to perform, never predict the sign of the unrun result]
+
+## 4. Required revisions and plan for the chosen venue
+
+| Priority | Evidence / prose / Table / Figure / format | Source location | Proposed change | Needed input | Acceptance check |
+|---|---|---|---|---|---|
+| [critical/important/optional] | [type] | [section/file] | [bounded change] | [verified evidence or missing] | [check from actual artifact/PDF] |
+
+- **Switch trigger:** [specific deadline, author decision, data completion, venue rule change or claim revision that would reorder primary/backup]
+- **Decision status:** [provisional / author reviewing / Author approval recorded]
+- **Author approval:** [none yet or explicit decision + scope; never infer approval from a recommendation]
+
+## 5. Revision handoff — only after target approval
+
+- **Chosen venue:** [edition, track, round, paper type]
+- **Verified official template:** [source and date; unknown remains blocked]
+- **Counting/anonymity/citation/AI-use policy:** [confirmed requirements; otherwise unresolved]
+- **Source snapshot:** [local manuscript hash, results version; no private file contents in public report]
+- **Review priority:** [concerns to address; promises still not verified]
+- **Tables/figures/LaTeX:** [specific files and target-width adaptation; not authorized until author approves]
+- **Unresolved gates:** [checklist for author, no invented pass]
+
+## 6. Sources, scope and limits
+
+Keep separate lists of **official facts**, **paper evidence**, **domain guidance** and **subjective predictions** with dates and locators. List unverified or not-applicable explicitly. The author controls submission; ReSubmit does not guarantee acceptance or scientific validity.
