@@ -28,8 +28,12 @@ Never silently require CCF A when the author merely asks to see CCF rankings.
 
 ## Execute in this order
 
-1. **Profile and recall.** Summarize the actual contribution, evidence, weaknesses and
-   likely audience. Find a bounded candidate pool, normally 5–10 opportunities.
+1. **Profile, discipline route and recall.** Summarize the actual contribution,
+   evidence, weaknesses and audience. For interdisciplinary or non-ML work, read
+   [discipline-routing.md](references/discipline-routing.md) before ranking venues.
+   If an authorized relevant specialist skill (e.g. K-Dense) is already installed,
+   it can supply optional evidence norms; it is not required and cannot replace
+   official CFP or ranking verification. Find a bounded pool of 5–10 opportunities.
    Each candidate is a venue + edition + track + round + paper type, not an acronym.
 2. **Verify facts.** Read [verification.md](references/verification.md).
    Check official CORE/ICORE and CCF versions independently, current CFP, all mandatory

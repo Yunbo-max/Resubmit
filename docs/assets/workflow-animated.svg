@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810" role="img" aria-labelledby="wt wd">
+<title id="wt">ReSubmit: from manuscript and reviews to an inspected submission package</title>
+<desc id="wd">Six-stage animated flow. 1 inspect the paper and reviews, 2 route by scientific discipline, 3 verify ranks and deadlines, 4 let the host LLM recommend venues, 5 update LaTeX tables figures and writing, 6 compile and audit the final PDF. An illustrative process diagram, not a live product demonstration.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fcfbf4"/><stop offset="1" stop-color="#eaf4eb"/></linearGradient>
+<filter id="shadow" x="-15%" y="-30%" width="130%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#173c2e" flood-opacity=".09"/></filter>
+<marker id="arrow" orient="auto" markerWidth="10" markerHeight="10" refX="8" refY="5"><path d="M1,1 L9,5 L1,9 Z" fill="#348c66"/></marker>
+</defs>
+<style>
+text{font-family:Arial,Helvetica,sans-serif}
+.connector{fill:none;stroke:#348c66;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+@keyframes act0{0%,16.45%{opacity:1}16.82%,100%{opacity:0}}
+@keyframes act1{0%,16.52%{opacity:0}16.67%,33.11%{opacity:1}33.48%,100%{opacity:0}}
+@keyframes act2{0%,33.18%{opacity:0}33.33%,49.78%{opacity:1}50.15%,100%{opacity:0}}
+@keyframes act3{0%,49.85%{opacity:0}50.00%,66.45%{opacity:1}66.82%,100%{opacity:0}}
+@keyframes act4{0%,66.52%{opacity:0}66.67%,83.11%{opacity:1}83.48%,100%{opacity:0}}
+@keyframes act5{0%,83.18%{opacity:0}83.33%,100%{opacity:1}}.phase0{animation:act0 18s linear infinite}
+.phase1{animation:act1 18s linear infinite}
+.phase2{animation:act2 18s linear infinite}
+.phase3{animation:act3 18s linear infinite}
+.phase4{animation:act4 18s linear infinite}
+.phase5{animation:act5 18s linear infinite}
+@media(prefers-reduced-motion:reduce){.phase{animation:none!important;opacity:0!important}.phase0{opacity:1!important}}
+</style>
+<rect x="1" y="1" width="1438" height="808" rx="24" fill="url(#bg)" stroke="#c8dbcb" stroke-width="2"/>
+<rect x="1" y="1" width="1438" height="8" rx="4" fill="#15543e"/>
+<circle cx="83" cy="54" r="5" fill="#268b63"/>
+<text x="102" y="60" font-size="14" letter-spacing="2.7" fill="#15543e" font-weight="700">RESEARCH WORKFLOW / RE-SUBMISSION</text>
+<text x="76" y="127" fill="#15382c" font-family="Georgia,serif" font-size="51" font-weight="700">One paper. The next best submission.</text>
+<text x="77" y="166" fill="#547064" font-size="22">Your agent connects verified venue facts, domain context, rebuttal evidence and LaTeX revision.</text>
+<g class="connector"><path d="M 425 291 L 536 291" marker-end="url(#arrow)"/><path d="M 900 291 L 1011 291" marker-end="url(#arrow)"/><path d="M 1195 381 L 1195 435" marker-end="url(#arrow)"/><path d="M 1010 525 L 905 525" marker-end="url(#arrow)"/><path d="M 535 525 L 430 525" marker-end="url(#arrow)"/></g>
+<g aria-label="Step 1: PAPER + REVIEWS">
+<rect x="70" y="208" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="90" y="227" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="115" y="249" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">01</text>
+<text x="154" y="248" fill="#557469" font-size="13" font-weight="700" letter-spacing="1.9">INPUT</text>
+<text x="92" y="295" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">PAPER + REVIEWS</text>
+<text x="92" y="325" fill="#587165" font-size="18">Manuscript, evidence</text>
+<text x="92" y="350" fill="#587165" font-size="18">and reviewer history</text>
+</g>
+<g aria-label="Step 2: DISCIPLINE ROUTING">
+<rect x="545" y="208" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="565" y="227" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="590" y="249" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">02</text>
+<text x="629" y="248" fill="#527c6a" font-size="13" font-weight="700" letter-spacing="1.9">DOMAIN</text>
+<text x="567" y="295" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">DISCIPLINE ROUTING</text>
+<text x="567" y="325" fill="#587165" font-size="18">ML / NLP / Bio / Systems</text>
+<text x="567" y="350" fill="#587165" font-size="18">Use relevant field standards</text>
+</g>
+<g aria-label="Step 3: VERIFY THE VENUE">
+<rect x="1020" y="208" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="1040" y="227" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="1065" y="249" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">03</text>
+<text x="1104" y="248" fill="#557469" font-size="13" font-weight="700" letter-spacing="1.9">FACTS</text>
+<text x="1042" y="295" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">VERIFY THE VENUE</text>
+<text x="1042" y="325" fill="#587165" font-size="18">CORE / CCF + live CFP</text>
+<text x="1042" y="350" fill="#587165" font-size="18">Track, deadline and policy</text>
+</g>
+<g aria-label="Step 4: RECOMMEND VENUES">
+<rect x="1020" y="443" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="1040" y="462" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="1065" y="484" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">04</text>
+<text x="1104" y="483" fill="#557469" font-size="13" font-weight="700" letter-spacing="1.9">JUDGMENT</text>
+<text x="1042" y="530" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">RECOMMEND VENUES</text>
+<text x="1042" y="560" fill="#587165" font-size="18">Host-LLM fit &amp; risks</text>
+<text x="1042" y="585" fill="#587165" font-size="18">Primary plus alternatives</text>
+</g>
+<g aria-label="Step 5: REVISE IN LATEX">
+<rect x="545" y="443" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="565" y="462" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="590" y="484" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">05</text>
+<text x="629" y="483" fill="#557469" font-size="13" font-weight="700" letter-spacing="1.9">EDIT</text>
+<text x="567" y="530" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">REVISE IN LATEX</text>
+<text x="567" y="560" fill="#587165" font-size="18">Rebuttal -&gt; tables / figures</text>
+<text x="567" y="585" fill="#587165" font-size="18">Adapt writing and layout</text>
+</g>
+<g aria-label="Step 6: AUDIT AND PACKAGE">
+<rect x="70" y="443" width="350" height="165" rx="21" fill="#ffffff" stroke="#d5e3d9" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="90" y="462" width="50" height="31" rx="15.5" fill="#eaf3e9"/>
+<text x="115" y="484" fill="#11513d" font-size="17" text-anchor="middle" font-weight="700">06</text>
+<text x="154" y="483" fill="#557469" font-size="13" font-weight="700" letter-spacing="1.9">VERIFY</text>
+<text x="92" y="530" fill="#143b30" font-family="Georgia,serif" font-size="26" font-weight="700">AUDIT AND PACKAGE</text>
+<text x="92" y="560" fill="#587165" font-size="18">Compile / inspect PDF</text>
+<text x="92" y="585" fill="#587165" font-size="18">Clean source for author</text>
+</g>
+<g class="phase phase0" opacity="1">
+<rect x="65" y="203" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="65" y="203" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<g class="phase phase1" opacity="0">
+<rect x="540" y="203" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="540" y="203" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<g class="phase phase2" opacity="0">
+<rect x="1015" y="203" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="1015" y="203" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<g class="phase phase3" opacity="0">
+<rect x="1015" y="438" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="1015" y="438" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<g class="phase phase4" opacity="0">
+<rect x="540" y="438" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="540" y="438" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<g class="phase phase5" opacity="0">
+<rect x="65" y="438" width="360" height="175" rx="25" fill="none" stroke="#19885c" stroke-width="4"/>
+<rect x="65" y="438" width="360" height="175" rx="25" fill="#a7dfbf" opacity=".09"/>
+</g>
+<rect x="70" y="655" width="1300" height="123" rx="19" fill="#194f3b"/>
+<g class="phase phase0" opacity="1">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">01 — INSPECT THE RESEARCH</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">Read the actual draft, verified results and previous author-visible reviews.</text></g>
+<g class="phase phase1" opacity="0">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">02 — ROUTE BY RESEARCH FIELD</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">Apply ML, NLP, biomedical, chemistry or systems evidence norms as relevant.</text></g>
+<g class="phase phase2" opacity="0">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">03 — VERIFY HARD CONSTRAINTS</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">Check official rank sources, current CFP, track, stage and timezone.</text></g>
+<g class="phase phase3" opacity="0">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">04 — MAKE A PAPER-AWARE DECISION</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">The existing agent compares fit, evidence maturity, risks and revision cost.</text></g>
+<g class="phase phase4" opacity="0">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">05 — REVISE WHAT NEEDS REVISION</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">Update rebuttal evidence, native tables and figures; migrate LaTeX safely.</text></g>
+<g class="phase phase5" opacity="0">
+<text x="116" y="706" fill="#bdeacb" font-weight="700" font-size="18" letter-spacing="2">06 — VALIDATE THE DELIVERABLE</text>
+<text x="116" y="747" fill="#fffdf5" font-size="21">Compile, inspect counted pages and source changes; author approves release.</text></g>
+<text x="1365" y="796" text-anchor="end" font-size="12" fill="#547064">SCHEMATIC · NO LIVE DEADLINES · NO ACCEPTANCE GUARANTEE</text>
+</svg>

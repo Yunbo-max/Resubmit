@@ -5,9 +5,9 @@ type: software
 authors:
   - family-names: Long
     given-names: Yunbo
-repository-code: "https://github.com/Yunbo-max/Resubmit-to-a-different-conference"
-version: 0.3.0
-date-released: 2026-10-13
+repository-code: "https://github.com/Yunbo-max/Resubmit"
+version: 0.3.1
+date-released: 2026-10-16
 license: MIT
 keywords:
   - LaTeX

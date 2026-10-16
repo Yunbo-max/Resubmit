@@ -14,8 +14,8 @@ when compilation is requested. PDF helper tools use optional PyMuPDF
 ## Install one or both
 
 ```bash
-git clone https://github.com/Yunbo-max/Resubmit-to-a-different-conference.git
-cd Resubmit-to-a-different-conference
+git clone https://github.com/Yunbo-max/Resubmit.git
+cd Resubmit
 python scripts/install_skill.py --agent codex --skill selecting-conference-venues
 python scripts/install_skill.py --agent codex --skill resubmitting-papers
 ```

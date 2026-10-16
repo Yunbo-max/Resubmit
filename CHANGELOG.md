@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 — 2026-10-16
+
+Added a six-stage animated, reduced-motion-aware README workflow; documented domain-aware venue routing and optional K-Dense-style specialist context; introduced a source-linked, qualified open-source capability matrix; updated the renamed repository's public installation URLs. No new model, acceptance predictor, or independent cross-tool benchmark.
+
 ## 0.3.0 — 2026-10-13
 
 Added the independently installable `selecting-conference-venues` skill: host-LLM predictions, verified CORE/ICORE and CCF filters, submission-stage eligibility, subjective fit/readiness/outlook and a ReSubmit handoff. No model training or separate prediction service. The installer now supports `--skill` while preserving its original default and non-overwrite behavior. Updated the English README, website, setup and launch copy. LaTeX engine/helper code is unchanged.

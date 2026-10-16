@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ShowcaseSourceTests(unittest.TestCase):
     def test_readme_has_committed_visuals(self):
         text = (ROOT / 'README.md').read_text()
-        for name in ('readme-cover.png', 'icml-to-neurips.gif', 'after-neurips-one-column.png'):
+        for name in ('readme-cover.png', 'workflow-animated.svg', 'workflow-still.svg', 'after-neurips-one-column.png'):
             self.assertIn(name, text)
     def test_readme_has_no_unavailable_project_page_and_has_install(self):
         text = (ROOT / 'README.md').read_text()
@@ -19,7 +19,7 @@ class ShowcaseSourceTests(unittest.TestCase):
     def test_readme_static_motion_fallback(self):
         text = (ROOT / 'README.md').read_text()
         self.assertIn('prefers-reduced-motion: reduce', text)
-        self.assertIn('Static comparison', text)
+        self.assertIn('Additional example', text)
     def test_readme_no_active_embed_or_claimed_live_service(self):
         text = (ROOT / 'README.md').read_text()
         self.assertNotIn('<iframe', text)
@@ -74,7 +74,7 @@ class ShowcaseSourceTests(unittest.TestCase):
         text = (ROOT / 'README.md').read_text()
         self.assertNotIn('May 2025', text)
         self.assertNotIn('100% acceptance', text)
-        self.assertIn('Synthetic', text)
+        self.assertIn('schematic', text.lower())
 
 if __name__ == '__main__':
     unittest.main()
