@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/intro-manga-still.svg">
-    <img src="docs/assets/intro-manga.svg" width="100%" alt="Manga-inspired project introduction for ReSubmit: a researcher working with manuscripts and an agent workflow for conference selection, rebuttal-aware LaTeX revision and PDF inspection.">
+    <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/galaxy-journey-still.svg">
+    <img src="docs/assets/galaxy-journey.svg" width="100%" alt="Illustrated galaxy of different research venues: a dotted maze-like route leads away from a cracked rejection planet toward a brighter best-fit venue, with a paper-carrying research agent.">
   </picture>
 </p>
 
@@ -15,9 +15,9 @@
   <a href="docs/INSTALL.md">Documentation</a>
 </p>
 
-# Find the Right Venue. Revise the Paper.
+# Every Thoughtful Paper Deserves the Right Venue.
 
-**One paper. Two Agent Skills. A connected workflow from conference recommendation and reviewer feedback to an updated LaTeX manuscript and inspected PDF.**
+**We believe every carefully developed paper deserves the chance to find its best-fit research community.** ReSubmit helps your agent explore venues, turn reviewer feedback into a revision plan, and prepare the next LaTeX submission.
 
 <p align="center"><sub>Works with your existing Codex or Claude Code agent · MIT licensed · No separate prediction model to install</sub></p>
 
@@ -103,7 +103,7 @@ Show the venue choices, reviewer-to-revision map and final file status.
 <a id="workflow-in-motion"></a>
 ## How ReSubmit works — in motion
 
-The **first illustration introduces the project**. The second is its **actual workflow diagram** (a six-stage, directed process), not another before/after paper illustration.
+The **first illustration tells the journey from rejection to finding a better-fit venue**. The second is its **actual workflow diagram** (a six-stage, directed process), not another before/after paper illustration.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/workflow-manga-still.svg">

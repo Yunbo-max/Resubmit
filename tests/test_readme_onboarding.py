@@ -11,7 +11,7 @@ class ReadmeOnboardingTests(unittest.TestCase):
         self.assertLess(DOC.index('id="quick-start"'),DOC.index("docs/assets/workflow-manga-animated.svg"))
         self.assertLess(DOC.index('id="quick-start"'),DOC.index("## How ReSubmit compares"))
     def test_big_promise_and_clear_io(self):
-        self.assertIn("# Find the Right Venue. Revise the Paper.",DOC)
+        self.assertIn("# Every Thoughtful Paper Deserves the Right Venue.",DOC)
         self.assertIn("What you provide",DOC)
         self.assertIn("What you receive",DOC)
         self.assertIn("Example result",DOC)
@@ -26,7 +26,7 @@ class ReadmeOnboardingTests(unittest.TestCase):
         self.assertNotIn("## Evidence before promises",DOC)
         self.assertNotIn("Helper tests and synthetic LaTeX examples do not prove",DOC)
     def test_preserves_core_demos_comparison_and_templates(self):
-        for target in ("intro-manga.svg","workflow-manga-animated.svg",
+        for target in ("galaxy-journey.svg","workflow-manga-animated.svg",
                        "report-template.md","revision-plan-template.md",
                        "docs/FEATURE_MATRIX.md", "CONTRIBUTING.md"):
             self.assertIn(target,DOC)

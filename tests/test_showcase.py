@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ShowcaseSourceTests(unittest.TestCase):
     def test_readme_has_committed_visuals(self):
         text = (ROOT / 'README.md').read_text()
-        for name in ('intro-manga.svg', 'intro-manga-still.svg', 'workflow-manga-animated.svg', 'workflow-manga-still.svg', 'after-neurips-one-column.png'):
+        for name in ('galaxy-journey.svg', 'galaxy-journey-still.svg', 'workflow-manga-animated.svg', 'workflow-manga-still.svg', 'after-neurips-one-column.png'):
             self.assertIn(name, text)
     def test_readme_has_no_unavailable_project_page_and_has_install(self):
         text = (ROOT / 'README.md').read_text()
